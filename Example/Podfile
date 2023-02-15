@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'BuzzMsg_Example' do
+  pod 'BuzzMsg', :path => '../'
+
+  target 'BuzzMsg_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
