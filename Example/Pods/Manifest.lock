@@ -1,5 +1,5 @@
 PODS:
-  - BuzzMsg (0.1.0)
+  - BuzzMsg (0.0.1)
 
 DEPENDENCIES:
   - BuzzMsg (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BuzzMsg: acb3850a7954af72f6081967ca90e33bd45f88ea
+  BuzzMsg: b0b28ff140e60259db25fd0bb2e1d84f2c433cc4
 
 PODFILE CHECKSUM: c41bfb8eb37cf669a9a6e8a24043fc3fad7c5c62
 
