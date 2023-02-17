@@ -1,0 +1,16 @@
+PODS:
+  - BuzzMsg (0.1.0)
+
+DEPENDENCIES:
+  - BuzzMsg (from `../`)
+
+EXTERNAL SOURCES:
+  BuzzMsg:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BuzzMsg: acb3850a7954af72f6081967ca90e33bd45f88ea
+
+PODFILE CHECKSUM: c41bfb8eb37cf669a9a6e8a24043fc3fad7c5c62
+
+COCOAPODS: 1.11.2

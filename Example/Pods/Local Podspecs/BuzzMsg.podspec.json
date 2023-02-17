@@ -1,0 +1,22 @@
+{
+  "name": "BuzzMsg",
+  "version": "0.1.0",
+  "summary": "A short description of BuzzMsg.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/admin@tmmtmm.com.tr/BuzzMsg",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "admin@tmmtmm.com.tr": "li437277219@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/admin@tmmtmm.com.tr/BuzzMsg.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "BuzzMsg/Classes/**/*"
+}

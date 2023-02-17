@@ -1,0 +1,6 @@
+framework module BuzzMsg {
+  umbrella header "BuzzMsg-umbrella.h"
+
+  export *
+  module * { export * }
+}
