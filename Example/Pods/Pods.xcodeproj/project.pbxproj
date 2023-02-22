@@ -9,67 +9,88 @@
 /* Begin PBXAggregateTarget section */
 		CD9198EEE73E8C9E5D166FD7DBC3720E /* BuzzMsg */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = B275B87766A4D267B46E35C607BA6DB9 /* Build configuration list for PBXAggregateTarget "BuzzMsg" */;
+			buildConfigurationList = 7D9E3A123D82392F2DAB970BAE0A275F /* Build configuration list for PBXAggregateTarget "BuzzMsg" */;
 			buildPhases = (
 			);
 			dependencies = (
+				262E52DFF3690818B26433FE60981D92 /* PBXTargetDependency */,
 			);
 			name = BuzzMsg;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1F9B1E83D3E03FDFBB943985AF415741 /* Pods-BuzzMsg_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C49AA0EB0884FF5D5AD39BF798B6755C /* Pods-BuzzMsg_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F9B1E83D3E03FDFBB943985AF415741 /* Pods-BuzzMsg_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB09AD977893690E27622E21A08146D /* Pods-BuzzMsg_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A233EA8839850ECF317D5B1137F4A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		6C38881C57E05E6DA5827E63C96DE1CF /* Pods-BuzzMsg_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 508F068DB68C6029523D97D665A8EC74 /* Pods-BuzzMsg_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F63226786E6ECF3EC81F04846234249 /* Pods-BuzzMsg_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C02107DDB692A8D0CBD4CED05465C9E /* Pods-BuzzMsg_Tests-dummy.m */; };
+		6C38881C57E05E6DA5827E63C96DE1CF /* Pods-BuzzMsg_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8635E51E4F442FB73BE8C98CA6FD25 /* Pods-BuzzMsg_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F63226786E6ECF3EC81F04846234249 /* Pods-BuzzMsg_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A28D088DFF36814B2CC4981B10FACE96 /* Pods-BuzzMsg_Tests-dummy.m */; };
+		7B8EA6FAC9494523AA4BBC84BFC46989 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A1126AC4FA4CECF205ED00E70DCAAD3C /* en.lproj */; };
 		B2E1409044E015F71BE79774B0D14262 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		CAB452AF348CEC42834AA69E7C3DEDFD /* Pods-BuzzMsg_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AD9AAA4EF945DDC38D1A27A193ECE7 /* Pods-BuzzMsg_Example-dummy.m */; };
+		C14210AA389B017EEC5FCF5A498ACA2D /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = FD9BB59F6D4BCA821B9B5DF01DAD5A15 /* tr.lproj */; };
+		CAB452AF348CEC42834AA69E7C3DEDFD /* Pods-BuzzMsg_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 632D7A0422A24F5911157AA7244680A9 /* Pods-BuzzMsg_Example-dummy.m */; };
+		E96E71F2043BCA9DA34044E04052AA02 /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 43B2F01B7D34220DC951D77B5B8B2255 /* zh-Hant.lproj */; };
+		EDC55E66F926A8711871FB79E9A08C3D /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F41C6BF2C4789EC11128E4C90D62EF05 /* zh-Hans.lproj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		29E97B4651E5024032D87067836DC3A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD9198EEE73E8C9E5D166FD7DBC3720E;
-			remoteInfo = BuzzMsg;
-		};
-		3648C719B3EB47576B13D553D157C900 /* PBXContainerItemProxy */ = {
+		99FF8AB7A0A00EC97CA61EA72546FDD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E790AFB31677CA989C5381B7FDA6CD28;
 			remoteInfo = "Pods-BuzzMsg_Example";
 		};
+		E7C806FB812CFFCB0AA0D76B98B35307 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD9198EEE73E8C9E5D166FD7DBC3720E;
+			remoteInfo = BuzzMsg;
+		};
+		F3DBA4BB54CC4DF580AED03E503B2B15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79E6E43FB1649F277F9B81EAFB75584E;
+			remoteInfo = "BuzzMsg-BuzzMsgBundle";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		085F157A62F867C386B6BF301541FEA7 /* Pods-BuzzMsg_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BuzzMsg_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0C02107DDB692A8D0CBD4CED05465C9E /* Pods-BuzzMsg_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BuzzMsg_Tests-dummy.m"; sourceTree = "<group>"; };
-		369DEA0D71EF1FA79ADB4C8155905CAF /* BuzzMsg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BuzzMsg.release.xcconfig; sourceTree = "<group>"; };
-		36BE6C532F9FABBF7420E165D70C4A6F /* Pods-BuzzMsg_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BuzzMsg_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		36F2CC67E873B00097B002B809D67AFD /* Pods-BuzzMsg_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		40CBF3F97643DA2A4A859B4BF3DAC357 /* BuzzMsg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BuzzMsg.debug.xcconfig; sourceTree = "<group>"; };
-		4252BABD28D7036139DB6E053CF471FD /* Pods-BuzzMsg_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BuzzMsg_Tests.modulemap"; sourceTree = "<group>"; };
-		4C92F9C337E330E4CAF0615701503FC5 /* Pods-BuzzMsg_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		508F068DB68C6029523D97D665A8EC74 /* Pods-BuzzMsg_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BuzzMsg_Tests-umbrella.h"; sourceTree = "<group>"; };
-		536724F1712686BCEFBC599872438205 /* BuzzMsg.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = BuzzMsg.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		53CABA1CFB12536782D90496EF7C9781 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		58119922C1290AE849954DA40CFFFA93 /* Pods-BuzzMsg_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Tests-Info.plist"; sourceTree = "<group>"; };
-		5E77B5B25E7273CF1031B37CE51D266D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		69ED44D2A52E319B9D6988B2DE064BF6 /* Pods-BuzzMsg_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		72AD9AAA4EF945DDC38D1A27A193ECE7 /* Pods-BuzzMsg_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BuzzMsg_Example-dummy.m"; sourceTree = "<group>"; };
+		1D03B156513544C3BAE2C4E6C4AEF58F /* IMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IMSDK.framework; path = BuzzMsg/IMSDK.framework; sourceTree = "<group>"; };
+		282FDA556BD731015F1F06667A66A5CD /* BuzzMsg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BuzzMsg.debug.xcconfig; sourceTree = "<group>"; };
+		322E6F0DA7076E12A1A74763BCE98E3D /* CommonModule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonModule.framework; path = BuzzMsg/CommonModule.framework; sourceTree = "<group>"; };
+		33CB27921A78DD214F7551F83B3888D6 /* BuzzMsg-BuzzMsgBundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "BuzzMsg-BuzzMsgBundle"; path = BuzzMsgBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C5189F3EA4E7B4E1FCBCCB512D63E8D /* BuzzMsg.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = BuzzMsg.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		43B2F01B7D34220DC951D77B5B8B2255 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "BuzzMsg/Resources/zh-Hant.lproj"; sourceTree = "<group>"; };
+		47BD3434A54D809B3C0C9F366CBAE2AB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		509C5125DA3EABC6A99EC0DD0E0EB86C /* Pods-BuzzMsg_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BuzzMsg_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		62BAE41168E8A84303BA59A3D9A8B8FA /* Pods-BuzzMsg_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BuzzMsg_Example.modulemap"; sourceTree = "<group>"; };
+		632D7A0422A24F5911157AA7244680A9 /* Pods-BuzzMsg_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BuzzMsg_Example-dummy.m"; sourceTree = "<group>"; };
+		69313CE4D3B6D2367BA259FE1272D232 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		754AC050745CCD33AF6D0A2024B52EA9 /* Pods-BuzzMsg_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Example-Info.plist"; sourceTree = "<group>"; };
+		7692031482345423C656E0D3C70206D3 /* Pods-BuzzMsg_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BuzzMsg_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8427206186A2880150D0064E6866E008 /* Pods-BuzzMsg_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BuzzMsg_Example-resources.sh"; sourceTree = "<group>"; };
+		9A3904308A73723A5A6DAAB408ACFCF9 /* ResourceBundle-BuzzMsgBundle-BuzzMsg-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-BuzzMsgBundle-BuzzMsg-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B04D930B8FA12CCE47B11DD7D9764F08 /* Pods-BuzzMsg_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A1126AC4FA4CECF205ED00E70DCAAD3C /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = BuzzMsg/Resources/en.lproj; sourceTree = "<group>"; };
+		A1C574FA453DFD5A6FFC28A8C9D50381 /* Pods-BuzzMsg_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A28D088DFF36814B2CC4981B10FACE96 /* Pods-BuzzMsg_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BuzzMsg_Tests-dummy.m"; sourceTree = "<group>"; };
+		A434707E2AED76A41AD65F9E34EE8551 /* Pods-BuzzMsg_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		AAB5149E636FA62828BE67A90760E585 /* Pods-BuzzMsg_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Example-Info.plist"; sourceTree = "<group>"; };
+		AC7E13336BCEE8E617F0DC3265195FB1 /* BuzzMsg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BuzzMsg.release.xcconfig; sourceTree = "<group>"; };
+		ACB09AD977893690E27622E21A08146D /* Pods-BuzzMsg_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BuzzMsg_Example-umbrella.h"; sourceTree = "<group>"; };
+		AD88EAC580ED024B6021069EAD19E255 /* Pods-BuzzMsg_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BuzzMsg_Tests.modulemap"; sourceTree = "<group>"; };
+		B00B3A85D896D74E282DBCEB9F10E940 /* Pods-BuzzMsg_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B07E20910D30EA86F393157B04AEE55D /* Pods-BuzzMsg_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-BuzzMsg_Example"; path = Pods_BuzzMsg_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C49AA0EB0884FF5D5AD39BF798B6755C /* Pods-BuzzMsg_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BuzzMsg_Example-umbrella.h"; sourceTree = "<group>"; };
+		C72B5B0B468926C15F3E9FF7CFA384AB /* Pods-BuzzMsg_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB33B6E37EDEE841C9A48CABB34A93A8 /* Pods-BuzzMsg_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-BuzzMsg_Tests"; path = Pods_BuzzMsg_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAA5FB09C0542AD8BFD7F63DFFE9297F /* Pods-BuzzMsg_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BuzzMsg_Example.modulemap"; sourceTree = "<group>"; };
-		EBCE8C29D26F70D7DD355F367871C4F5 /* Pods-BuzzMsg_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Example.release.xcconfig"; sourceTree = "<group>"; };
-		EF602149CE3C391ED5318CA5DA824667 /* Pods-BuzzMsg_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BuzzMsg_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE8635E51E4F442FB73BE8C98CA6FD25 /* Pods-BuzzMsg_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BuzzMsg_Tests-umbrella.h"; sourceTree = "<group>"; };
+		DA36DF24DB164DD6CEB90BCB1007DE31 /* Pods-BuzzMsg_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Tests-Info.plist"; sourceTree = "<group>"; };
+		EB166C2BAE825049455AE2C40F6241E5 /* Pods-BuzzMsg_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		F3B095D50AB3D045662A26F501060DDB /* Pods-BuzzMsg_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BuzzMsg_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F41C6BF2C4789EC11128E4C90D62EF05 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "BuzzMsg/Resources/zh-Hans.lproj"; sourceTree = "<group>"; };
+		FD9BB59F6D4BCA821B9B5DF01DAD5A15 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = BuzzMsg/Resources/tr.lproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,43 +110,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C66BBC0995FD44C4AC45764D9D42025D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0246417277EDE61E6BC76F0864B488D3 /* Pod */ = {
+		3CF46DA68493C92B684C9E0D936FEC8B /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				536724F1712686BCEFBC599872438205 /* BuzzMsg.podspec */,
-				53CABA1CFB12536782D90496EF7C9781 /* LICENSE */,
-				5E77B5B25E7273CF1031B37CE51D266D /* README.md */,
+				3C5189F3EA4E7B4E1FCBCCB512D63E8D /* BuzzMsg.podspec */,
+				69313CE4D3B6D2367BA259FE1272D232 /* LICENSE */,
+				47BD3434A54D809B3C0C9F366CBAE2AB /* README.md */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		25CD73ADA8DA2AF1824A7024E3377261 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				77DCC2D78E80306E657A769D6191A396 /* BuzzMsg */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		2C77A3BCB7F718DC75CF4A82B074CFE2 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BE13A960C571CB835C6411C1AF07134E /* Pods-BuzzMsg_Example */,
-				C5C2C71048016679CA58CCE8BA537749 /* Pods-BuzzMsg_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		4719180CAC51891CC88C431729AF50B9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B07E20910D30EA86F393157B04AEE55D /* Pods-BuzzMsg_Example */,
-				CB33B6E37EDEE841C9A48CABB34A93A8 /* Pods-BuzzMsg_Tests */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -136,43 +138,79 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		77DCC2D78E80306E657A769D6191A396 /* BuzzMsg */ = {
+		79A0A8A3B945F95775FE7EAE6F36FFC2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0246417277EDE61E6BC76F0864B488D3 /* Pod */,
-				E0F21CFE54B5838C43F99BA68DF91D12 /* Support Files */,
+				282FDA556BD731015F1F06667A66A5CD /* BuzzMsg.debug.xcconfig */,
+				AC7E13336BCEE8E617F0DC3265195FB1 /* BuzzMsg.release.xcconfig */,
+				9A3904308A73723A5A6DAAB408ACFCF9 /* ResourceBundle-BuzzMsgBundle-BuzzMsg-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/BuzzMsg";
+			sourceTree = "<group>";
+		};
+		7BB78179B3F7706531EEA06EA573780E /* BuzzMsg */ = {
+			isa = PBXGroup;
+			children = (
+				A1126AC4FA4CECF205ED00E70DCAAD3C /* en.lproj */,
+				FD9BB59F6D4BCA821B9B5DF01DAD5A15 /* tr.lproj */,
+				F41C6BF2C4789EC11128E4C90D62EF05 /* zh-Hans.lproj */,
+				43B2F01B7D34220DC951D77B5B8B2255 /* zh-Hant.lproj */,
+				B614D8DC4076C465FC87EA478D0658B2 /* Frameworks */,
+				3CF46DA68493C92B684C9E0D936FEC8B /* Pod */,
+				79A0A8A3B945F95775FE7EAE6F36FFC2 /* Support Files */,
 			);
 			name = BuzzMsg;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		BE13A960C571CB835C6411C1AF07134E /* Pods-BuzzMsg_Example */ = {
+		8EA636D88799B8425A7DFEEB169FFB8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DAA5FB09C0542AD8BFD7F63DFFE9297F /* Pods-BuzzMsg_Example.modulemap */,
-				36BE6C532F9FABBF7420E165D70C4A6F /* Pods-BuzzMsg_Example-acknowledgements.markdown */,
-				4C92F9C337E330E4CAF0615701503FC5 /* Pods-BuzzMsg_Example-acknowledgements.plist */,
-				72AD9AAA4EF945DDC38D1A27A193ECE7 /* Pods-BuzzMsg_Example-dummy.m */,
-				754AC050745CCD33AF6D0A2024B52EA9 /* Pods-BuzzMsg_Example-Info.plist */,
-				C49AA0EB0884FF5D5AD39BF798B6755C /* Pods-BuzzMsg_Example-umbrella.h */,
-				B04D930B8FA12CCE47B11DD7D9764F08 /* Pods-BuzzMsg_Example.debug.xcconfig */,
-				EBCE8C29D26F70D7DD355F367871C4F5 /* Pods-BuzzMsg_Example.release.xcconfig */,
+				33CB27921A78DD214F7551F83B3888D6 /* BuzzMsg-BuzzMsgBundle */,
+				B07E20910D30EA86F393157B04AEE55D /* Pods-BuzzMsg_Example */,
+				CB33B6E37EDEE841C9A48CABB34A93A8 /* Pods-BuzzMsg_Tests */,
 			);
-			name = "Pods-BuzzMsg_Example";
-			path = "Target Support Files/Pods-BuzzMsg_Example";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		C5C2C71048016679CA58CCE8BA537749 /* Pods-BuzzMsg_Tests */ = {
+		B0AD6C941698B4AEF36214442AB9E71C /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4252BABD28D7036139DB6E053CF471FD /* Pods-BuzzMsg_Tests.modulemap */,
-				085F157A62F867C386B6BF301541FEA7 /* Pods-BuzzMsg_Tests-acknowledgements.markdown */,
-				36F2CC67E873B00097B002B809D67AFD /* Pods-BuzzMsg_Tests-acknowledgements.plist */,
-				0C02107DDB692A8D0CBD4CED05465C9E /* Pods-BuzzMsg_Tests-dummy.m */,
-				58119922C1290AE849954DA40CFFFA93 /* Pods-BuzzMsg_Tests-Info.plist */,
-				508F068DB68C6029523D97D665A8EC74 /* Pods-BuzzMsg_Tests-umbrella.h */,
-				EF602149CE3C391ED5318CA5DA824667 /* Pods-BuzzMsg_Tests.debug.xcconfig */,
-				69ED44D2A52E319B9D6988B2DE064BF6 /* Pods-BuzzMsg_Tests.release.xcconfig */,
+				F8C937CD464260AC5068E5A6F046DA3D /* Pods-BuzzMsg_Example */,
+				C3113A234FE26F138402DFFDFECEEB94 /* Pods-BuzzMsg_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B614D8DC4076C465FC87EA478D0658B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				322E6F0DA7076E12A1A74763BCE98E3D /* CommonModule.framework */,
+				1D03B156513544C3BAE2C4E6C4AEF58F /* IMSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B63C35F26AA0641EA87A0592CA09BD87 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BB78179B3F7706531EEA06EA573780E /* BuzzMsg */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		C3113A234FE26F138402DFFDFECEEB94 /* Pods-BuzzMsg_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AD88EAC580ED024B6021069EAD19E255 /* Pods-BuzzMsg_Tests.modulemap */,
+				509C5125DA3EABC6A99EC0DD0E0EB86C /* Pods-BuzzMsg_Tests-acknowledgements.markdown */,
+				F3B095D50AB3D045662A26F501060DDB /* Pods-BuzzMsg_Tests-acknowledgements.plist */,
+				A28D088DFF36814B2CC4981B10FACE96 /* Pods-BuzzMsg_Tests-dummy.m */,
+				DA36DF24DB164DD6CEB90BCB1007DE31 /* Pods-BuzzMsg_Tests-Info.plist */,
+				CE8635E51E4F442FB73BE8C98CA6FD25 /* Pods-BuzzMsg_Tests-umbrella.h */,
+				C72B5B0B468926C15F3E9FF7CFA384AB /* Pods-BuzzMsg_Tests.debug.xcconfig */,
+				A434707E2AED76A41AD65F9E34EE8551 /* Pods-BuzzMsg_Tests.release.xcconfig */,
 			);
 			name = "Pods-BuzzMsg_Tests";
 			path = "Target Support Files/Pods-BuzzMsg_Tests";
@@ -182,10 +220,10 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				25CD73ADA8DA2AF1824A7024E3377261 /* Development Pods */,
+				B63C35F26AA0641EA87A0592CA09BD87 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				4719180CAC51891CC88C431729AF50B9 /* Products */,
-				2C77A3BCB7F718DC75CF4A82B074CFE2 /* Targets Support Files */,
+				8EA636D88799B8425A7DFEEB169FFB8B /* Products */,
+				B0AD6C941698B4AEF36214442AB9E71C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,14 +235,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E0F21CFE54B5838C43F99BA68DF91D12 /* Support Files */ = {
+		F8C937CD464260AC5068E5A6F046DA3D /* Pods-BuzzMsg_Example */ = {
 			isa = PBXGroup;
 			children = (
-				40CBF3F97643DA2A4A859B4BF3DAC357 /* BuzzMsg.debug.xcconfig */,
-				369DEA0D71EF1FA79ADB4C8155905CAF /* BuzzMsg.release.xcconfig */,
+				62BAE41168E8A84303BA59A3D9A8B8FA /* Pods-BuzzMsg_Example.modulemap */,
+				7692031482345423C656E0D3C70206D3 /* Pods-BuzzMsg_Example-acknowledgements.markdown */,
+				EB166C2BAE825049455AE2C40F6241E5 /* Pods-BuzzMsg_Example-acknowledgements.plist */,
+				632D7A0422A24F5911157AA7244680A9 /* Pods-BuzzMsg_Example-dummy.m */,
+				AAB5149E636FA62828BE67A90760E585 /* Pods-BuzzMsg_Example-Info.plist */,
+				8427206186A2880150D0064E6866E008 /* Pods-BuzzMsg_Example-resources.sh */,
+				ACB09AD977893690E27622E21A08146D /* Pods-BuzzMsg_Example-umbrella.h */,
+				B00B3A85D896D74E282DBCEB9F10E940 /* Pods-BuzzMsg_Example.debug.xcconfig */,
+				A1C574FA453DFD5A6FFC28A8C9D50381 /* Pods-BuzzMsg_Example.release.xcconfig */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/BuzzMsg";
+			name = "Pods-BuzzMsg_Example";
+			path = "Target Support Files/Pods-BuzzMsg_Example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +274,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		79E6E43FB1649F277F9B81EAFB75584E /* BuzzMsg-BuzzMsgBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86B6ED7C03B3B0F54FE2AB9B792C190A /* Build configuration list for PBXNativeTarget "BuzzMsg-BuzzMsgBundle" */;
+			buildPhases = (
+				450714BC27BE70A77E4DAB72DE8C94C9 /* Sources */,
+				C66BBC0995FD44C4AC45764D9D42025D /* Frameworks */,
+				4D5CB7241904A5BEDA7DFC7EDA82BFD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BuzzMsg-BuzzMsgBundle";
+			productName = BuzzMsgBundle;
+			productReference = 33CB27921A78DD214F7551F83B3888D6 /* BuzzMsg-BuzzMsgBundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		9B5173C098421598CBE89C90767447E7 /* Pods-BuzzMsg_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F9E592D22C523917C6B49D9AE2A3C34 /* Build configuration list for PBXNativeTarget "Pods-BuzzMsg_Tests" */;
@@ -241,7 +303,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				82586472BBA0DECC054BF5403DC7ABA1 /* PBXTargetDependency */,
+				162C596DD44AFD8341E9EBEB9EEFFD2B /* PBXTargetDependency */,
 			);
 			name = "Pods-BuzzMsg_Tests";
 			productName = Pods_BuzzMsg_Tests;
@@ -260,7 +322,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B7831C0EC43385F8F016B37A854E175F /* PBXTargetDependency */,
+				4B3A6F5E56CA1CDB058CE5001A8CD9B4 /* PBXTargetDependency */,
 			);
 			name = "Pods-BuzzMsg_Example";
 			productName = Pods_BuzzMsg_Example;
@@ -283,13 +345,17 @@
 			knownRegions = (
 				Base,
 				en,
+				tr,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 4719180CAC51891CC88C431729AF50B9 /* Products */;
+			productRefGroup = 8EA636D88799B8425A7DFEEB169FFB8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				CD9198EEE73E8C9E5D166FD7DBC3720E /* BuzzMsg */,
+				79E6E43FB1649F277F9B81EAFB75584E /* BuzzMsg-BuzzMsgBundle */,
 				E790AFB31677CA989C5381B7FDA6CD28 /* Pods-BuzzMsg_Example */,
 				9B5173C098421598CBE89C90767447E7 /* Pods-BuzzMsg_Tests */,
 			);
@@ -301,6 +367,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D5CB7241904A5BEDA7DFC7EDA82BFD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B8EA6FAC9494523AA4BBC84BFC46989 /* en.lproj in Resources */,
+				C14210AA389B017EEC5FCF5A498ACA2D /* tr.lproj in Resources */,
+				EDC55E66F926A8711871FB79E9A08C3D /* zh-Hans.lproj in Resources */,
+				E96E71F2043BCA9DA34044E04052AA02 /* zh-Hant.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +399,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		450714BC27BE70A77E4DAB72DE8C94C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90CDADFD8778767C8E789EAF95EC4E93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,53 +417,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		82586472BBA0DECC054BF5403DC7ABA1 /* PBXTargetDependency */ = {
+		162C596DD44AFD8341E9EBEB9EEFFD2B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-BuzzMsg_Example";
 			target = E790AFB31677CA989C5381B7FDA6CD28 /* Pods-BuzzMsg_Example */;
-			targetProxy = 3648C719B3EB47576B13D553D157C900 /* PBXContainerItemProxy */;
+			targetProxy = 99FF8AB7A0A00EC97CA61EA72546FDD7 /* PBXContainerItemProxy */;
 		};
-		B7831C0EC43385F8F016B37A854E175F /* PBXTargetDependency */ = {
+		262E52DFF3690818B26433FE60981D92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BuzzMsg-BuzzMsgBundle";
+			target = 79E6E43FB1649F277F9B81EAFB75584E /* BuzzMsg-BuzzMsgBundle */;
+			targetProxy = F3DBA4BB54CC4DF580AED03E503B2B15 /* PBXContainerItemProxy */;
+		};
+		4B3A6F5E56CA1CDB058CE5001A8CD9B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = BuzzMsg;
 			target = CD9198EEE73E8C9E5D166FD7DBC3720E /* BuzzMsg */;
-			targetProxy = 29E97B4651E5024032D87067836DC3A1 /* PBXContainerItemProxy */;
+			targetProxy = E7C806FB812CFFCB0AA0D76B98B35307 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		08B2A7EE4874F70C915FC16DD05606CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 369DEA0D71EF1FA79ADB4C8155905CAF /* BuzzMsg.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		2BC6838921BCDD4AF43FAD570D49898A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40CBF3F97643DA2A4A859B4BF3DAC357 /* BuzzMsg.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		397E0E54DD46CE1A5817BEDA5974C714 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B04D930B8FA12CCE47B11DD7D9764F08 /* Pods-BuzzMsg_Example.debug.xcconfig */;
+			baseConfigurationReference = B00B3A85D896D74E282DBCEB9F10E940 /* Pods-BuzzMsg_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -412,7 +473,7 @@
 		};
 		539CB9BBF91FE984D952301C73E3076E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF602149CE3C391ED5318CA5DA824667 /* Pods-BuzzMsg_Tests.debug.xcconfig */;
+			baseConfigurationReference = C72B5B0B468926C15F3E9FF7CFA384AB /* Pods-BuzzMsg_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -505,9 +566,23 @@
 			};
 			name = Release;
 		};
+		A084AE76B7382007481F52AA23A4BA53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282FDA556BD731015F1F06667A66A5CD /* BuzzMsg.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		ADFB48D9BE3DDD8CBE1B54E6B8FD2A08 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69ED44D2A52E319B9D6988B2DE064BF6 /* Pods-BuzzMsg_Tests.release.xcconfig */;
+			baseConfigurationReference = A434707E2AED76A41AD65F9E34EE8551 /* Pods-BuzzMsg_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -541,7 +616,7 @@
 		};
 		B8154C93D532EE7DB17415E9207E254B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBCE8C29D26F70D7DD355F367871C4F5 /* Pods-BuzzMsg_Example.release.xcconfig */;
+			baseConfigurationReference = A1C574FA453DFD5A6FFC28A8C9D50381 /* Pods-BuzzMsg_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -570,6 +645,21 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BE894BB5AECD915D17A519E80DEC5017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC7E13336BCEE8E617F0DC3265195FB1 /* BuzzMsg.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -639,6 +729,38 @@
 			};
 			name = Debug;
 		};
+		F05A11C2EB0A87087F803FF70ED52511 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC7E13336BCEE8E617F0DC3265195FB1 /* BuzzMsg.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BuzzMsg";
+				IBSC_MODULE = BuzzMsg;
+				INFOPLIST_FILE = "Target Support Files/BuzzMsg/ResourceBundle-BuzzMsgBundle-BuzzMsg-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = BuzzMsgBundle;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		F7701BB5387DC3F0F048A3759B211086 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282FDA556BD731015F1F06667A66A5CD /* BuzzMsg.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BuzzMsg";
+				IBSC_MODULE = BuzzMsg;
+				INFOPLIST_FILE = "Target Support Files/BuzzMsg/ResourceBundle-BuzzMsgBundle-BuzzMsg-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = BuzzMsgBundle;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -669,11 +791,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B275B87766A4D267B46E35C607BA6DB9 /* Build configuration list for PBXAggregateTarget "BuzzMsg" */ = {
+		7D9E3A123D82392F2DAB970BAE0A275F /* Build configuration list for PBXAggregateTarget "BuzzMsg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2BC6838921BCDD4AF43FAD570D49898A /* Debug */,
-				08B2A7EE4874F70C915FC16DD05606CF /* Release */,
+				A084AE76B7382007481F52AA23A4BA53 /* Debug */,
+				BE894BB5AECD915D17A519E80DEC5017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86B6ED7C03B3B0F54FE2AB9B792C190A /* Build configuration list for PBXNativeTarget "BuzzMsg-BuzzMsgBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7701BB5387DC3F0F048A3759B211086 /* Debug */,
+				F05A11C2EB0A87087F803FF70ED52511 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
