@@ -55,6 +55,8 @@
 - (void)detailDidSelectRow;
 - (IMSdk *)getIMSdkInstance;
 
+- (void)getCustomView:(NSString *)amid body:(NSString *)body handleCustomView:(void(^)(UIView *itemView))handle tapCustomView:(void(^)(UIView *itemView))tap;
+
 @end
 
 NS_ASSUME_NONNULL_BEGIN

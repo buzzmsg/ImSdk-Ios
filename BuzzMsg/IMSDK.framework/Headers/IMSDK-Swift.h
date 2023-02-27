@@ -472,6 +472,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK14IMChatDelegate_")
 - (void)onRedPacketNoticeMessageClickWithAmid:(NSString * _Nonnull)amid outTradeNo:(NSString * _Nonnull)outTradeNo;
 - (void)onDeleteMessageForMeWithAMid:(NSString * _Nonnull)aMid senderAUid:(NSString * _Nonnull)senderAUid;
 - (void)onDeleteMessageForEveryOneWithAMid:(NSString * _Nonnull)aMid senderAUid:(NSString * _Nonnull)senderAUid;
+- (void)getCustomViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
 - (void)messagesDidSelectRow;
 @end
 
@@ -759,6 +760,7 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 @class IMChatDetailViewController;
 
 @interface IMChatView (SWIFT_EXTENSION(IMSDK)) <TMMChatDetailCheckDelegate>
+- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
 - (void)detailDidSelectRow;
 - (void)GetRedPacket:(IMRedPackModel * _Null_unspecified)redPackModel;
 - (void)momentAtFeed:(NSString * _Null_unspecified)feedId;
@@ -1040,6 +1042,15 @@ SWIFT_CLASS("_TtC5IMSDK21IMConversionViewModel")
 - (void)setFolderWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content name:(NSString * _Nonnull)name folderIcon:(IMAvatar * _Nullable)folderIcon;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK15IMCustomizeCell")
+@interface IMCustomizeCell : UITableViewCell
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier SWIFT_UNAVAILABLE;
+- (void)setupModel:(IMMessageInfoModel * _Nonnull)model;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 @end
 
 enum IMSdkError : NSInteger;
@@ -1506,6 +1517,8 @@ SWIFT_CLASS("_TtC5IMSDK16IMMessageContent")
 @property (nonatomic, copy) NSString * _Nonnull addr;
 @property (nonatomic, copy) NSString * _Nonnull desc;
 @property (nonatomic, copy) NSString * _Nonnull zoom;
+@property (nonatomic, copy) NSString * _Nonnull title;
+@property (nonatomic, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (NSString * _Nonnull)getFileIdWithBusId:(NSString * _Nonnull)busId SWIFT_WARN_UNUSED_RESULT;
 @end
