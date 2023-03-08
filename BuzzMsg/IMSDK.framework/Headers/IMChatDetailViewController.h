@@ -17,11 +17,10 @@
 @protocol TMMChatDetailCheckDelegate <NSObject>
 
 - (void)tapfileAtIndexPath:(NSString *)mid;
-- (void)tapImageAtIndexPath:(NSString *)chatId messageId:(NSInteger)messageId;
+- (void)tapImageAtIndexPath:(NSString *)chatId messageId:(NSInteger)messageId aMid:(NSString *)aMid;
 - (void)tapCardButonIndexPath:(NSString *)amid buttonId:(NSString *)buttonId;
 - (void)clickTxtNoticeCardIndexPath:(NSString *)amid buttonId:(NSString *)buttonId;
 - (void)tapMessageText:(NSString *)amid tempId:(NSString *)tempId textId:(NSString *)textId;
-- (void)getMessageUnReadCount:(NSInteger)count;
 - (void)selectMessageAct;
 - (void)tapMessageReportText:(NSString *)amid;
 - (void)quoteMessage:(NSString *)amid sender:(NSString *)sender attr:(NSAttributedString *)attr;
@@ -34,15 +33,15 @@
 
 - (void)refreshRedEnvelopeStatusChange:(NSString *)amid outTradeNo:(NSString *)outTradeNo;
 
-- (void)momentAtFeed:(NSString *)feedId;//
-- (void)tapLocationAtIndexPath:(NSString *)mid location: (IMLocationModel *)location;
+- (void)tapMomentAtIndexPath:(NSString *)amid feedId:(NSString *)feedId;
+- (void)tapLocationAtIndexPath:(NSString *)amid location: (IMLocationModel *)location;
 
 - (void)GetRedPacket:(IMRedPackModel *)redPackModel;//
 
-- (void)longPressUserAvatar:(NSString *)aUid;
-- (void)tapUserAvatar:(NSString *)aUid;
+- (void)longPressUserAvatar:(NSString *)amid aUid:(NSString *)aUid;
+- (void)tapUserAvatar:(NSString *)amid aUid:(NSString *)aUid;
 
-- (void)tapMeetingCallRecord:(NSString *)aChatId uid: (NSString *)aUid isVideo: (BOOL)isVideo;
+- (void)tapMeetingCallRecord:(NSString *)amid isVideo:(BOOL)isVideo;
 
 - (void)setGroupMemberInfoWithController:(IMChatDetailViewController *)controller datas:(NSArray<IMShowUserInfo *> *)datas;
 

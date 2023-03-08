@@ -20,10 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tableViewDidScroll:(UIScrollView *)tableView;
 - (void)tableViewDidEndDecelerating:(UIScrollView *)tableView;
 - (void)tableViewDidEndDragging:(UIScrollView *)tableView willDecelerate:(BOOL)decelerate;
-
+- (void)showMarkerWithAChatIds:(NSArray <NSString *> *)aChatIds;
+- (void)showSubTitleWithAChatIds:(NSArray <NSString *> *)aChatIds;
 @end
 
-@class IMConversationInfo,IMConversionViewModel;
+@class IMConversationInfo,IMConversationViewModel;
 
 @interface IMChannelListViewController : UIViewController
 
@@ -36,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //- (void)getConversions:(NSArray *)chatIds isAll:(BOOL)isAll folderInfo:(IMConversationInfo *)folderInfo;
 
-- (void)getViewModel:(IMConversionViewModel *)conversionViewModel;
+- (void)getViewModel:(IMConversationViewModel *)conversionViewModel;
 - (void)setTableHeaderView:(UIView *)headerView;
 - (void)setTableViewContentInset:(UIEdgeInsets)inset;
 - (void)setTableViewScrollIndicatorInsets:(UIEdgeInsets)inset;

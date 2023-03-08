@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,copy) NSString * imageNormalPath;       //
 //@property (nonatomic,copy) NSString * videoPath;       //
 @property (nonatomic,copy) NSString * mid;       //
+@property (nonatomic,copy) NSString * aMid;       //
 @property (nonatomic,copy) NSString * chatId;       //
 @property (nonatomic,copy) NSString * uuid;       //
 @property (nonatomic,assign) CGSize quotoSize;            //

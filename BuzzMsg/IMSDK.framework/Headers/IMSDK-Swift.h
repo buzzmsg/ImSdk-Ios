@@ -282,11 +282,11 @@ SWIFT_CLASS("_TtC5IMSDK8ButtonVo")
 @end
 
 
-SWIFT_PROTOCOL("_TtP5IMSDK27ConversionViewModelDelegate_")
-@protocol ConversionViewModelDelegate <NSObject>
+SWIFT_PROTOCOL("_TtP5IMSDK29ConversationViewModelDelegate_")
+@protocol ConversationViewModelDelegate <NSObject>
 @optional
-- (void)conversationUnReadNumChangeWithCount:(NSInteger)count;
-- (NSArray<NSString *> * _Nonnull)hideConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
+- (void)unReadChangeWithCount:(NSInteger)count;
+- (NSArray<NSString *> * _Nonnull)onHideConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIFont;
@@ -450,30 +450,29 @@ SWIFT_PROTOCOL("_TtP5IMSDK14IMChatDelegate_")
 @protocol IMChatDelegate <NSObject>
 @optional
 - (void)onFileMessageClickWithAMid:(NSString * _Nonnull)aMid preView:(IMFilePreView * _Nonnull)preView;
-- (void)onImageMessageClickWithPreView:(IMImageBrowserView * _Nonnull)preView selectImageInfo:(TMMImageSelectViewInfo * _Nonnull)selectImageInfo;
+- (void)onImageMessageClickWithAMid:(NSString * _Nonnull)aMid preView:(IMImageBrowserView * _Nonnull)preView selectImageInfo:(TMMImageSelectViewInfo * _Nonnull)selectImageInfo;
 - (void)onMiddleMessageClickWithAMid:(NSString * _Nonnull)aMid tmpId:(NSString * _Nonnull)tmpId buttonId:(NSString * _Nonnull)buttonId;
 - (void)onButtonMessageClickWithAMid:(NSString * _Nonnull)aMid buttonId:(NSString * _Nonnull)buttonId;
 - (void)onMessageMultipleChooseClickWithMessageMultipleChooser:(id <MessageMultipleChooser> _Nonnull)messageMultipleChooser;
-- (void)getMessageUnReadCountWithCount:(NSInteger)count;
-- (void)reportMessageClickWithAMid:(NSString * _Nonnull)aMid;
-- (void)quoteMessageWithAMid:(NSString * _Nonnull)aMid senderAuid:(NSString * _Nonnull)senderAuid quoteMessage:(NSAttributedString * _Nonnull)quoteMessage;
-- (void)forwardMessageWithAMid:(NSString * _Nonnull)aMid;
-- (void)onRedPacketStatusChangeWithAmid:(NSString * _Nonnull)amid outTradeNo:(NSString * _Nonnull)outTradeNo;
-- (void)momentAtFeedWithFeedId:(NSString * _Nonnull)feedId;
-- (void)GetRedPacketWithRedModel:(IMRedPackModel * _Nonnull)redModel;
+- (void)onMessageReportActWithAMid:(NSString * _Nonnull)aMid;
+- (void)onMessageQuoteActWithAMid:(NSString * _Nonnull)aMid senderAuid:(NSString * _Nonnull)senderAuid quoteMessage:(NSAttributedString * _Nonnull)quoteMessage;
+- (void)onMessageForwardActWithAMid:(NSString * _Nonnull)aMid;
+- (void)onRedPacketStatusChangeWithAMid:(NSString * _Nonnull)aMid outTradeNo:(NSString * _Nonnull)outTradeNo;
+- (void)onMomentsMessageClickWithAMid:(NSString * _Nonnull)aMid feedId:(NSString * _Nonnull)feedId;
+- (void)onRedPacketMessageClickWithAMid:(NSString * _Nonnull)aMid redModel:(IMRedPackModel * _Nonnull)redModel;
 - (void)onLocationMessageClickWithAMid:(NSString * _Nonnull)aMid location:(IMLocationModel * _Nonnull)location;
 - (void)onTransferMessageClickWithAMid:(NSString * _Nonnull)aMid orderId:(NSString * _Nonnull)orderId;
 - (void)onReferenceMessageClickWithAMid:(NSString * _Nonnull)aMid content:(NSString * _Nonnull)content;
 - (void)onReferenceMessageIsDeletedWithAMid:(NSString * _Nonnull)aMid;
-- (void)onTapPayNoticeMessageWithAMid:(NSString * _Nonnull)aMid outTradeNo:(NSString * _Nonnull)outTradeNo orderId:(NSString * _Nonnull)orderId act:(NSInteger)act;
-- (void)onAvatarLongPressWithAUid:(NSString * _Nonnull)aUid;
-- (void)onAvatarClickWithAUid:(NSString * _Nonnull)aUid;
-- (void)onMeetingRecordClickWithAChatID:(NSString * _Nonnull)aChatID aUid:(NSString * _Nonnull)aUid isVideo:(BOOL)isVideo;
-- (void)onRedPacketNoticeMessageClickWithAmid:(NSString * _Nonnull)amid outTradeNo:(NSString * _Nonnull)outTradeNo;
+- (void)onPayMessageClickWithAMid:(NSString * _Nonnull)aMid outTradeNo:(NSString * _Nonnull)outTradeNo orderId:(NSString * _Nonnull)orderId act:(NSInteger)act;
+- (void)onAvatarLongPressWithAMid:(NSString * _Nonnull)aMid aUid:(NSString * _Nonnull)aUid;
+- (void)onAvatarClickWithAMid:(NSString * _Nonnull)aMid aUid:(NSString * _Nonnull)aUid;
+- (void)onMeetingRecordClickWithAMid:(NSString * _Nonnull)aMid isVideo:(BOOL)isVideo;
+- (void)onRedPacketNoticeMessageClickWithAMid:(NSString * _Nonnull)aMid outTradeNo:(NSString * _Nonnull)outTradeNo;
 - (void)onDeleteMessageForMeWithAMid:(NSString * _Nonnull)aMid senderAUid:(NSString * _Nonnull)senderAUid;
 - (void)onDeleteMessageForEveryOneWithAMid:(NSString * _Nonnull)aMid senderAUid:(NSString * _Nonnull)senderAUid;
-- (void)getCustomViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
-- (void)messagesDidSelectRow;
+- (void)onShowCustomMessageViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
+- (void)onCloseKeyBoard;
 @end
 
 
@@ -551,6 +550,7 @@ SWIFT_CLASS("_TtC5IMSDK14IMChatListCell")
 - (void)ChangeLineViewHeightWithIsChange:(BOOL)isChange;
 - (void)changeBackgroundColorWithColor:(UIColor * _Nonnull)color;
 - (void)getTmInfoWithTmInfo:(IMConversationInfo * _Nonnull)tmInfo;
+- (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
@@ -763,11 +763,10 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 - (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
 - (void)detailDidSelectRow;
 - (void)GetRedPacket:(IMRedPackModel * _Null_unspecified)redPackModel;
-- (void)momentAtFeed:(NSString * _Null_unspecified)feedId;
+- (void)tapMomentAtIndexPath:(NSString * _Null_unspecified)amid feedId:(NSString * _Null_unspecified)feedId;
 - (void)tapCardButonIndexPath:(NSString * _Null_unspecified)amid buttonId:(NSString * _Null_unspecified)buttonId;
 - (void)tapfileAtIndexPath:(NSString * _Null_unspecified)mid;
-- (void)tapImageAtIndexPath:(NSString * _Null_unspecified)chatId messageId:(NSInteger)messageId;
-- (void)getMessageUnReadCount:(NSInteger)count;
+- (void)tapImageAtIndexPath:(NSString * _Null_unspecified)chatId messageId:(NSInteger)messageId aMid:(NSString * _Null_unspecified)aMid;
 - (void)tapMessageText:(NSString * _Null_unspecified)amid tempId:(NSString * _Null_unspecified)tempId textId:(NSString * _Null_unspecified)textId;
 - (void)clickTxtNoticeCardIndexPath:(NSString * _Null_unspecified)amid buttonId:(NSString * _Null_unspecified)buttonId;
 - (void)selectMessageAct;
@@ -776,15 +775,15 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 - (void)forwardMessage:(NSString * _Null_unspecified)amid;
 - (IMSdk * _Nonnull)getIMSdkInstance SWIFT_WARN_UNUSED_RESULT;
 - (void)refreshRedEnvelopeStatusChange:(NSString * _Null_unspecified)amid outTradeNo:(NSString * _Null_unspecified)outTradeNo;
-- (void)tapLocationAtIndexPath:(NSString * _Null_unspecified)mid location:(IMLocationModel * _Null_unspecified)location;
+- (void)tapLocationAtIndexPath:(NSString * _Null_unspecified)amid location:(IMLocationModel * _Null_unspecified)location;
 - (void)tapTransferMessage:(NSString * _Null_unspecified)amid orderId:(NSString * _Null_unspecified)aUid;
 - (void)tapReferenceMessage:(NSString * _Null_unspecified)amid content:(NSString * _Null_unspecified)content;
 - (void)tapReferenceMessageIsDeleted:(NSString * _Null_unspecified)amid;
 - (void)setGroupMemberInfoWithController:(IMChatDetailViewController * _Null_unspecified)controller datas:(NSArray<IMShowUserInfo *> * _Null_unspecified)datas;
 - (void)tapPayNoticeMessage:(NSString * _Null_unspecified)amid outTradeNo:(NSString * _Null_unspecified)outTradeNo orderId:(NSString * _Null_unspecified)orderId act:(NSInteger)act;
-- (void)longPressUserAvatar:(NSString * _Null_unspecified)aUid;
-- (void)tapUserAvatar:(NSString * _Null_unspecified)aUid;
-- (void)tapMeetingCallRecord:(NSString * _Null_unspecified)aChatId uid:(NSString * _Null_unspecified)aUid isVideo:(BOOL)isVideo;
+- (void)longPressUserAvatar:(NSString * _Null_unspecified)amid aUid:(NSString * _Null_unspecified)aUid;
+- (void)tapUserAvatar:(NSString * _Null_unspecified)amid aUid:(NSString * _Null_unspecified)aUid;
+- (void)tapMeetingCallRecord:(NSString * _Null_unspecified)amid isVideo:(BOOL)isVideo;
 - (void)tapRedPacketNotice:(NSString * _Null_unspecified)amid outTradeNo:(NSString * _Null_unspecified)outTradeNo;
 - (void)deleteMessageForMe:(NSString * _Null_unspecified)amid senderAUid:(NSString * _Null_unspecified)aUid;
 - (void)deleteMessageForEveryOne:(NSString * _Null_unspecified)amid senderAUid:(NSString * _Null_unspecified)aUid;
@@ -803,17 +802,32 @@ SWIFT_CLASS("_TtC5IMSDK22IMChatViewModelFactory")
 @end
 
 
-SWIFT_CLASS("_TtC5IMSDK23IMConversationBaseModel")
-@interface IMConversationBaseModel : NSObject
-- (nonnull instancetype)initWithAChatId:(NSString * _Nonnull)aChatId OBJC_DESIGNATED_INITIALIZER;
+SWIFT_PROTOCOL("_TtP5IMSDK20IMConversionSelector_")
+@protocol IMConversionSelector <NSObject>
+@optional
+- (NSArray<NSString *> * _Nonnull)selectorWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK17IMCombineSelector")
+@interface IMCombineSelector : NSObject <IMConversionSelector>
+- (NSArray<NSString *> * _Nonnull)selectorWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
-SWIFT_CLASS("_TtC5IMSDK23IMConversationBasicInfo")
-@interface IMConversationBasicInfo : IMConversationBaseModel
-- (nonnull instancetype)initWithAChatId:(NSString * _Nonnull)aChatId SWIFT_UNAVAILABLE;
+SWIFT_CLASS("_TtC5IMSDK23IMConversationBaseModel")
+@interface IMConversationBaseModel : NSObject
+- (nonnull instancetype)initWithAChatId:(NSString * _Nonnull)aChatId OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class UIScrollView;
@@ -825,6 +839,8 @@ SWIFT_PROTOCOL("_TtP5IMSDK22IMConversationDelegate_")
 - (void)scrollViewDidScrollWithScrollView:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDeceleratingWithScrollView:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDraggingWithScrollView:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)willDecelerate;
+- (void)onShowConversationSubTitleWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
+- (void)onShowConversationMarkerWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
 
 
@@ -906,7 +922,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter
 + (NSDictionary<NSString *, NSNumber *> * _Nonnull)isSingleWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getConversationAChatIdWithChatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (void)getConversationLastSawIndexWithGroupId:(NSString * _Nonnull)groupId context:(IMContext * _Nonnull)context imsdk:(IMSdk * _Nonnull)imsdk completed:(void (^ _Nullable)(NSInteger, BOOL))completed;
-- (void)updateSingleChatTopWithChatId:(NSString * _Nonnull)chatId isTop:(NSInteger)isTop currentTopTime:(NSInteger)currentTopTime isGroup:(BOOL)isGroup context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSError * _Nullable, NSInteger))complete;
+- (void)updateSingleChatTopWithChatId:(NSString * _Nonnull)chatId isTop:(NSInteger)isTop currentTopTime:(NSInteger)currentTopTime context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSError * _Nullable, NSInteger))complete;
 + (void)setChatIsReadWithChatId:(NSString * _Nonnull)chatId aChatId:(NSString * _Nonnull)aChatId context:(IMContext * _Nonnull)context;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -939,10 +955,10 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationType")
 @interface IMConversationType : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger NORMAL;)
 + (NSInteger)NORMAL SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger NOTIFICATION;)
-+ (NSInteger)NOTIFICATION SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger FOLDER;)
 + (NSInteger)FOLDER SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger NOTIFICATION;)
++ (NSInteger)NOTIFICATION SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -951,7 +967,7 @@ SWIFT_CLASS("_TtC5IMSDK22IMConversationUserInfo")
 @interface IMConversationUserInfo : NSObject
 @property (nonatomic, copy) NSString * _Nonnull aChatId;
 @property (nonatomic, copy) NSString * _Nonnull aUid;
-@property (nonatomic, copy) NSString * _Nonnull chatName;
+@property (nonatomic, copy) NSString * _Nonnull name2;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -978,14 +994,50 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationView")
 - (void)tableViewDidScroll:(UIScrollView * _Nonnull)tableView;
 - (void)tableViewDidEndDecelerating:(UIScrollView * _Nonnull)tableView;
 - (void)tableViewDidEndDragging:(UIScrollView * _Nonnull)tableView willDecelerate:(BOOL)decelerate;
+- (void)showMarkerWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
+- (void)showSubTitleWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
 
 
-SWIFT_PROTOCOL("_TtP5IMSDK20IMConversionSelector_")
-@protocol IMConversionSelector <NSObject>
-@optional
-- (NSArray<NSString *> * _Nonnull)selectorWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
+@interface IMConversationViewModel : NSObject
+@property (nonatomic) NSInteger unReadCount;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull chatIds;
+@property (nonatomic, strong) id <IMConversionSelector> _Null_unspecified selector;
+@property (nonatomic, strong) IMContext * _Nonnull context;
+@property (nonatomic, strong) IMOSS * _Nonnull oss;
+@property (nonatomic, strong) IMUISetting * _Nonnull uiSetting;
+@property (nonatomic, weak) id <ConversationViewModelDelegate> _Nullable openDelegate;
+- (void)setSortWithSortCalsure:(BOOL (^ _Nonnull)(IMConversationInfo * _Nonnull, IMConversationInfo * _Nonnull))sortCalsure;
+- (NSArray<IMConversationInfo *> * _Nonnull)getSortListWithList:(NSArray<IMConversationInfo *> * _Nonnull)list SWIFT_WARN_UNUSED_RESULT;
+- (void)setDelegateWithDelegate:(id <ConversationViewModelDelegate> _Nonnull)delegate;
+- (NSInteger)getChatIsMuteWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
+- (void)setConversationWithAChatId:(NSString * _Nonnull)aChatId isMute:(BOOL)isMute success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (void)delete;
+- (void)getUnReadCountWithSuccess:(void (^ _Nullable)(NSInteger))success;
+- (NSArray<NSString *> * _Nonnull)getChatIdsSync SWIFT_WARN_UNUSED_RESULT;
+- (void)getChatIdsWithSuccess:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))success;
+- (void)setConversationSubTitleWithSubTitles:(NSArray<IMConversationSubTitle *> * _Nonnull)subTitles;
+- (void)setConversationMarkerWithMarkers:(NSArray<IMConversationMarker *> * _Nonnull)markers;
+- (NSArray<NSString *> * _Nonnull)getAChatIds SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSString *> * _Nonnull)filterChatIdsWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds SWIFT_WARN_UNUSED_RESULT;
+- (IMConversationView * _Nonnull)getConversionView SWIFT_WARN_UNUSED_RESULT;
+- (void)updateSelectorWithAddAchatIds:(NSArray<NSString *> * _Nonnull)addAchatIds removeAchatIds:(NSArray<NSString *> * _Nonnull)removeAchatIds;
+- (void)setFolderWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content name:(NSString * _Nonnull)name folderIcon:(IMAvatar * _Nullable)folderIcon;
+- (void)removeFolderWithAChatId:(NSString * _Nonnull)aChatId;
+- (id <IMConversionSelector> _Nonnull)getCurremtSelector SWIFT_WARN_UNUSED_RESULT;
+- (void)replaceWithSelector:(id <IMConversionSelector> _Nonnull)selector;
+- (void)setChatTopWithAChatId:(NSString * _Nonnull)aChatId success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (void)setChatCloseTopWithAChatId:(NSString * _Nonnull)aChatId success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (BOOL)getChatIsTopWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK18IMConversationinfo")
+@interface IMConversationinfo : IMConversationBaseModel
+- (nonnull instancetype)initWithAChatId:(NSString * _Nonnull)aChatId SWIFT_UNAVAILABLE;
 @end
 
 
@@ -993,6 +1045,8 @@ SWIFT_CLASS("_TtC5IMSDK22IMConversionSelectTime")
 @interface IMConversionSelectTime : NSObject <IMConversionSelector>
 - (NSArray<NSString *> * _Nonnull)selectorWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1003,6 +1057,8 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversionSelectorAll")
 @interface IMConversionSelectorAll : NSObject <IMConversionSelector>
 - (NSArray<NSString *> * _Nonnull)selectorWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1010,38 +1066,6 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversionSelectorAll")
 SWIFT_CLASS("_TtC5IMSDK16IMConversionTime")
 @interface IMConversionTime : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC5IMSDK21IMConversionViewModel")
-@interface IMConversionViewModel : NSObject
-@property (nonatomic) NSInteger unReadCount;
-@property (nonatomic, copy) NSArray<NSString *> * _Nonnull chatIds;
-@property (nonatomic, copy) NSDictionary<NSString *, IMAvatarModel *> * _Nonnull markersMap;
-@property (nonatomic, strong) IMConversationInfo * _Nullable folderConversionInfo;
-@property (nonatomic, strong) id <IMConversionSelector> _Null_unspecified selector;
-@property (nonatomic, strong) IMContext * _Nonnull context;
-@property (nonatomic, strong) IMOSS * _Nonnull oss;
-@property (nonatomic, strong) IMUISetting * _Nonnull uiSetting;
-@property (nonatomic, weak) id <ConversionViewModelDelegate> _Nullable openDelegate;
-- (void)setSortWithSortCalsure:(BOOL (^ _Nonnull)(IMConversationInfo * _Nonnull, IMConversationInfo * _Nonnull))sortCalsure;
-- (NSArray<IMConversationInfo *> * _Nonnull)getSortListWithList:(NSArray<IMConversationInfo *> * _Nonnull)list SWIFT_WARN_UNUSED_RESULT;
-- (void)setDelegateWithDelegate:(id <ConversionViewModelDelegate> _Nonnull)delegate;
-- (NSInteger)getChatIsMuteWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
-- (void)setConversationWithAChatId:(NSString * _Nonnull)aChatId isMute:(BOOL)isMute success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
-- (void)delete;
-- (void)getUnReadCountWithSuccess:(void (^ _Nullable)(NSInteger))success;
-- (NSArray<NSString *> * _Nonnull)getChatIdsSync SWIFT_WARN_UNUSED_RESULT;
-- (void)getChatIdsWithSuccess:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))success;
-- (void)setConversationMarkerWithMarkers:(NSArray<IMConversationMarker *> * _Nonnull)markers;
-- (NSArray<NSString *> * _Nonnull)getAChatIds SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSString *> * _Nonnull)filterChatIdsWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds SWIFT_WARN_UNUSED_RESULT;
-- (IMConversationView * _Nonnull)getConversionView SWIFT_WARN_UNUSED_RESULT;
-- (void)updateSelectorWithAddAchatIds:(NSArray<NSString *> * _Nonnull)addAchatIds removeAchatIds:(NSArray<NSString *> * _Nonnull)removeAchatIds;
-- (void)setFolderWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content name:(NSString * _Nonnull)name avatarPath:(NSString * _Nonnull)avatarPath;
-- (void)setFolderWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content name:(NSString * _Nonnull)name folderIcon:(IMAvatar * _Nullable)folderIcon;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1054,23 +1078,22 @@ SWIFT_CLASS("_TtC5IMSDK15IMCustomizeCell")
 @end
 
 enum IMSdkError : NSInteger;
+@class IMReceiveMessageInfo;
 @class IMGroupInfoChange;
-enum IMMessageSyncStatus : NSInteger;
+enum IMMessaageSendError : NSInteger;
+enum IMReceiveMessageStatus : NSInteger;
 
 SWIFT_PROTOCOL("_TtP5IMSDK10IMDelegate_")
 @protocol IMDelegate <NSObject>
 - (void)authCodeExpireWithAUid:(NSString * _Nonnull)aUid errorCode:(enum IMSdkError)errorCode;
 - (void)onShowUserInfoWithDatas:(NSArray<IMShowUserInfo *> * _Nonnull)datas;
 @optional
-- (void)onReceiveMessageWithAMids:(NSArray<NSString *> * _Nonnull)aMids;
-- (void)onShowConversationSubTitleWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
-- (void)onShowConversationMarkerWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
+- (void)onReceiveMessageWithReceiveMessageList:(NSArray<IMReceiveMessageInfo *> * _Nonnull)receiveMessageList;
 - (void)onReceiveCmdWithData:(NSString * _Nonnull)data;
-- (void)onNewConversionWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)onGroupMemberChangeWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
-- (void)onGroupInfoChangeWithDatas:(NSArray<IMGroupInfoChange *> * _Nonnull)datas;
-- (void)onSendMessageErrorWithAChatId:(NSString * _Nonnull)aChatId;
-- (void)onSyncMessagesWithStatus:(enum IMMessageSyncStatus)status;
+- (void)onGroupInfoChangeWithList:(NSArray<IMGroupInfoChange *> * _Nonnull)list;
+- (void)onSendMessageFailedWithAMid:(NSString * _Nonnull)aMid aChatId:(NSString * _Nonnull)aChatId error:(enum IMMessaageSendError)error;
+- (void)onSyncStateChangeWithStatus:(enum IMReceiveMessageStatus)status;
 @end
 
 typedef SWIFT_ENUM(NSInteger, IMDownloadStatus, closed) {
@@ -1360,6 +1383,13 @@ SWIFT_CLASS("_TtC5IMSDK12IMMediasTool")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, IMMessaageSendError, closed) {
+  IMMessaageSendErrorTokenExpire = 0,
+  IMMessaageSendErrorImageExceedLimitSize = 1,
+  IMMessaageSendErrorFileNotExist = 2,
+  IMMessaageSendErrorUnknown = 3,
+};
+
 @protocol IMMessageContentProtocol;
 @class IMMessageExtra;
 @class IMPayNoticeMessage;
@@ -1543,16 +1573,14 @@ SWIFT_CLASS("_TtC5IMSDK14IMMessageEvent")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-enum TMMessageExtraActType : NSInteger;
-enum TMMessageExtraDiviceType : NSInteger;
 
 SWIFT_CLASS("_TtC5IMSDK14IMMessageExtra")
 @interface IMMessageExtra : NSObject
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull mids;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull ids;
-@property (nonatomic) enum TMMessageExtraActType act;
+@property (nonatomic) NSInteger act;
 @property (nonatomic, copy) NSString * _Nonnull op;
-@property (nonatomic) enum TMMessageExtraDiviceType f;
+@property (nonatomic) NSInteger f;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1565,10 +1593,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=defau
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (NSArray<IMMessage *> * _Nonnull)loadMoreMessagesWithChatId:(NSString * _Nullable)chatId lastId:(NSInteger)lastId messageCount:(NSInteger)messageCount context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<IMMessage *> * _Nonnull)loadNextMessagesWithChatId:(NSString * _Nullable)chatId lastId:(NSInteger)lastId messageCount:(NSInteger)messageCount context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSString *> * _Nonnull)getAmidsWithMids:(NSArray<NSString *> * _Nonnull)mids context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<IMMessage *> * _Nullable)getMessagesWithMids:(NSArray<NSString *> * _Nonnull)mids context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)getConversationUnReadCountWithChatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (void)saveTranslateWithMid:(NSString * _Nonnull)mid translateStr:(NSString * _Nonnull)translateStr status:(NSInteger)status chatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context;
-- (void)handleGroupChatNeedRefreshMemberInfosWithDatas:(NSDictionary<NSString *, NSArray<NSString *> *> * _Nonnull)datas context:(IMContext * _Nonnull)context viewModel:(IMConversionViewModel * _Nonnull)viewModel;
+- (void)handleGroupChatNeedRefreshMemberInfosWithDatas:(NSDictionary<NSString *, NSArray<NSString *> *> * _Nonnull)datas context:(IMContext * _Nonnull)context viewModel:(IMConversationViewModel * _Nonnull)viewModel;
 - (BOOL)checkGetMessageIsOverWithLastMid:(NSString * _Nonnull)lastMid chatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (void)tagMessagesIsViewedWithMids:(NSArray<NSString *> * _Nonnull)mids chatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context;
 - (NSDictionary<NSString *, NSNumber *> * _Nonnull)getAtStatusWithChatsWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
@@ -1586,11 +1615,6 @@ typedef SWIFT_ENUM(NSInteger, IMMessageMenuType, closed) {
   IMMessageMenuTypeSelect = 5,
   IMMessageMenuTypeDeleteForEveryone = 6,
   IMMessageMenuTypeDeleteForMe = 7,
-};
-
-typedef SWIFT_ENUM(NSInteger, IMMessageSyncStatus, closed) {
-  IMMessageSyncStatusStart = 0,
-  IMMessageSyncStatusSuccess = 1,
 };
 
 
@@ -1663,6 +1687,19 @@ SWIFT_CLASS("_TtC5IMSDK14IMQuoteMessage")
 @end
 
 
+SWIFT_CLASS("_TtC5IMSDK20IMReceiveMessageInfo")
+@interface IMReceiveMessageInfo : NSObject
+@property (nonatomic, copy) NSString * _Nonnull amid;
+@property (nonatomic, copy) NSString * _Nonnull aChatId;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, IMReceiveMessageStatus, closed) {
+  IMReceiveMessageStatusSTART_RECEIVE_MSG = 0,
+  IMReceiveMessageStatusFINISH_RECEIVE_MSG = 1,
+};
+
+
 SWIFT_CLASS("_TtC5IMSDK22IMRedEnvelopeInfoModel")
 @interface IMRedEnvelopeInfoModel : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1695,7 +1732,7 @@ SWIFT_CLASS("_TtC5IMSDK16IMSDKLoadingView")
 @class IMSdkConfig;
 @class TMMUserName;
 @class IMUserAvatar;
-@class IMUserInfoModel;
+@class IMUserinfo;
 @class TMMConversationInfoModel;
 
 SWIFT_CLASS("_TtC5IMSDK5IMSdk")
@@ -1705,24 +1742,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shar
 + (void)setShared:(IMSdk * _Nullable)value;
 + (IMSdk * _Nonnull)getInstanceWithAk:(NSString * _Nonnull)ak config:(IMSdkConfig * _Nonnull)config SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, weak) id <IMDelegate> _Nullable delegate;
-@property (nonatomic, strong) IMUISetting * _Nonnull uiSetting;
+@property (nonatomic, readonly, strong) IMUISetting * _Nonnull uiSetting;
+- (void)setUISettingWithSetting:(IMUISetting * _Nonnull)setting;
 - (void)initUserWithAUid:(NSString * _Nonnull)aUid SWIFT_METHOD_FAMILY(none);
 - (void)setIMDelegateWithDelegate:(id <IMDelegate> _Nonnull)delegate;
 - (void)setAuthCodeWithAuth:(NSString * _Nonnull)auth;
-- (IMConversionViewModel * _Nonnull)createConversationViewModelWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (IMConversationViewModel * _Nonnull)createConversationViewModelWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (IMChatView * _Nonnull)creatChatViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (IMImageBrowserView * _Nonnull)creatImageBrowserViewWithChatId:(NSString * _Nonnull)chatId currentIndex:(NSInteger)currentIndex SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<IMConversationInfo *> * _Nonnull)getConversions SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<IMMessage *> * _Nonnull)getMassagesWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
-- (void)joinTestGroupWithSuccess:(void (^ _Nullable)(NSString * _Nonnull))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)setUserNameWithNameLists:(NSArray<TMMUserName *> * _Nonnull)nameLists;
 - (void)setUserAvatarWithAvatarLists:(NSArray<IMUserAvatar *> * _Nonnull)avatarLists;
-- (void)setUserInfoWithUserInfos:(NSArray<IMUserInfoModel *> * _Nonnull)userInfos;
+- (void)setUserInfoWithUserInfos:(NSArray<IMUserinfo *> * _Nonnull)userInfos;
 - (void)setGroupMemberInfoWithInfos:(NSArray<IMConversationUserInfo *> * _Nonnull)infos;
 - (void)setConversationNameWithAChatId:(NSString * _Nonnull)aChatId name:(NSString * _Nonnull)name;
 - (void)setConversationAvatarWithAChatId:(NSString * _Nonnull)aChatId avatar:(NSData * _Nullable)avatar format:(NSString * _Nullable)format;
-- (void)setConversationSubTitleWithSubTitles:(NSArray<IMConversationSubTitle *> * _Nonnull)subTitles;
-- (void)setConversationInfoWithInfos:(NSArray<IMConversationBasicInfo *> * _Nonnull)infos;
+- (void)setConversationInfoWithInfos:(NSArray<IMConversationinfo *> * _Nonnull)infos;
 - (void)setGoogleMapKeyWithMapKey:(NSString * _Nonnull)mapKey;
 - (void)loginOut;
 /// create group chat
@@ -1736,7 +1770,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shar
 /// This method must be accessed at the main thread
 - (void)quiteGroupChatWithAChatId:(NSString * _Nonnull)aChatId deleteConversation:(BOOL)deleteConversation success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 /// Receive notifications offline while the app is in the foreground
-- (void)receiveDataWithNotificationWithContent:(NSString * _Nonnull)content;
+- (void)transferDataWithContent:(NSString * _Nonnull)content;
 - (IMChatMediaImagesListView * _Nonnull)getChatMediaImagesListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (IMChatMediaFileListView * _Nonnull)getChatMediaFileListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (IMChatMediaAudioListView * _Nonnull)getChatMediaAudioListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
@@ -1786,8 +1820,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shar
 - (void)sendLocationMessageWithAChatId:(NSString * _Nonnull)aChatId aMid:(NSString * _Nonnull)aMid locationInfo:(IMGoogleMapLocationModel * _Nonnull)locationInfo;
 - (void)sendForwardMessageWithAChatId:(NSString * _Nonnull)aChatId aMid:(NSString * _Nonnull)aMid selectAmid:(NSString * _Nonnull)selectAmid;
 - (void)sendAtTextMessageWithAChatId:(NSString * _Nonnull)aChatId aMid:(NSString * _Nonnull)aMid contentParts:(NSArray<IMAtMessagePartModel *> * _Nonnull)contentParts quoteAmids:(NSArray<NSString *> * _Nonnull)quoteAmids;
-- (void)deleteMessageWithAMids:(NSArray<NSString *> * _Nonnull)aMids success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
-- (void)revokeMessageWithAMids:(NSArray<NSString *> * _Nonnull)aMids success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (void)deleteMessagesWithAMids:(NSArray<NSString *> * _Nonnull)aMids success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (void)retractMessagesWithAMids:(NSArray<NSString *> * _Nonnull)aMids success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)disableCardMessageWithAMid:(NSString * _Nonnull)aMid buttonIds:(NSArray<NSString *> * _Nonnull)buttonIds;
 - (void)disableMessageWithAMid:(NSString * _Nonnull)aMid;
 - (void)setRedPacketStatusWithAMid:(NSString * _Nonnull)aMid outTradeNo:(NSString * _Nonnull)outTradeNo;
@@ -1802,8 +1836,9 @@ SWIFT_CLASS("_TtC5IMSDK11IMSdkConfig")
 
 typedef SWIFT_ENUM(NSInteger, IMSdkError, closed) {
   IMSdkErrorTokenExpire = 0,
-  IMSdkErrorEnvNotMatch = 1,
-  IMSdkErrorUnknow = 2,
+  IMSdkErrorAuthCodeEmpty = 1,
+  IMSdkErrorEnvNotMatch = 2,
+  IMSdkErrorUnknown = 3,
 };
 
 
@@ -2038,6 +2073,7 @@ SWIFT_CLASS("_TtC5IMSDK19IMTransferInfoModel")
 SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @interface IMUISetting : NSObject
 @property (nonatomic, readonly, copy) NSArray<NSNumber *> * _Nonnull menuTypesOfMessage;
+@property (nonatomic, readonly) BOOL isMessageSwipeEnable;
 @property (nonatomic, readonly) BOOL isShowConversationMenu;
 @property (nonatomic, readonly) BOOL isShowBrowsedTag;
 @property (nonatomic, readonly, copy) NSData * _Nullable avatarPlaceholder;
@@ -2050,6 +2086,10 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 /// \param menuTypes [IMMessageMenuType.rawValue], int value
 ///
 - (void)setMessageMenuWithMenuTypes:(NSArray<NSNumber *> * _Nonnull)menuTypes;
+/// Set message right swipe show if or not
+/// \param isShow Bool
+///
+- (void)setMessageSwipeEnableWithIsMessageSwipeEnable:(BOOL)isMessageSwipeEnable;
 /// Set conversation slide menu show if or not
 /// \param isShow Bool
 ///
@@ -2062,18 +2102,14 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 /// \param imageData data of image
 ///
 - (void)setAvatarPlaceholderWithImageData:(NSData * _Nullable)imageData;
-/// Set avatar layout style for group chat
-/// \param left members avatar
+/// Set avatar layout style for own
+/// \param isShow show or not
 ///
-/// \param right self avatar
+- (void)showRightAvatarWithIsShow:(BOOL)isShow;
+/// Set avatar layout style for own
+/// \param isShow show or not
 ///
-- (void)showAvatarOnGroupChatWithLeft:(BOOL)left right:(BOOL)right;
-/// Set avatar layout style for single chat
-/// \param left peer avatar
-///
-/// \param right self avatar
-///
-- (void)showAvatarOnPrivateChatWithLeft:(BOOL)left right:(BOOL)right;
+- (void)showLeftAvatarBySingleChatWithIsShow:(BOOL)isShow;
 @end
 
 
@@ -2129,11 +2165,10 @@ SWIFT_CLASS("_TtC5IMSDK10IMUserInfo")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UserProfile;
 
-SWIFT_CLASS("_TtC5IMSDK15IMUserInfoModel")
-@interface IMUserInfoModel : NSObject
-- (nonnull instancetype)initWithAUid:(NSString * _Nonnull)aUid profile:(UserProfile * _Nonnull)profile OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC5IMSDK14IMUserInfoItem")
+@interface IMUserInfoItem : NSObject
+- (nonnull instancetype)initWithAvatar:(IMAvatar * _Nullable)avatar name1:(NSString * _Nonnull)name1 name3:(NSString * _Nonnull)name3 OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2147,6 +2182,14 @@ SWIFT_CLASS("_TtC5IMSDK11IMUserLogic")
 - (NSArray<TMMChatMemberInfo *> * _Nonnull)getChatMemberInfoWithChatId:(NSString * _Nonnull)chatId uids:(NSArray<NSString *> * _Nonnull)uids SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<IMUserInfo *> * _Nonnull)getUserInfosWithUids:(NSArray<NSString *> * _Nonnull)uids SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getMyUid SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK10IMUserinfo")
+@interface IMUserinfo : NSObject
+- (nonnull instancetype)initWithAUid:(NSString * _Nonnull)aUid profile:(IMUserInfoItem * _Nonnull)profile OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2432,14 +2475,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat YH_HomeIndic
 
 
 
-
-
-SWIFT_CLASS("_TtC5IMSDK11UserProfile")
-@interface UserProfile : NSObject
-- (nonnull instancetype)initWithAvatar:(IMAvatar * _Nullable)avatar name1:(NSString * _Nonnull)name1 name3:(NSString * _Nonnull)name3 OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 #endif
 #if defined(__cplusplus)

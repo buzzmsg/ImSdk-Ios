@@ -11,10 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^TMChatListDataEventBlock)(void);
 
-@class IMConversionViewModel;
+@class IMConversationViewModel;
 @interface IMChannelListViewModel : NSObject
 
-+ (NSArray *)dataWithChangeLocation:(NSArray *)dataArray RefreshArr:(NSArray*)refreshArr conversionViewModel:(IMConversionViewModel *)conversionViewModel;
++ (NSArray *)dataWithChangeLocation:(NSArray *)dataArray RefreshArr:(NSArray*)refreshArr conversionViewModel:(IMConversationViewModel *)conversionViewModel;
 
 
 //remove chatId
@@ -25,7 +25,7 @@ typedef void(^TMChatListDataEventBlock)(void);
 
 + (void)handleConversationMessage:(NSArray *)dataArray oldData: (NSMutableDictionary *)oldDataArray;
 
-+ (NSArray *)conversionListFillter: (NSArray *)originalList targetList:(NSArray *)targetList targetChatIds:(NSArray *)targetChatIds conversionViewModel:(IMConversionViewModel *)conversionViewModel;
++ (NSArray *)conversionListFillter: (NSArray *)originalList targetList:(NSArray *)targetList targetChatIds:(NSArray *)targetChatIds conversionViewModel:(IMConversationViewModel *)conversionViewModel;
 
 @end
 

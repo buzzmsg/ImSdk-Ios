@@ -441,6 +441,7 @@ SWIFT_CLASS("_TtC12CommonModule12IMShareLogic")
 
 
 
+
 enum IMSocketState : NSInteger;
 @class IMSocketTool;
 
