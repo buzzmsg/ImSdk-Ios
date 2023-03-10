@@ -56,6 +56,8 @@
 
 - (void)getCustomView:(NSString *)amid body:(NSString *)body handleCustomView:(void(^)(UIView *itemView))handle tapCustomView:(void(^)(UIView *itemView))tap;
 
+- (void)onWebUrlLinkClick:(NSString *)aMid url:(NSString *)url;
+
 @end
 
 NS_ASSUME_NONNULL_BEGIN

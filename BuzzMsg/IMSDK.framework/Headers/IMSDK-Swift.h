@@ -286,7 +286,6 @@ SWIFT_PROTOCOL("_TtP5IMSDK29ConversationViewModelDelegate_")
 @protocol ConversationViewModelDelegate <NSObject>
 @optional
 - (void)unReadChangeWithCount:(NSInteger)count;
-- (NSArray<NSString *> * _Nonnull)onHideConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIFont;
@@ -473,6 +472,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK14IMChatDelegate_")
 - (void)onDeleteMessageForEveryOneWithAMid:(NSString * _Nonnull)aMid senderAUid:(NSString * _Nonnull)senderAUid;
 - (void)onShowCustomMessageViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
 - (void)onCloseKeyBoard;
+- (void)onWebUrlLinkClickWithAMid:(NSString * _Nonnull)aMid url:(NSString * _Nonnull)url;
 @end
 
 
@@ -760,6 +760,7 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 @class IMChatDetailViewController;
 
 @interface IMChatView (SWIFT_EXTENSION(IMSDK)) <TMMChatDetailCheckDelegate>
+- (void)onWebUrlLinkClick:(NSString * _Null_unspecified)aMid url:(NSString * _Null_unspecified)url;
 - (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
 - (void)detailDidSelectRow;
 - (void)GetRedPacket:(IMRedPackModel * _Null_unspecified)redPackModel;
@@ -998,6 +999,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationView")
 - (void)showSubTitleWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
 
+@protocol IMDelegate;
 
 SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
 @interface IMConversationViewModel : NSObject
@@ -1008,6 +1010,7 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
 @property (nonatomic, strong) IMOSS * _Nonnull oss;
 @property (nonatomic, strong) IMUISetting * _Nonnull uiSetting;
 @property (nonatomic, weak) id <ConversationViewModelDelegate> _Nullable openDelegate;
+@property (nonatomic, weak) id <IMDelegate> _Nullable imdelegate;
 - (void)setSortWithSortCalsure:(BOOL (^ _Nonnull)(IMConversationInfo * _Nonnull, IMConversationInfo * _Nonnull))sortCalsure;
 - (NSArray<IMConversationInfo *> * _Nonnull)getSortListWithList:(NSArray<IMConversationInfo *> * _Nonnull)list SWIFT_WARN_UNUSED_RESULT;
 - (void)setDelegateWithDelegate:(id <ConversationViewModelDelegate> _Nonnull)delegate;
@@ -1094,6 +1097,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK10IMDelegate_")
 - (void)onGroupInfoChangeWithList:(NSArray<IMGroupInfoChange *> * _Nonnull)list;
 - (void)onSendMessageFailedWithAMid:(NSString * _Nonnull)aMid aChatId:(NSString * _Nonnull)aChatId error:(enum IMMessaageSendError)error;
 - (void)onSyncStateChangeWithStatus:(enum IMReceiveMessageStatus)status;
+- (NSArray<NSString *> * _Nonnull)onHideConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
 @end
 
 typedef SWIFT_ENUM(NSInteger, IMDownloadStatus, closed) {
@@ -2076,6 +2080,7 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @property (nonatomic, readonly) BOOL isMessageSwipeEnable;
 @property (nonatomic, readonly) BOOL isShowConversationMenu;
 @property (nonatomic, readonly) BOOL isShowBrowsedTag;
+@property (nonatomic, readonly) BOOL isShowBackToBottom;
 @property (nonatomic, readonly, copy) NSData * _Nullable avatarPlaceholder;
 @property (nonatomic, readonly) BOOL isSingleAvatarLeftShow;
 @property (nonatomic, readonly) BOOL isSingleAvatarRightShow;
@@ -2098,6 +2103,10 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 /// \param isShow Bool
 ///
 - (void)showChatBrowsedTagWithIsShow:(BOOL)isShow;
+/// Set chat is show back to bottom btn if or not
+/// \param isShow Bool
+///
+- (void)showChatBackToBottomWithIsShow:(BOOL)isShow;
 /// Set custom avatar placeholder image
 /// \param imageData data of image
 ///
