@@ -230,6 +230,7 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import AsyncDisplayKit;
 @import CommonModule;
 @import CoreFoundation;
 @import Foundation;
@@ -258,6 +259,8 @@ using UInt = size_t;
 #endif
 
 #if defined(__OBJC__)
+
+
 typedef SWIFT_ENUM(NSInteger, AtPartType, closed) {
   AtPartTypeText = 1,
   AtPartTypeAtUser = 2,
@@ -288,6 +291,38 @@ SWIFT_PROTOCOL("_TtP5IMSDK29ConversationViewModelDelegate_")
 - (void)unReadChangeWithCount:(NSInteger)count;
 @end
 
+
+/// Alert
+SWIFT_CLASS("_TtC5IMSDK7IMAlert")
+@interface IMAlert : ASDisplayNode
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class ASLayoutSpec;
+
+@interface IMAlert (SWIFT_EXTENSION(IMSDK))
+- (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class IMAlertTitle;
+@class IMAlertContent;
+@class IMAlertAction;
+
+@interface IMAlert (SWIFT_EXTENSION(IMSDK))
+/// show alert
+/// \param title title
+///
+/// \param content content
+///
+/// \param actions actions
+///
++ (void)showWithTitle:(IMAlertTitle * _Nullable)title content:(IMAlertContent * _Nullable)content actions:(NSArray<IMAlertAction *> * _Nonnull)actions;
+/// dismiss
++ (void)dismiss;
+@end
+
+
 @class UIFont;
 @class UIColor;
 
@@ -299,6 +334,30 @@ SWIFT_CLASS("_TtC5IMSDK13IMAlertAction")
 @property (nonatomic, readonly) BOOL isAutoDismiss;
 @property (nonatomic, readonly, copy) void (^ _Nullable actionClosure)(void);
 - (nonnull instancetype)initWithTitle:(NSString * _Nonnull)title font:(UIFont * _Nonnull)font color:(UIColor * _Nonnull)color isAutoDismiss:(BOOL)isAutoDismiss actionClosure:(void (^ _Nullable)(void))actionClosure OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK14IMAlertContent")
+@interface IMAlertContent : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull content;
+@property (nonatomic, readonly, strong) UIFont * _Nonnull font;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull color;
+@property (nonatomic, readonly) CGFloat lineSpace;
+@property (nonatomic, readonly) NSTextAlignment alignment;
+- (nonnull instancetype)initWithContent:(NSString * _Nonnull)content font:(UIFont * _Nonnull)font color:(UIColor * _Nonnull)color alignment:(NSTextAlignment)alignment lineSpace:(CGFloat)lineSpace OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK12IMAlertTitle")
+@interface IMAlertTitle : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, strong) UIFont * _Nonnull font;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull color;
+- (nonnull instancetype)initWithTitle:(NSString * _Nonnull)title font:(UIFont * _Nonnull)font color:(UIColor * _Nonnull)color OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -468,8 +527,6 @@ SWIFT_PROTOCOL("_TtP5IMSDK14IMChatDelegate_")
 - (void)onAvatarClickWithAMid:(NSString * _Nonnull)aMid aUid:(NSString * _Nonnull)aUid;
 - (void)onMeetingRecordClickWithAMid:(NSString * _Nonnull)aMid isVideo:(BOOL)isVideo;
 - (void)onRedPacketNoticeMessageClickWithAMid:(NSString * _Nonnull)aMid outTradeNo:(NSString * _Nonnull)outTradeNo;
-- (void)onDeleteMessageForMeWithAMid:(NSString * _Nonnull)aMid senderAUid:(NSString * _Nonnull)senderAUid;
-- (void)onDeleteMessageForEveryOneWithAMid:(NSString * _Nonnull)aMid senderAUid:(NSString * _Nonnull)senderAUid;
 - (void)onShowCustomMessageViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
 - (void)onCloseKeyBoard;
 - (void)onWebUrlLinkClickWithAMid:(NSString * _Nonnull)aMid url:(NSString * _Nonnull)url;
@@ -786,8 +843,6 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 - (void)tapUserAvatar:(NSString * _Null_unspecified)amid aUid:(NSString * _Null_unspecified)aUid;
 - (void)tapMeetingCallRecord:(NSString * _Null_unspecified)amid isVideo:(BOOL)isVideo;
 - (void)tapRedPacketNotice:(NSString * _Null_unspecified)amid outTradeNo:(NSString * _Null_unspecified)outTradeNo;
-- (void)deleteMessageForMe:(NSString * _Null_unspecified)amid senderAUid:(NSString * _Null_unspecified)aUid;
-- (void)deleteMessageForEveryOne:(NSString * _Null_unspecified)amid senderAUid:(NSString * _Null_unspecified)aUid;
 @end
 
 @protocol IMConversionSelector;

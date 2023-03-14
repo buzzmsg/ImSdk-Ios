@@ -231,7 +231,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (int)httpRequestRow;
 
 + (int)maxFirstNameLength;
-
++ (UIColor *)color2F3347;
 + (int)maxNickNameLength;
 
 + (int)maxGroupNameLength;

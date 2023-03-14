@@ -48,8 +48,8 @@
 - (void)tapRedPacketNotice:(NSString *)amid outTradeNo:(NSString *)outTradeNo;
 
 
-- (void)deleteMessageForMe:(NSString *)amid senderAUid:(NSString *)aUid;
-- (void)deleteMessageForEveryOne:(NSString *)amid senderAUid:(NSString *)aUid;
+//- (void)deleteMessageForMe:(NSString *)amid senderAUid:(NSString *)aUid;
+//- (void)deleteMessageForEveryOne:(NSString *)amid senderAUid:(NSString *)aUid;
 
 - (void)detailDidSelectRow;
 - (IMSdk *)getIMSdkInstance;
