@@ -44,6 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTableViewContentOffset:(CGPoint)offset animated:(BOOL)animated;
 
 - (void)setTableEmpytView:(UIView * _Nullable)empty;
+- (void)clearDataSource;
 
 @end
 

@@ -1797,9 +1797,6 @@ SWIFT_CLASS("_TtC5IMSDK16IMSDKLoadingView")
 
 SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 @interface IMSdk : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shared;)
-+ (IMSdk * _Nullable)shared SWIFT_WARN_UNUSED_RESULT;
-+ (void)setShared:(IMSdk * _Nullable)value;
 + (IMSdk * _Nonnull)getInstanceWithAk:(NSString * _Nonnull)ak config:(IMSdkConfig * _Nonnull)config SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, weak) id <IMDelegate> _Nullable delegate;
 @property (nonatomic, readonly, strong) IMUISetting * _Nonnull uiSetting;
