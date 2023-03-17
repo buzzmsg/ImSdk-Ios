@@ -51,6 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)MoreButtonClick;
 
+- (void)pauseVideo;
+
 @end
 
 NS_ASSUME_NONNULL_END

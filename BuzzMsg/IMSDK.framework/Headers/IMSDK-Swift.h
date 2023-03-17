@@ -652,6 +652,7 @@ SWIFT_CLASS("_TtC5IMSDK24IMChatMediaAudioListView")
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
+
 @class IMChatMediaSortModel;
 @class NSBundle;
 
@@ -689,6 +690,7 @@ SWIFT_CLASS("_TtC5IMSDK23IMChatMediaFileListView")
 - (void)layoutSubviews;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
+
 
 @protocol IMChatMediasFileDelegate;
 
@@ -733,6 +735,7 @@ SWIFT_CLASS("_TtC5IMSDK25IMChatMediaImagesListView")
 - (void)setDelegateWithDelegate:(id <IMChatMediasImageDelegate> _Nonnull)delegate;
 - (void)layoutSubviews;
 @end
+
 
 
 SWIFT_CLASS("_TtC5IMSDK20IMChatMediaSortModel")
@@ -812,6 +815,7 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
+
 
 @class IMSdk;
 @class IMChatDetailViewController;
@@ -1042,6 +1046,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationView")
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
+
 @class IMChannelListViewController;
 
 @interface IMConversationView (SWIFT_EXTENSION(IMSDK)) <TMMChannelListCheckDelegate>
@@ -1148,6 +1153,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK10IMDelegate_")
 @optional
 - (void)onReceiveMessageWithReceiveMessageList:(NSArray<IMReceiveMessageInfo *> * _Nonnull)receiveMessageList;
 - (void)onReceiveCmdWithData:(NSString * _Nonnull)data;
+- (void)onErrorWithError:(NSString * _Nonnull)error;
 - (void)onGroupMemberChangeWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)onGroupInfoChangeWithList:(NSArray<IMGroupInfoChange *> * _Nonnull)list;
 - (void)onSendMessageFailedWithAMid:(NSString * _Nonnull)aMid aChatId:(NSString * _Nonnull)aChatId error:(enum IMMessaageSendError)error;
@@ -1220,6 +1226,7 @@ SWIFT_CLASS("_TtC5IMSDK13IMFilePreView")
 - (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
 - (id <QLPreviewItem> _Nonnull)previewController:(QLPreviewController * _Nonnull)controller previewItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 SWIFT_CLASS("_TtC5IMSDK21IMFileProgressManager")
@@ -1370,6 +1377,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMImageBrowserView")
 @end
 
 
+
 SWIFT_PROTOCOL("_TtP5IMSDK26IMImageBrowserViewDelegate_")
 @protocol IMImageBrowserViewDelegate <NSObject>
 @optional
@@ -1385,7 +1393,8 @@ SWIFT_CLASS("_TtC5IMSDK14IMInitSDKEvent")
 @interface IMInitSDKEvent : NSObject <IMEvent>
 - (NSArray<NSString *> * _Nonnull)getData SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getName SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1397,14 +1406,6 @@ SWIFT_CLASS("_TtC5IMSDK15IMLocationModel")
 @property (nonatomic, copy) NSString * _Nonnull latitude;
 @property (nonatomic, copy) NSString * _Nonnull zoom;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC5IMSDK19IMLoginSuccessEvent")
-@interface IMLoginSuccessEvent : NSObject <IMEvent>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (NSArray<NSString *> * _Nonnull)getData SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)getName SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @protocol LongPressPopViewDelegate;
@@ -1818,6 +1819,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shar
 - (void)setConversationInfoWithInfos:(NSArray<IMConversationinfo *> * _Nonnull)infos;
 - (void)setGoogleMapKeyWithMapKey:(NSString * _Nonnull)mapKey;
 - (void)loginOut;
+- (void)clearTokenTest;
 /// create group chat
 - (void)createChatWithAChatId:(NSString * _Nonnull)aChatId chatName:(NSString * _Nonnull)chatName aUids:(NSArray<NSString *> * _Nonnull)aUids success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 /// This method must be accessed at the main thread

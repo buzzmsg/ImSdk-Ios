@@ -100,6 +100,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)reloadRowIfDataModelIsShow: (NSString *)mid;
 -(BOOL)dataModelIsShow: (NSString *)mid;
 
+- (void)clearData;
+
 @end
 
 NS_ASSUME_NONNULL_END

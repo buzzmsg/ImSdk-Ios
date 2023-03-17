@@ -285,6 +285,7 @@ SWIFT_CLASS("_TtC12CommonModule9IMContext")
 @interface IMContext : NSObject
 + (IMContext * _Nonnull)defualt SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, strong) IMNotificationCenter * _Nonnull nc;
+@property (nonatomic) id _Nullable me;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
