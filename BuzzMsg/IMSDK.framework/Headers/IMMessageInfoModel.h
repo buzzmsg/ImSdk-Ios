@@ -62,6 +62,7 @@ typedef NS_ENUM(NSUInteger, TMMessageContentType) {
     TMMessageContentType_UidTextA = 20,
     TMMessageContentType_TextSystemNotice = 21,
     TMMessageContentType_Customize = 22,
+    TMMessageContentType_VerticalCardMessage = 23,
     
     
     // Only use to local for UI

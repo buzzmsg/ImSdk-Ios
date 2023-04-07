@@ -110,17 +110,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)http_ase_128_key;
 
-/// s3 bucketName
-+ (NSString *)awsBucketName;
-
-/// s3 access Key
-+ (NSString *)awsAccessKey;
-
-/// s3 secret Key
-+ (NSString *)awsSecretKey;
-
-/// s3 region
-+ (AWSRegionType)awsRegionType;
 
 /// goole map AppKey
 + (NSString *)googleMapKey;
@@ -144,7 +133,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (int)getGroupManagerCount;
 
-+ (AWSRegionType)aws_regionTypeValue:(NSString *)region;
 
 /// vide paly tag
 + (int)momentsTrendingVideoPlayTag;

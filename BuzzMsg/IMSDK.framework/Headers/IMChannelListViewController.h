@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tableViewDidEndDragging:(UIScrollView *)tableView willDecelerate:(BOOL)decelerate;
 - (void)showMarkerWithAChatIds:(NSArray <NSString *> *)aChatIds;
 - (void)showSubTitleWithAChatIds:(NSArray <NSString *> *)aChatIds;
+- (void)showConversationInfoWithAChatIds:(NSArray <NSString *> *)aChatIds;
+
 @end
 
 @class IMConversationInfo,IMConversationViewModel;
