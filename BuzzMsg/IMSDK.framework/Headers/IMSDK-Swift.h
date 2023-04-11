@@ -237,6 +237,7 @@ using UInt = size_t;
 @import ObjectiveC;
 @import QuickLook;
 @import UIKit;
+@import UserNotifications;
 #endif
 
 #import <IMSDK/IMSDK.h>
@@ -860,6 +861,7 @@ SWIFT_CLASS("_TtC5IMSDK22IMChatViewModelFactory")
 + (id <IMConversionSelector> _Nonnull)ofAll SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)ofPartWithIds:(NSArray<NSString *> * _Nonnull)ids SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)ofUnPartWithIds:(NSArray<NSString *> * _Nonnull)ids SWIFT_WARN_UNUSED_RESULT;
++ (id <IMConversionSelector> _Nonnull)selectRecentWithStratTime:(IMConversionTime * _Nonnull)stratTime endTime:(IMConversionTime * _Nonnull)endTime SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)selectTimeWithStratTime:(IMConversionTime * _Nonnull)stratTime endTime:(IMConversionTime * _Nonnull)endTime SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1097,6 +1099,7 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
 - (void)setChatTopWithAChatId:(NSString * _Nonnull)aChatId success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)setChatCloseTopWithAChatId:(NSString * _Nonnull)aChatId success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (BOOL)getChatIsTopWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSString *> * _Nonnull)getAchatIdsWithTimeWithCount:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1105,6 +1108,17 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
 SWIFT_CLASS("_TtC5IMSDK18IMConversationinfo")
 @interface IMConversationinfo : IMConversationBaseModel
 - (nonnull instancetype)initWithAChatId:(NSString * _Nonnull)aChatId SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK24IMConversionSelectRecent")
+@interface IMConversionSelectRecent : NSObject <IMConversionSelector>
+- (NSArray<NSString *> * _Nonnull)selectorWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1164,6 +1178,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK10IMDelegate_")
 - (void)onSendMessageFailedWithAMid:(NSString * _Nonnull)aMid aChatId:(NSString * _Nonnull)aChatId error:(enum IMMessaageSendError)error;
 - (void)onSyncStateChangeWithStatus:(enum IMReceiveMessageStatus)status;
 - (NSArray<NSString *> * _Nonnull)onHideConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
+- (void)onWebSocketReceiveWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content remoteTitle:(NSString * _Nonnull)remoteTitle remoteBody:(NSString * _Nonnull)remoteBody;
 @end
 
 typedef SWIFT_ENUM(NSInteger, IMDownloadStatus, closed) {
@@ -1836,7 +1851,7 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 /// This method must be accessed at the main thread
 - (void)quiteGroupChatWithAChatId:(NSString * _Nonnull)aChatId deleteConversation:(BOOL)deleteConversation success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 /// Receive notifications offline while the app is in the foreground
-- (void)transferDataWithContent:(NSString * _Nonnull)content;
+- (void)transferDataWithContent:(NSString * _Nonnull)content title:(NSString * _Nonnull)title body:(NSString * _Nonnull)body;
 - (IMChatMediaImagesListView * _Nonnull)getChatMediaImagesListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (IMChatMediaFileListView * _Nonnull)getChatMediaFileListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (IMChatMediaAudioListView * _Nonnull)getChatMediaAudioListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
@@ -1849,6 +1864,13 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 
 @interface IMSdk (SWIFT_EXTENSION(IMSDK))
 - (NSArray<TMMConversation *> * _Nonnull)getConversationsWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UNUserNotificationCenter;
+@class UNNotification;
+
+@interface IMSdk (SWIFT_EXTENSION(IMSDK)) <UNUserNotificationCenterDelegate>
+- (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center willPresentNotification:(UNNotification * _Nonnull)notification withCompletionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
 @end
 
 
