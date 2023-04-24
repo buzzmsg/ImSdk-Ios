@@ -14,6 +14,8 @@
 @property (copy) void(^playAudioBlock)(CGFloat totalTime, CGFloat currentTime);//Audio playback callback
 @property (copy) void(^playFlishBlock)(void);//End of play
 
+- (void)prepareAudioUrl:(NSString *)audioUrl;
+
 /**
  Play audio
  
@@ -66,5 +68,6 @@
 
 
 - (void)seekToTime:(float)time;
+- (void)seekToTime:(float)time isAutoPlay:(BOOL)isAutoPlay;
 
 @end

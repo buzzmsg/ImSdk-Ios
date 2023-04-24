@@ -11,7 +11,7 @@
 
 /***********************这是一个转码工具类***************************/
 
-@class IMSelectAtModel;
+@class IMSelectAtModel,IMUISetting;
 
 @interface IMDecoder : NSObject
 
@@ -23,10 +23,10 @@
  * 参数 plainStr 是普通的字符串
  * 返回值：用来展示的富文本，直接复制给label展示
  */
-+ (NSMutableAttributedString *)decodeWithPlainStr:(NSString *)plainStr font:(NSInteger)font textColor:(UIColor *)textColor;
-+ (NSMutableAttributedString *)decodeWithPlainStr:(NSString *)plainStr atPersons:(NSArray<IMSelectAtModel *> *)atPersons font:(NSInteger)font textColor:(UIColor *)textColor;
++ (NSMutableAttributedString *)decodeWithPlainStr:(NSString *)plainStr font:(NSInteger)font textColor:(UIColor *)textColor uiSetting:(IMUISetting *)uiSetting;
++ (NSMutableAttributedString *)decodeWithPlainStr:(NSString *)plainStr atPersons:(NSArray<IMSelectAtModel *> *)atPersons font:(NSInteger)font textColor:(UIColor *)textColor uiSetting:(IMUISetting *)uiSetting;
 
-+ (NSMutableAttributedString *)draftDecodeWithPlainStr:(NSString *)plainStr atPersons:(NSArray<IMSelectAtModel *> *)atPersons font:(NSInteger)font textColor:(UIColor *)textColor textViewWidth:(CGFloat)textViewWidth;
++ (NSMutableAttributedString *)draftDecodeWithPlainStr:(NSString *)plainStr atPersons:(NSArray<IMSelectAtModel *> *)atPersons font:(NSInteger)font textColor:(UIColor *)textColor textViewWidth:(CGFloat)textViewWidth uiSetting:(IMUISetting *)uiSetting;
 
 
 @end

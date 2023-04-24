@@ -11,11 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class IMMessage,IMContext;
+@class IMMessage, IMContext, IMUISetting;
 @protocol IMGroupMemberDelegate;
 @interface IMChangeMasageModel : NSObject
 
-+ (IMMessageInfoModel *)changgeModel:(IMMessage *)model context:(IMContext *)context memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
++ (IMMessageInfoModel *)changgeModel:(IMMessage *)model context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
 
 + (NSString *)getTimeString:(IMMessageInfoModel *)model;
 

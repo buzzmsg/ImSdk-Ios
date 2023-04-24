@@ -21,7 +21,7 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 #import <IMSDK/IMDALabeledCircularProgressView.h>
 #import <IMSDK/IMCircleProgressView.h>
 //#import <IMSDK/IMHollowManCell.h>
-//#import <IMSDK/IMChatTextCell.h>
+#import <IMSDK/UIButton+Wave.h>
 
 #import <IMSDK/IMAnimatedImageView.h>
 #import <IMSDK/UIImageView+TMWebImage.h>

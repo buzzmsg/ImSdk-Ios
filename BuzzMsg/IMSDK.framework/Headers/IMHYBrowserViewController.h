@@ -70,6 +70,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSInteger) getAssetOriginStatus;
 
+- (BOOL)currentAttachmentMessageIsDeleted;
+
+- (void)attachmentMessageDeleted:(NSInteger)index isCurrentDelete:(BOOL)isCurrentDelete;
+
 @end
 
 NS_ASSUME_NONNULL_END

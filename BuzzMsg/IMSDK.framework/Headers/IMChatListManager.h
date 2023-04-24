@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(IMChatListManager *)shared;
 
-- (NSAttributedString *)updateDraftContent:(NSString *)content bodyLabel:(UITextView *)bodyLabel;
+- (NSAttributedString *)updateDraftContent:(NSString *)content bodyLabel:(UITextView *)bodyLabel lineSpacing:(NSInteger)lineSpacing;
 
-- (NSAttributedString *)updateContent:(NSString *)content tmInfo:(IMConversationInfo *)tmInfo bodyLabel:(UITextView *)bodyLabel;
+- (NSAttributedString *)updateContent:(NSString *)content tmInfo:(IMConversationInfo *)tmInfo bodyLabel:(UITextView *)bodyLabel lineSpacing:(NSInteger)lineSpacing;
 
 - (void)enumerateObjects:(UIColor *)color bodyLabel:(UITextView *)bodyLabel;
 

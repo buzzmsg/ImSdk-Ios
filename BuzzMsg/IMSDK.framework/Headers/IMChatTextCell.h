@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^AudioBlock)(void);
 typedef void(^VideoBlock)(void);
-typedef void(^TMChatTextCellUrlBlock)(NSString *, NSString *);
+typedef void(^TMChatTextCellUrlBlock)(NSString *, NSString *, NSString *);
 
 @class IMChatTextCell;
 @protocol CellChatTextLeftDelegate <NSObject>

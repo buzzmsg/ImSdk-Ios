@@ -53,6 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)pauseVideo;
 
+- (void)reloadVisiableData;
+
 @end
 
 NS_ASSUME_NONNULL_END

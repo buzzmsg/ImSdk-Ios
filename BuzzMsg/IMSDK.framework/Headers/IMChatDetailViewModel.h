@@ -11,19 +11,19 @@
 #import "IMMessageInfoModel.h"
 #import "IMChangeMasageModel.h"
 @class IMMessageInfoModel;
-@class IMChangeMasageModel, IMContext;
+@class IMChangeMasageModel, IMContext, IMUISetting;
 @protocol IMGroupMemberDelegate;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMChatDetailViewModel : NSObject
 
 //Data assembly
-+ (NSArray *)dataWithAssemblyOrAdd:(NSArray *)dataArray MsgList:(NSArray*)msgList context:(IMContext *)context memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
-+ (NSArray *)dataWithAssemblyOrAdd:(NSArray *)dataArray MsgList:(NSArray*)msgList needAdd:(BOOL)needAdd context:(IMContext *)context memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
++ (NSArray *)dataWithAssemblyOrAdd:(NSArray *)dataArray MsgList:(NSArray*)msgList context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
++ (NSArray *)dataWithAssemblyOrAdd:(NSArray *)dataArray MsgList:(NSArray*)msgList needAdd:(BOOL)needAdd context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
 
 
 
-+ (void)changeTmmassage:(NSArray *)dataArray queryMassage:(NSDictionary*)queryMassage uploadProgress:(double)uploadProgress context:(IMContext *)context memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate completionHandle:(void(^)(NSArray * lastArray, NSInteger index))completed;
++ (void)changeTmmassage:(NSArray *)dataArray queryMassage:(NSDictionary*)queryMassage uploadProgress:(double)uploadProgress context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate completionHandle:(void(^)(NSArray * lastArray, NSInteger index))completed;
 
 
 + (NSArray *)dataWithReplace:(NSArray *)dataArray pageArr:(NSArray*)pageArr;

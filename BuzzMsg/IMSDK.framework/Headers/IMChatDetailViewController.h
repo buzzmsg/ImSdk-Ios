@@ -56,7 +56,7 @@
 
 - (void)getCustomView:(NSString *)amid body:(NSString *)body handleCustomView:(void(^)(UIView *itemView))handle tapCustomView:(void(^)(UIView *itemView))tap;
 
-- (void)getWebUrlLinkClick:(NSString *)aMid url:(NSString *)url;
+- (void)getWebUrlLinkClick:(NSString *)aMid content:(NSString *)content bid:(NSString *)bid;
 
 @end
 
