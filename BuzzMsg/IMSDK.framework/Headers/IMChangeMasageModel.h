@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getTimeString:(IMMessageInfoModel *)model;
 
++ (NSAttributedString *)getQuoteAttr:(IMMessageInfoModel *)model uiSetting:(IMUISetting *)uiSetting;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

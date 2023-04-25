@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)onCancleMessageMultipleChoose;
 
-+ (NSAttributedString *)getQuoteAttr:(IMMessageInfoModel *)model;
+//- (NSAttributedString *)getQuoteAttr:(IMMessageInfoModel *)model;
 
 - (UIImageView *)getClickImageView:(NSInteger)mid;
 - (void)setTableViewContentInset:(UIEdgeInsets)inset;
