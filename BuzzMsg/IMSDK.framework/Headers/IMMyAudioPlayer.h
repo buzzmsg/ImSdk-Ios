@@ -13,6 +13,7 @@
 
 @property (copy) void(^playAudioBlock)(CGFloat totalTime, CGFloat currentTime);//Audio playback callback
 @property (copy) void(^playFlishBlock)(void);//End of play
+@property (copy) void(^pauseBlock)(void);//End of play
 
 - (void)prepareAudioUrl:(NSString *)audioUrl;
 
