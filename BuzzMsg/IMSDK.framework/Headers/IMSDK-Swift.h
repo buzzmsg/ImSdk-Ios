@@ -237,7 +237,6 @@ using UInt = size_t;
 @import ObjectiveC;
 @import QuickLook;
 @import UIKit;
-@import UserNotifications;
 #endif
 
 #import <IMSDK/IMSDK.h>
@@ -1459,6 +1458,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMLongPressPopView")
 typedef SWIFT_ENUM(NSInteger, IMMediaType, closed) {
   IMMediaTypeVideo = 0,
   IMMediaTypeImage = 1,
+  IMMediaTypeGif = 2,
 };
 
 @class TMMMediasHandleObj;
@@ -1880,13 +1880,6 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 
 @interface IMSdk (SWIFT_EXTENSION(IMSDK))
 - (NSArray<TMMConversation *> * _Nonnull)getConversationsWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class UNUserNotificationCenter;
-@class UNNotification;
-
-@interface IMSdk (SWIFT_EXTENSION(IMSDK)) <UNUserNotificationCenterDelegate>
-- (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center willPresentNotification:(UNNotification * _Nonnull)notification withCompletionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
 @end
 
 
