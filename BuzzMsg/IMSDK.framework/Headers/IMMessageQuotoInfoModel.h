@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long _id;
 @property (nonatomic, strong) IMMessageInfoModel *quotoMsgModel;   //
 
+@property (nonatomic, assign) BOOL isRefreshGroupMember;
 
 @end
                      

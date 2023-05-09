@@ -246,6 +246,7 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, assign)TMTMMConversationType chatType;
 @property (nonatomic, assign) BOOL isSingle;
 
+@property (nonatomic, assign) BOOL isRefreshGroupMember;
 
 
 - (float)returnImageLinkHeight;

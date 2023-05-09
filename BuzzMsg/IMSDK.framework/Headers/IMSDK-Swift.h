@@ -529,7 +529,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK14IMChatDelegate_")
 - (void)onAvatarClickWithAMid:(NSString * _Nonnull)aMid aUid:(NSString * _Nonnull)aUid;
 - (void)onMeetingRecordClickWithAMid:(NSString * _Nonnull)aMid isVideo:(BOOL)isVideo;
 - (void)onRedPacketNoticeMessageClickWithAMid:(NSString * _Nonnull)aMid outTradeNo:(NSString * _Nonnull)outTradeNo;
-- (void)onShowCustomMessageViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
+- (void)onShowCustomMessageViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body time:(NSInteger)time handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
 - (void)onCloseKeyBoard;
 - (void)onWebUrlLinkClickWithAMid:(NSString * _Nonnull)aMid url:(NSString * _Nonnull)url;
 - (void)onTextRegexClickWithAMid:(NSString * _Nonnull)aMid bid:(NSString * _Nonnull)bid content:(NSString * _Nonnull)content;
@@ -595,16 +595,13 @@ SWIFT_CLASS("_TtC5IMSDK20IMSwipeTableViewCell")
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class HYWaveView;
 @class IMConversationInfo;
-@class UIButton;
 @protocol TMMChatListCellDelegate;
 
 SWIFT_CLASS("_TtC5IMSDK14IMChatListCell")
 @interface IMChatListCell : IMSwipeTableViewCell
-@property (nonatomic, strong) HYWaveView * _Nonnull waveView;
+@property (nonatomic, strong) UIView * _Nonnull coverView;
 @property (nonatomic, strong) IMConversationInfo * _Null_unspecified tmInfo;
-@property (nonatomic, strong) UIButton * _Nonnull waveButton;
 @property (nonatomic, strong) IMOSS * _Nullable oss;
 @property (nonatomic, strong) IMUISetting * _Nullable uiSetting;
 @property (nonatomic, weak) id <TMMChatListCellDelegate> _Nullable cellDelegate;
@@ -832,7 +829,7 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 @interface IMChatView (SWIFT_EXTENSION(IMSDK)) <TMMChatDetailCheckDelegate>
 - (void)getWebUrlLinkClick:(NSString * _Null_unspecified)aMid content:(NSString * _Null_unspecified)content bid:(NSString * _Null_unspecified)bid;
 - (void)getWebUrlLinkClick:(NSString * _Null_unspecified)aMid url:(NSString * _Null_unspecified)url;
-- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
+- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body timeInt:(NSInteger)timeInt handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
 - (void)detailDidSelectRow;
 - (void)GetRedPacket:(IMRedPackModel * _Null_unspecified)redPackModel;
 - (void)tapMomentAtIndexPath:(NSString * _Null_unspecified)amid feedId:(NSString * _Null_unspecified)feedId;
@@ -960,6 +957,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationInfo")
 @property (nonatomic) NSInteger only_two;
 @property (nonatomic) NSInteger init_count;
 - (NSInteger)init_count SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic) BOOL isRefreshGroupMember;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1236,6 +1234,13 @@ typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, closed) {
   IMEnvironmentTypePre = 2,
   IMEnvironmentTypePro = 3,
 };
+
+
+SWIFT_CLASS("_TtC5IMSDK22IMFileMessageCheckSize")
+@interface IMFileMessageCheckSize : NSObject
+- (void)setImageMessageMaxSize:(NSInteger)size;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC5IMSDK13IMFilePreView")
@@ -2188,8 +2193,12 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @property (nonatomic, readonly) BOOL isSingleAvatarRightShow;
 @property (nonatomic, readonly) BOOL isGroupAvatarLeftShow;
 @property (nonatomic, readonly) BOOL isGroupAvatarRightShow;
+@property (nonatomic, readonly) BOOL isOpenRippleBg;
 @property (nonatomic, readonly, strong) IMTextMessageRegex * _Nonnull textMessageRegex;
+@property (nonatomic, readonly) BOOL isOpenSendMessageVoice;
+@property (nonatomic, readonly, strong) IMFileMessageCheckSize * _Nonnull fileMessageCheckSize;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)setIsOpenRippleBgWithRipple:(BOOL)ripple;
 - (void)setTextMessageRegexWithRegex:(IMTextMessageRegex * _Nonnull)regex;
 /// Set custome message menu types
 /// \param menuTypes [IMMessageMenuType.rawValue], int value
@@ -2223,6 +2232,8 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 /// \param isShow show or not
 ///
 - (void)showLeftAvatarBySingleChatWithIsShow:(BOOL)isShow;
+- (void)setSendMessageVoiceWithOpen:(BOOL)open;
+- (void)setFileMessageCheckSizeWithCheckSize:(IMFileMessageCheckSize * _Nonnull)checkSize;
 @end
 
 

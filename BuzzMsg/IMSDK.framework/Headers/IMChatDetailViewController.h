@@ -54,7 +54,7 @@
 - (void)detailDidSelectRow;
 - (IMSdk *)getIMSdkInstance;
 
-- (void)getCustomView:(NSString *)amid body:(NSString *)body handleCustomView:(void(^)(UIView *itemView))handle tapCustomView:(void(^)(UIView *itemView))tap;
+- (void)getCustomView:(NSString *)amid body:(NSString *)body timeInt:(NSInteger)timeInt  handleCustomView:(void(^)(UIView *itemView))handle tapCustomView:(void(^)(UIView *itemView))tap;
 
 - (void)getWebUrlLinkClick:(NSString *)aMid content:(NSString *)content bid:(NSString *)bid;
 
@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)dataModelIsShow: (NSString *)mid;
 
 - (void)clearData;
-
+ 
 @end
 
 NS_ASSUME_NONNULL_END
