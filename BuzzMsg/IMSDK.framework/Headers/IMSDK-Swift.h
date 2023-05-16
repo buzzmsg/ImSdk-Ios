@@ -595,13 +595,16 @@ SWIFT_CLASS("_TtC5IMSDK20IMSwipeTableViewCell")
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class HYWaveView;
 @class IMConversationInfo;
+@class UIButton;
 @protocol TMMChatListCellDelegate;
 
 SWIFT_CLASS("_TtC5IMSDK14IMChatListCell")
 @interface IMChatListCell : IMSwipeTableViewCell
-@property (nonatomic, strong) UIView * _Nonnull coverView;
+@property (nonatomic, strong) HYWaveView * _Nonnull waveView;
 @property (nonatomic, strong) IMConversationInfo * _Null_unspecified tmInfo;
+@property (nonatomic, strong) UIButton * _Nonnull waveButton;
 @property (nonatomic, strong) IMOSS * _Nullable oss;
 @property (nonatomic, strong) IMUISetting * _Nullable uiSetting;
 @property (nonatomic, weak) id <TMMChatListCellDelegate> _Nullable cellDelegate;
@@ -829,7 +832,7 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 @interface IMChatView (SWIFT_EXTENSION(IMSDK)) <TMMChatDetailCheckDelegate>
 - (void)getWebUrlLinkClick:(NSString * _Null_unspecified)aMid content:(NSString * _Null_unspecified)content bid:(NSString * _Null_unspecified)bid;
 - (void)getWebUrlLinkClick:(NSString * _Null_unspecified)aMid url:(NSString * _Null_unspecified)url;
-- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body timeInt:(NSInteger)timeInt handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
+- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body time:(NSInteger)time handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
 - (void)detailDidSelectRow;
 - (void)GetRedPacket:(IMRedPackModel * _Null_unspecified)redPackModel;
 - (void)tapMomentAtIndexPath:(NSString * _Null_unspecified)amid feedId:(NSString * _Null_unspecified)feedId;
@@ -2193,12 +2196,10 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @property (nonatomic, readonly) BOOL isSingleAvatarRightShow;
 @property (nonatomic, readonly) BOOL isGroupAvatarLeftShow;
 @property (nonatomic, readonly) BOOL isGroupAvatarRightShow;
-@property (nonatomic, readonly) BOOL isOpenRippleBg;
 @property (nonatomic, readonly, strong) IMTextMessageRegex * _Nonnull textMessageRegex;
 @property (nonatomic, readonly) BOOL isOpenSendMessageVoice;
 @property (nonatomic, readonly, strong) IMFileMessageCheckSize * _Nonnull fileMessageCheckSize;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (void)setIsOpenRippleBgWithRipple:(BOOL)ripple;
 - (void)setTextMessageRegexWithRegex:(IMTextMessageRegex * _Nonnull)regex;
 /// Set custome message menu types
 /// \param menuTypes [IMMessageMenuType.rawValue], int value
