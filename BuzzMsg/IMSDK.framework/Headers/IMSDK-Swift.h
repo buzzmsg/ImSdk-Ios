@@ -595,16 +595,13 @@ SWIFT_CLASS("_TtC5IMSDK20IMSwipeTableViewCell")
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class HYWaveView;
 @class IMConversationInfo;
-@class UIButton;
 @protocol TMMChatListCellDelegate;
 
 SWIFT_CLASS("_TtC5IMSDK14IMChatListCell")
 @interface IMChatListCell : IMSwipeTableViewCell
-@property (nonatomic, strong) HYWaveView * _Nonnull waveView;
+@property (nonatomic, strong) UIView * _Nonnull coverView;
 @property (nonatomic, strong) IMConversationInfo * _Null_unspecified tmInfo;
-@property (nonatomic, strong) UIButton * _Nonnull waveButton;
 @property (nonatomic, strong) IMOSS * _Nullable oss;
 @property (nonatomic, strong) IMUISetting * _Nullable uiSetting;
 @property (nonatomic, weak) id <TMMChatListCellDelegate> _Nullable cellDelegate;
@@ -2194,12 +2191,14 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @property (nonatomic, readonly, copy) NSData * _Nullable avatarPlaceholder;
 @property (nonatomic, readonly) BOOL isSingleAvatarLeftShow;
 @property (nonatomic, readonly) BOOL isSingleAvatarRightShow;
+@property (nonatomic, readonly) BOOL isOpenRippleBg;
 @property (nonatomic, readonly) BOOL isGroupAvatarLeftShow;
 @property (nonatomic, readonly) BOOL isGroupAvatarRightShow;
 @property (nonatomic, readonly, strong) IMTextMessageRegex * _Nonnull textMessageRegex;
 @property (nonatomic, readonly) BOOL isOpenSendMessageVoice;
 @property (nonatomic, readonly, strong) IMFileMessageCheckSize * _Nonnull fileMessageCheckSize;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)setIsOpenRippleBgWithRipple:(BOOL)ripple;
 - (void)setTextMessageRegexWithRegex:(IMTextMessageRegex * _Nonnull)regex;
 /// Set custome message menu types
 /// \param menuTypes [IMMessageMenuType.rawValue], int value
