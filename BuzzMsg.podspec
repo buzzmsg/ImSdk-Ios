@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BuzzMsg'
-  s.version          = '1.6.1'
+  s.version          = '1.6.2'
   s.summary          = 'A short description of BuzzMsg.'
 
 # This description is used to generate tags and improve search results.
@@ -35,6 +35,9 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.vendored_frameworks = ['BuzzMsg/IMSDK.framework', 'BuzzMsg/CommonModule.framework']
 
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  
   s.resources = 'BuzzMsg/Class/Resources/*'
   # s.resource_bundles = {
   #   'BuzzMsgBundle' => ['BuzzMsg/Resources/*']

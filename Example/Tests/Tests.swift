@@ -1,5 +1,5 @@
 import XCTest
-import BuzzMsg
+//import BuzzMsg
 
 class Tests: XCTestCase {
     

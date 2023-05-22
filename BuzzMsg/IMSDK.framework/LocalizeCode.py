@@ -9,11 +9,11 @@ def openCsv():
     with open(ResourcePath, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f, skipinitialspace=True):
             print(row)
-            sourceLanguagekey = row["ID"]
+            sourceLanguagekey = row["T-KEY"]
             sourceLanguagekey = ''.join(sourceLanguagekey.split())
             if len(sourceLanguagekey) == 0:
                 continue
-            del row["ID"]
+            del row["T-KEY"]
             
             markText = row["RMKS"]
             del row["RMKS"]
@@ -114,7 +114,8 @@ InfoPlistDic = {}
 TargetLanguageKeys = {"zh-Hans" : "zh-Hans",
                     "zh-Hant" : "zh-Hant",
                     "EN" : "en",
-                    "TR" : "tr"
+                    "TR" : "tr",
+                    "ID" : "id"
 }
 NotSurportKeysArr = ["ar", "cs", "da", "de", "es", "fi", "fr", "hu", "id", "it", "ja", "ko", "ms", "sw"]
 #ResourcePath = os.getcwd() + "/TMM/Documents/Translation/copywriting.csv"
