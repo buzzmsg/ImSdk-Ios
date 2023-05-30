@@ -4,7 +4,7 @@ PODS:
   - AWSCore (2.25.0)
   - AWSS3 (2.25.0):
     - AWSCore (= 2.25.0)
-  - BuzzMsg (1.6.1):
+  - BuzzMsg (1.6.3):
     - Alamofire (~> 4.9.1)
     - AliyunOSSiOS (~> 2.10.15)
     - AWSS3 (~> 2.25.0)
@@ -452,7 +452,7 @@ SPEC CHECKSUMS:
   AliyunOSSiOS: d624effdd24535da414a2bacf0027bedf64cc90e
   AWSCore: 9c51a3004e9e91528160ea978fd0c5d92780a45e
   AWSS3: 2c211728c36d1dbf4d0075d0e8ba317a561bc80c
-  BuzzMsg: d9ac27d69b41030769592f3b39a0d47b43546e08
+  BuzzMsg: 953e210f76242deb3c6dd3e827ae3552c23d6cd8
   BuzzWCDB: 8483de718563e701c118d66de89219efbb096b04
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
@@ -483,4 +483,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9929b60be5f2b7fef4cd8cf705ddb7996824f331
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.12.1
