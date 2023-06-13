@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BuzzMsg'
-  s.version          = '1.6.7'
+  s.version          = '1.6.8'
   s.summary          = 'A short description of BuzzMsg.'
 
 # This description is used to generate tags and improve search results.
@@ -68,6 +68,7 @@ Pod::Spec.new do |s|
   s.dependency "YYText", '~> 1.0.7'
   s.dependency "YYModel", '~> 1.0.4'
   s.dependency "SDWebImage", '~> 5.11.1'
+  s.dependency "JXPagingView", '= 2.1.2'
 
 end
 
