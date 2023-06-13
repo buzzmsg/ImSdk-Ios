@@ -26,6 +26,11 @@ typedef NS_ENUM(NSUInteger, TmFileSource) {
     TmFileSource_Other,      //
 };
 
+typedef NS_ENUM(NSUInteger, IMDownSenceType) {
+    down_Automatic = 0,       //
+    down_manual ,    //
+};
+
 @interface IMImageTempModel : NSObject
 
 @property (nonatomic, copy) NSString *objectId; // img/xx/xxxx
@@ -42,6 +47,14 @@ typedef NS_ENUM(NSUInteger, TmFileSource) {
 
 @property (nonatomic, assign) BOOL isShowAnimation;
 
+@property (nonatomic, assign) NSInteger sizeType; //choose Automatic or manual download
+@property (nonatomic, assign) IMDownSenceType downSence;
+
+@property (nonatomic, copy) NSString *businessId;
+@property (nonatomic, copy) NSString *primaryId;
+
+//sizetype
+//changjing
 @end
 
 NS_ASSUME_NONNULL_END

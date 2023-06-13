@@ -279,6 +279,21 @@ SWIFT_CLASS("_TtC12CommonModule13IMAvatarModel")
 - (NSString * _Nonnull)getRemoteAvatar SWIFT_WARN_UNUSED_RESULT;
 @end
 
+enum IMTransferFileSizeType : NSInteger;
+
+SWIFT_CLASS("_TtC12CommonModule15IMConfigManager")
+@interface IMConfigManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter=setDefault:) IMConfigManager * _Nonnull default_;)
++ (IMConfigManager * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
++ (void)setDefault:(IMConfigManager * _Nonnull)value;
+@property (nonatomic) BOOL isFlowDown;
+- (NSInteger)getOssStausWithProgress:(NSInteger)progress SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)getOssProgressWithProgress:(NSInteger)progress SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)synthesisProgressWithProgress:(NSInteger)progress status:(NSInteger)status SWIFT_WARN_UNUSED_RESULT;
+- (enum IMTransferFileSizeType)determineIsLargeFileWithLength:(NSInteger)length SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class IMNotificationCenter;
 
 SWIFT_CLASS("_TtC12CommonModule9IMContext")
@@ -312,6 +327,11 @@ SWIFT_CLASS("_TtC12CommonModule19IMFileDownloadEvent")
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull objectIds;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, IMFileDownloadPermissionType, closed) {
+  IMFileDownloadPermissionTypeNone = 0,
+  IMFileDownloadPermissionTypeAll = 1,
+};
 
 
 SWIFT_CLASS("_TtC12CommonModule17IMFileUploadEvent")
@@ -398,13 +418,16 @@ SWIFT_CLASS("_TtC12CommonModule5IMOSS")
 @property (nonatomic, copy) NSString * _Nonnull ossPath;
 @property (nonatomic, strong) IMTransferDownloadControler * _Nonnull downloadControl;
 @property (nonatomic, strong) IMTransferUploadControler * _Nonnull uploadControl;
-- (nonnull instancetype)initWithContext:(IMContext * _Nonnull)context ossPath:(NSString * _Nonnull)ossPath OBJC_DESIGNATED_INITIALIZER;
 + (IMOSS * _Nonnull)defaultOSS SWIFT_WARN_UNUSED_RESULT;
-/// sourceSence: -> TMMTransferSence
-- (void)startDownloadWithObjectID:(NSString * _Nonnull)objectID bucketId:(NSString * _Nonnull)bucketId sourceSence:(NSInteger)sourceSence isNeedNotice:(NSInteger)isNeedNotice;
+- (void)cancelDownloadWithObjectIds:(NSArray<NSString *> * _Nonnull)objectIds;
+- (void)pauseDownloadWithObjectId:(NSString * _Nonnull)objectId;
+- (BOOL)isWifi SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isWwan SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isNetworkConnect SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)queryProgressValueWithEventWithObjectId:(NSString * _Nonnull)objectId SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)queryProgressValueNormalWithObjectId:(NSString * _Nonnull)objectId SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)queryUploadProgressValueNormalWithObjectId:(NSString * _Nonnull)objectId SWIFT_WARN_UNUSED_RESULT;
+- (void)resetDoneToStartDownload;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -508,12 +531,20 @@ SWIFT_CLASS("_TtC12CommonModule27IMTransferDownloadControler")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+typedef SWIFT_ENUM(NSInteger, IMTransferFileSizeType, closed) {
+  IMTransferFileSizeTypeSmall = 1,
+  IMTransferFileSizeTypeBig = 2,
+};
+
 typedef SWIFT_ENUM(NSInteger, IMTransferProgressState, closed) {
   IMTransferProgressStateFailureMin = -100,
+  IMTransferProgressStateFileNotExist = 404,
   IMTransferProgressStateStart = 0,
   IMTransferProgressStateSuccess = 100,
-  IMTransferProgressStateFileNotExist = 404,
+  IMTransferProgressStateNotDown = 400,
   IMTransferProgressStateWait = 600,
+  IMTransferProgressStatePausedMin = 700,
+  IMTransferProgressStateFailedMin = 800,
 };
 
 typedef SWIFT_ENUM(NSInteger, IMTransferSence, closed) {
@@ -530,6 +561,30 @@ SWIFT_CLASS("_TtC12CommonModule25IMTransferUploadControler")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+@protocol OssDownLoadViewStatus;
+
+SWIFT_PROTOCOL("_TtP12CommonModule24OssDownLoadDisplayStatus_")
+@protocol OssDownLoadDisplayStatus <NSObject>
+- (void)showViewWithViewStatus:(id <OssDownLoadViewStatus> _Nonnull)viewStatus;
+@end
+
+
+SWIFT_CLASS("_TtC12CommonModule18OssDownLoadFactory")
+@interface OssDownLoadFactory : NSObject
+- (id <OssDownLoadDisplayStatus> _Nonnull)createDisplayWithStatus:(NSInteger)status SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL("_TtP12CommonModule21OssDownLoadViewStatus_")
+@protocol OssDownLoadViewStatus <NSObject>
+- (void)showDefault;
+- (void)showDownloading;
+- (void)showDownloadFailed;
+- (void)showDownloadSuccess;
+- (void)showDownloadPause;
+@end
 
 @class NSURL;
 
