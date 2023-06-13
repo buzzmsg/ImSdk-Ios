@@ -441,6 +441,8 @@ SWIFT_CLASS("_TtC5IMSDK11IMBrowserVo")
 @property (nonatomic) NSInteger size;
 @property (nonatomic) NSInteger duration;
 @property (nonatomic) NSInteger attachmentType;
+@property (nonatomic, copy) NSString * _Nonnull mid;
+@property (nonatomic) BOOL isDownOriginal;
 @property (nonatomic) BOOL isGif;
 @property (nonatomic) BOOL attachmentMsgIsDeleted;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -646,20 +648,45 @@ SWIFT_CLASS("_TtC5IMSDK17IMChatLoadingView")
 - (void)stopAnimating;
 @end
 
+@class IMChatMediaSortModel;
 @protocol IMChatMediasAudioDelegate;
 
 SWIFT_CLASS("_TtC5IMSDK24IMChatMediaAudioListView")
 @interface IMChatMediaAudioListView : UIView
+- (void)onItemClickWithSortModel:(IMChatMediaSortModel * _Nonnull)sortModel messageModel:(IMMessage * _Nonnull)messageModel;
+- (void)stopAudioPaly;
 @property (nonatomic, strong) UITableView * _Nonnull tableView;
 - (void)setDelegateWithDelegate:(id <IMChatMediasAudioDelegate> _Nonnull)delegate;
-- (void)stopAudioPaly;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)layoutSubviews;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
+@class UIScrollView;
 
-@class IMChatMediaSortModel;
+@interface IMChatMediaAudioListView (SWIFT_EXTENSION(IMSDK))
+- (void)listViewDidScrollCallbackWithCallback:(void (^ _Nonnull)(UIScrollView * _Nonnull))callback;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (UIView * _Nonnull)listView SWIFT_WARN_UNUSED_RESULT;
+- (UIScrollView * _Nonnull)listScrollView SWIFT_WARN_UNUSED_RESULT;
+- (void)listWillAppear;
+@end
+
+
+@class NSIndexPath;
+
+@interface IMChatMediaAudioListView (SWIFT_EXTENSION(IMSDK)) <UITableViewDataSource, UITableViewDelegate>
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NSBundle;
 
 SWIFT_CLASS("_TtC5IMSDK34IMChatMediaAudioListViewController")
@@ -674,7 +701,6 @@ SWIFT_CLASS("_TtC5IMSDK34IMChatMediaAudioListViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSIndexPath;
 
 @interface IMChatMediaAudioListViewController (SWIFT_EXTENSION(IMSDK)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
@@ -695,6 +721,15 @@ SWIFT_CLASS("_TtC5IMSDK23IMChatMediaFileListView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)layoutSubviews;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+@interface IMChatMediaFileListView (SWIFT_EXTENSION(IMSDK))
+- (void)listViewDidScrollCallbackWithCallback:(void (^ _Nonnull)(UIScrollView * _Nonnull))callback;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (UIView * _Nonnull)listView SWIFT_WARN_UNUSED_RESULT;
+- (UIScrollView * _Nonnull)listScrollView SWIFT_WARN_UNUSED_RESULT;
+- (void)listWillAppear;
 @end
 
 
@@ -727,6 +762,15 @@ SWIFT_CLASS("_TtC5IMSDK25IMChatMediaImagesListView")
 @interface IMChatMediaImagesListView (SWIFT_EXTENSION(IMSDK)) <UICollectionViewDelegateFlowLayout>
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface IMChatMediaImagesListView (SWIFT_EXTENSION(IMSDK))
+- (void)listViewDidScrollCallbackWithCallback:(void (^ _Nonnull)(UIScrollView * _Nonnull))callback;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (UIView * _Nonnull)listView SWIFT_WARN_UNUSED_RESULT;
+- (UIScrollView * _Nonnull)listScrollView SWIFT_WARN_UNUSED_RESULT;
+- (void)listWillAppear;
 @end
 
 @class UICollectionViewCell;
@@ -829,7 +873,7 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 @interface IMChatView (SWIFT_EXTENSION(IMSDK)) <TMMChatDetailCheckDelegate>
 - (void)getWebUrlLinkClick:(NSString * _Null_unspecified)aMid content:(NSString * _Null_unspecified)content bid:(NSString * _Null_unspecified)bid;
 - (void)getWebUrlLinkClick:(NSString * _Null_unspecified)aMid url:(NSString * _Null_unspecified)url;
-- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body time:(NSInteger)time handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
+- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body timeInt:(NSInteger)timeInt handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
 - (void)detailDidSelectRow;
 - (void)GetRedPacket:(IMRedPackModel * _Null_unspecified)redPackModel;
 - (void)tapMomentAtIndexPath:(NSString * _Null_unspecified)amid feedId:(NSString * _Null_unspecified)feedId;
@@ -898,7 +942,6 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversationBaseModel")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class UIScrollView;
 
 SWIFT_PROTOCOL("_TtP5IMSDK22IMConversationDelegate_")
 @protocol IMConversationDelegate <NSObject>
@@ -993,6 +1036,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter
 - (void)getConversationLastSawIndexWithGroupId:(NSString * _Nonnull)groupId context:(IMContext * _Nonnull)context imsdk:(IMSdk * _Nonnull)imsdk completed:(void (^ _Nullable)(NSInteger, BOOL))completed;
 - (void)updateSingleChatTopWithChatId:(NSString * _Nonnull)chatId isTop:(NSInteger)isTop currentTopTime:(NSInteger)currentTopTime context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSError * _Nullable, NSInteger))complete;
 + (void)setChatIsReadWithChatId:(NSString * _Nonnull)chatId aChatId:(NSString * _Nonnull)aChatId context:(IMContext * _Nonnull)context;
+- (void)deleteChatWithChatId:(NSString * _Nonnull)chatId aChatId:(NSString * _Nonnull)aChatId context:(IMContext * _Nonnull)context oss:(IMOSS * _Nonnull)oss block:(void (^ _Nullable)(BOOL))block;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1067,6 +1111,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationView")
 - (void)showMarkerWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)showSubTitleWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)showConversationInfoWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
+- (void)showDeleteConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
 
 @protocol IMDelegate;
@@ -1148,6 +1193,16 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversionSelectorAll")
 @end
 
 
+SWIFT_CLASS("_TtC5IMSDK26IMConversionSelectorUnRead")
+@interface IMConversionSelectorUnRead : NSObject <IMConversionSelector>
+- (NSArray<NSString *> * _Nonnull)selectorWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMSDK16IMConversionTime")
 @interface IMConversionTime : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1183,7 +1238,23 @@ SWIFT_PROTOCOL("_TtP5IMSDK10IMDelegate_")
 - (void)onSyncStateChangeWithStatus:(enum IMReceiveMessageStatus)status;
 - (NSArray<NSString *> * _Nonnull)onHideConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
 - (void)onWebSocketReceiveWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content remoteTitle:(NSString * _Nonnull)remoteTitle remoteBody:(NSString * _Nonnull)remoteBody;
+- (void)onDeleteConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
+
+
+SWIFT_CLASS("_TtC5IMSDK23IMDeleteConversionAlert")
+@interface IMDeleteConversionAlert : ASDisplayNode
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface IMDeleteConversionAlert (SWIFT_EXTENSION(IMSDK))
+- (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
 
 typedef SWIFT_ENUM(NSInteger, IMDownloadStatus, closed) {
   IMDownloadStatusNotDownload = 0,
@@ -1234,6 +1305,18 @@ typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, closed) {
   IMEnvironmentTypePre = 2,
   IMEnvironmentTypePro = 3,
 };
+
+
+SWIFT_CLASS("_TtC5IMSDK15IMFileDownLogic")
+@interface IMFileDownLogic : NSObject
+- (nonnull instancetype)initWithOssObj:(IMOSS * _Nonnull)ossObj OBJC_DESIGNATED_INITIALIZER;
+- (void)downloadFileWithBusinessId:(NSString * _Nonnull)businessId objectID:(NSString * _Nonnull)objectID bucketId:(NSString * _Nonnull)bucketId isNeedNotice:(NSInteger)isNeedNotice sizeType:(enum IMTransferFileSizeType)sizeType;
+- (void)grabDownloadFileWithBusinessId:(NSString * _Nonnull)businessId objectID:(NSString * _Nonnull)objectID bucketId:(NSString * _Nonnull)bucketId isNeedNotice:(NSInteger)isNeedNotice sizeType:(enum IMTransferFileSizeType)sizeType;
+- (void)pauseDownloadFileWithBusinessId:(NSString * _Nonnull)businessId objectID:(NSString * _Nonnull)objectID;
+- (void)queryFileModelWithPrimaryId:(NSString * _Nonnull)primaryId complete:(void (^ _Nullable)(NSInteger))complete;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 SWIFT_CLASS("_TtC5IMSDK22IMFileMessageCheckSize")
@@ -1394,6 +1477,7 @@ SWIFT_CLASS("_TtC5IMSDK27IMHistoryBrowsePositionCell")
 
 SWIFT_CLASS("_TtC5IMSDK18IMImageBrowserView")
 @interface IMImageBrowserView : UIView
+- (void)refreshList;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)removeShow;
@@ -1428,6 +1512,21 @@ SWIFT_CLASS("_TtC5IMSDK14IMInitSDKEvent")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+SWIFT_CLASS("_TtC5IMSDK17IMLeaveGroupAlert")
+@interface IMLeaveGroupAlert : ASDisplayNode
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface IMLeaveGroupAlert (SWIFT_EXTENSION(IMSDK))
+- (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
 
 
 SWIFT_CLASS("_TtC5IMSDK15IMLocationModel")
@@ -1689,6 +1788,15 @@ SWIFT_CLASS("_TtC5IMSDK14IMMessageExtra")
 @end
 
 
+SWIFT_CLASS("_TtC5IMSDK26IMMessageFileDownloadEvent")
+@interface IMMessageFileDownloadEvent : NSObject <IMEvent>
+- (NSArray<NSString *> * _Nonnull)getData SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)getName SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull ids;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMSDK16IMMessageManager")
 @interface IMMessageManager : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) IMMessageManager * _Nonnull default_;)
@@ -1705,8 +1813,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=defau
 - (BOOL)checkGetMessageIsOverWithLastMid:(NSString * _Nonnull)lastMid chatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 - (void)tagMessagesIsViewedWithMids:(NSArray<NSString *> * _Nonnull)mids chatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context;
 - (NSDictionary<NSString *, NSNumber *> * _Nonnull)getAtStatusWithChatsWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
-+ (void)deleteMessageForMeWithAMids:(NSArray<NSString *> * _Nonnull)aMids context:(IMContext * _Nonnull)context success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
-+ (void)deleteMessageForEveryOneWithAMids:(NSArray<NSString *> * _Nonnull)aMids context:(IMContext * _Nonnull)context success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
++ (void)deleteMessageForMeWithAMids:(NSArray<NSString *> * _Nonnull)aMids context:(IMContext * _Nonnull)context oss:(IMOSS * _Nonnull)oss success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
++ (void)deleteMessageForEveryOneWithAMids:(NSArray<NSString *> * _Nonnull)aMids context:(IMContext * _Nonnull)context oss:(IMOSS * _Nonnull)oss success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 + (NSArray<NSString *> * _Nonnull)setChatIsReadWithChatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -1732,6 +1840,13 @@ SWIFT_CLASS("_TtC5IMSDK17IMMomentInfoModel")
 SWIFT_CLASS("_TtC5IMSDK13IMMomentsTool")
 @interface IMMomentsTool : NSObject
 - (NSAttributedString * _Nullable)handleMomentContentAttributeStringWithContent:(NSString * _Nonnull)content config:(TMMHandleMomentSenceConfig * _Nullable)config SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMSDK24IMNetworkMonitoringLogic")
+@interface IMNetworkMonitoringLogic : NSObject
++ (void)networkMonitoringWithOss:(IMOSS * _Nonnull)oss complete:(void (^ _Nullable)(BOOL))complete;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1895,7 +2010,6 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 - (void)deleteDraftQuotoMessageWithAChatId:(NSString * _Nonnull)aChatId;
 @end
 
-
 @class TMChatMessageContentDto;
 @class IMSearchMessageResult;
 
@@ -1904,6 +2018,12 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 - (void)getSearchResultWithSearchKey:(NSString * _Nonnull)searchKey aMids:(NSArray<NSString *> * _Nonnull)aMids sort:(BOOL (^ _Nonnull)(TMChatMessageContentDto * _Nonnull, TMChatMessageContentDto * _Nonnull))sort searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
 - (void)searchMessageWithSearchKey:(NSString * _Nonnull)searchKey searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
 - (void)onShowGroupMemberWithDatas:(NSArray<IMShowUserInfo *> * _Nonnull)datas;
+@end
+
+
+@interface IMSdk (SWIFT_EXTENSION(IMSDK))
+- (void)updateFileBusinessFailedWithObjectId:(NSString * _Nonnull)objectId progress:(NSInteger)progress;
+- (void)updateFileBusinessSuccessWithObjectId:(NSString * _Nonnull)objectId;
 @end
 
 @class IMTransferInfoModel;
@@ -2151,6 +2271,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat TextNoticeCa
 @end
 
 
+SWIFT_CLASS("_TtC5IMSDK14IMThemeManager")
+@interface IMThemeManager : NSObject
++ (UIColor * _Nonnull)getColorWithTag:(NSString * _Nullable)tag identifier:(NSString * _Nullable)identifier SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMSDK16IMTimeFormatTool")
 @interface IMTimeFormatTool : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -2386,6 +2513,17 @@ SWIFT_CLASS("_TtC5IMSDK22StackTMSwipeActionView")
 @end
 
 
+SWIFT_CLASS("_TtC5IMSDK13TMASTextNode2")
+@interface TMASTextNode2 : ASTextNode2
+@property (nonatomic, readonly, copy) NSString * _Nullable colorKey;
+@property (nonatomic, readonly) BOOL needChange;
+- (nonnull instancetype)initWithColorKey:(NSString * _Nullable)colorKey needChange:(BOOL)needChange OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@property (nonatomic, strong) NSAttributedString * _Nullable attributedText;
+@end
+
+
 SWIFT_CLASS("_TtC5IMSDK23TMChatMessageContentDto")
 @interface TMChatMessageContentDto : NSObject
 @property (nonatomic, copy) NSString * _Nonnull aChatId;
@@ -2495,6 +2633,11 @@ SWIFT_CLASS("_TtC5IMSDK14TMMImageBrowVo")
 @property (nonatomic) BOOL isHaveOrigin;
 @property (nonatomic) NSInteger originalSize;
 @property (nonatomic) enum IMDownloadStatus originalDownloadStatus;
+@property (nonatomic, copy) NSString * _Nullable bucketId;
+@property (nonatomic, copy) NSString * _Nullable file_type;
+@property (nonatomic) NSInteger height;
+@property (nonatomic, copy) NSString * _Nullable text;
+@property (nonatomic) NSInteger width;
 @end
 
 

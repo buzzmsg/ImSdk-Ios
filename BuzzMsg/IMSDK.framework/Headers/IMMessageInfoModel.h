@@ -249,6 +249,11 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, assign) BOOL isRefreshGroupMember;
 
 
+@property (nonatomic, strong) NSString *sourceObject;
+@property (nonatomic, assign) NSInteger sourceProgress;
+@property (nonatomic, assign) NSInteger sourceStatus;
+
+
 - (float)returnImageLinkHeight;
 - (float)returnORIImageLinkHeight;
 - (float)returnMiniProgramHeight;

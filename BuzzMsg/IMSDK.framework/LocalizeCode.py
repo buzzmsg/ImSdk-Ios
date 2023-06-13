@@ -8,6 +8,7 @@ def openCsv():
 
     with open(ResourcePath, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f, skipinitialspace=True):
+            print("ssssss->")
             print(row)
             sourceLanguagekey = row["T-KEY"]
             sourceLanguagekey = ''.join(sourceLanguagekey.split())
@@ -117,7 +118,7 @@ TargetLanguageKeys = {"zh-Hans" : "zh-Hans",
                     "TR" : "tr",
                     "ID" : "id"
 }
-NotSurportKeysArr = ["ar", "cs", "da", "de", "es", "fi", "fr", "hu", "id", "it", "ja", "ko", "ms", "sw"]
+NotSurportKeysArr = ["ar", "cs", "da", "de", "es", "fi", "fr", "hu", "it", "ja", "ko", "ms", "sw"]
 #ResourcePath = os.getcwd() + "/TMM/Documents/Translation/copywriting.csv"
 ResourcePath = os.path.abspath(os.path.join(os.getcwd(),"../..")) + "/TMM/Documents/Translation/copywriting.csv"
 #SavePath = os.getcwd() + "/IMSDK/IMSDK.docc/Resources/"

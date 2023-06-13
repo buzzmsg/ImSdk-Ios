@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)cl_progressSliderValueChanged:(AVPlayer *)player playerItem:(AVPlayerItem *)playerItem dragedSeconds:(CGFloat)dragedSeconds;
 
+- (void)getDuration:(NSInteger)duration;
 
 
 @end

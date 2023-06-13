@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@class IMOSS;
+@class IMOSS, IMBrowserVo;
 
 @interface IMHYBrowserViewController : UIViewController
 
@@ -39,7 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)showImageBrowser;
 
-- (void)needUpdateIndex:(NSInteger )currentPage totalCount:(NSInteger )totalCount isVideo:(BOOL)isVideo isFullImage:(BOOL)isFullImage imageSize:(long)imageSize;
+//- (void)needUpdateIndex:(NSInteger )currentPage totalCount:(NSInteger )totalCount isVideo:(BOOL)isVideo isFullImage:(BOOL)isFullImage imageSize:(long)imageSize;
+
+- (void)needUpdateIndex:(NSInteger )currentPage totalCount:(NSInteger )totalCount browserVo:(IMBrowserVo *)browserVo;
+
+
 
 - (void)qrCode:(BOOL)isCode;
 
@@ -64,6 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pauseVideo;
 
 
+- (void)refreshPrewList;
 
 
 - (NSString *) getAssetPath;

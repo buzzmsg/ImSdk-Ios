@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (KKImageBrowser)
+@interface UIView (TMImageBrowser)
 
 - (UIImage *)screenshotsImageWithScale:(CGFloat)scale;
 

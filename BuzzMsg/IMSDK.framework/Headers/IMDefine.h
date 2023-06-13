@@ -193,6 +193,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)colorFF6844;
 + (UIColor *)color223253;
 + (UIColor *)color5E6A81;
++ (UIColor *)color333333;
+
 + (UIColor *)colorA2A8C3;
 + (UIColor *)colorF6F7F8;
 + (UIColor *)color9DDFE6;
@@ -371,7 +373,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - country code list
 + (NSDictionary<NSString *, NSString *> *)defaultCodeAndCountry;
-+ (TMCountryCodeListModel *)defaultCountryCodeModel;
+//+ (TMCountryCodeListModel *)defaultCountryCodeModel;
 #pragma mark - Determine whether the current language of the system is Turkish
 + (BOOL)isCurrentLanguageTR;
 

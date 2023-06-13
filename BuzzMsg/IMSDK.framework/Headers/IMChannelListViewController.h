@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showSubTitleWithAChatIds:(NSArray <NSString *> *)aChatIds;
 - (void)showConversationInfoWithAChatIds:(NSArray <NSString *> *)aChatIds;
 
+- (void)showDeleteConversationWithAChatIds:(NSArray <NSString *> *)aChatIds;
+
 @end
 
 @class IMConversationInfo,IMConversationViewModel;
