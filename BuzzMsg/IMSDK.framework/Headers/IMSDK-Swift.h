@@ -910,6 +910,7 @@ SWIFT_CLASS("_TtC5IMSDK22IMChatViewModelFactory")
 + (id <IMConversionSelector> _Nonnull)ofUnPartWithIds:(NSArray<NSString *> * _Nonnull)ids SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)selectRecentWithStratTime:(IMConversionTime * _Nonnull)stratTime endTime:(IMConversionTime * _Nonnull)endTime SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)selectTimeWithStratTime:(IMConversionTime * _Nonnull)stratTime endTime:(IMConversionTime * _Nonnull)endTime SWIFT_WARN_UNUSED_RESULT;
++ (id <IMConversionSelector> _Nonnull)unRead SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
