@@ -1975,6 +1975,7 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 - (void)setConversationAvatarWithAChatId:(NSString * _Nonnull)aChatId avatar:(NSData * _Nullable)avatar format:(NSString * _Nullable)format;
 - (void)setConversationInfoWithInfos:(NSArray<IMConversationinfo *> * _Nonnull)infos;
 - (void)setGoogleMapKeyWithMapKey:(NSString * _Nonnull)mapKey;
+- (void)logOutWithSuccess:(void (^ _Nonnull)(void))success failed:(void (^ _Nonnull)(void))failed;
 - (void)loginOut;
 - (void)clearTokenTest;
 /// create group chat
