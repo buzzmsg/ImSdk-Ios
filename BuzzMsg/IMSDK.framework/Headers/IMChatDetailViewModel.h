@@ -11,24 +11,24 @@
 #import "IMMessageInfoModel.h"
 #import "IMChangeMasageModel.h"
 @class IMMessageInfoModel;
-@class IMChangeMasageModel, IMContext, IMUISetting;
+@class IMChangeMasageModel, IMContext, IMUISetting, IMDataBase;
 @protocol IMGroupMemberDelegate;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMChatDetailViewModel : NSObject
 
 //Data assembly
-+ (NSArray *)dataWithAssemblyOrAdd:(NSArray *)dataArray MsgList:(NSArray*)msgList context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
+//+ (NSArray *)dataWithAssemblyOrAdd:(NSArray *)dataArray MsgList:(NSArray*)msgList context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting dataBase:(IMDataBase *)dataBase memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
 + (NSArray *)dataWithAssemblyOrAdd:(NSArray *)dataArray MsgList:(NSArray*)msgList needAdd:(BOOL)needAdd context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate;
 
 
 
-+ (void)changeTmmassage:(NSArray *)dataArray queryMassage:(NSDictionary*)queryMassage uploadProgress:(double)uploadProgress context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate completionHandle:(void(^)(NSArray * lastArray, NSInteger index))completed;
+//+ (void)changeTmmassage:(NSArray *)dataArray queryMassage:(NSDictionary*)queryMassage uploadProgress:(double)uploadProgress context:(IMContext *)context uiSetting:(IMUISetting *)uiSetting memberDelegate:(nullable id<IMGroupMemberDelegate>)memberDelegate completionHandle:(void(^)(NSArray * lastArray, NSInteger index))completed;
 
 
-+ (NSArray *)dataWithReplace:(NSArray *)dataArray pageArr:(NSArray*)pageArr;
+//+ (NSArray *)dataWithReplace:(NSArray *)dataArray pageArr:(NSArray*)pageArr;
 
-+ (void)FindTmmassage:(NSArray *)dataArray queryMassage:(id)fileEvent IsUpload:(BOOL)isUpload completionHandle:(void(^)(NSArray * lastArray, NSInteger index))completed;
+//+ (void)FindTmmassage:(NSArray *)dataArray queryMassage:(id)fileEvent IsUpload:(BOOL)isUpload completionHandle:(void(^)(NSArray * lastArray, NSInteger index))completed;
 
 //delete mid
 + (NSArray *)deleteWithMids:(NSArray *)dataArray Mids:(NSArray *)mids;

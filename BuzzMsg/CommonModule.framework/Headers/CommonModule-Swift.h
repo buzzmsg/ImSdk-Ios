@@ -295,12 +295,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter
 @end
 
 @class IMNotificationCenter;
+@class IMSDKCache;
 
 SWIFT_CLASS("_TtC12CommonModule9IMContext")
 @interface IMContext : NSObject
 + (IMContext * _Nonnull)defualt SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, strong) IMNotificationCenter * _Nonnull nc;
 @property (nonatomic) id _Nullable me;
+- (IMSDKCache * _Nonnull)getSDKCache SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC12CommonModule10IMDataBase")
+@interface IMDataBase : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -424,8 +433,7 @@ SWIFT_CLASS("_TtC12CommonModule5IMOSS")
 - (BOOL)isWifi SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isWwan SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isNetworkConnect SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)queryProgressValueWithEventWithObjectId:(NSString * _Nonnull)objectId SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)queryProgressValueNormalWithObjectId:(NSString * _Nonnull)objectId SWIFT_WARN_UNUSED_RESULT;
+- (void)queryProgressValueNormalWithObjectId:(NSString * _Nonnull)objectId complete:(void (^ _Nullable)(NSInteger))complete;
 - (NSInteger)queryUploadProgressValueNormalWithObjectId:(NSString * _Nonnull)objectId SWIFT_WARN_UNUSED_RESULT;
 - (void)resetDoneToStartDownload;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -453,6 +461,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) IMPathManage
 - (NSString * _Nonnull)getFullFilePathWithObjectId:(NSString * _Nonnull)objectId SWIFT_WARN_UNUSED_RESULT;
 - (IMImageTempModel * _Nonnull)getFileTempModelWithAvatarModel:(IMAvatarModel * _Nullable)avatarModel sourceSence:(NSInteger)sourceSence imageType:(TmImageType)imageType fileSource:(TmFileSource)fileSource SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC12CommonModule10IMSDKCache")
+@interface IMSDKCache : NSObject
+@property (nonatomic) NSInteger mRemoteSequence;
+@property (nonatomic) BOOL continueSyncMessage;
+- (nonnull instancetype)initWithAk:(NSString * _Nonnull)ak OBJC_DESIGNATED_INITIALIZER;
+- (NSString * _Nonnull)getAk SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

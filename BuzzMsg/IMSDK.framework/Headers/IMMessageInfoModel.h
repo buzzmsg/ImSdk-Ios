@@ -127,10 +127,12 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 
 @class IMMessageContent;
 @class IMMessage;
-@class IMChatMeetingModel;
+@class IMChatMeetingModel, IMAvatarModel;
 @interface IMMessageInfoModel : NSObject
 
 //@property (nonatomic, assign)BOOL isCountSingle;
+@property (nonatomic, strong) IMAvatarModel * __nullable avatarModel;
+@property (nonatomic, copy) NSString *showName;
 
 @property (nonatomic, assign)BOOL isRecord;
 @property (nonatomic, assign)BOOL isSearchAnimation;
@@ -168,6 +170,7 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, strong) IMChatTextLayout * translatelayout;
 @property (nonatomic, copy) NSString *MessageKey;   //
 @property (nonatomic, copy) NSString *msgContent;   //
+@property (nonatomic, copy) NSString *giftText;   //
 
 @property (nonatomic, assign) CGSize chatBaseLeftSize;   //
 @property (nonatomic, assign) CGSize chatBaseRightSize;   //

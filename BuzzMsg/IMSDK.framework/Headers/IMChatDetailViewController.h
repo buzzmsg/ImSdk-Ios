@@ -78,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) IMUISetting *uiSetting;
 @property (nonatomic, strong) NSMutableArray *selectMessagesArr;
 
-- (void)getChatId:(NSString *)chatId aChatId:(NSString *)aChatId;
+- (void)getChatId:(NSString *)chatId aChatId:(NSString *)aChatId enterToChatList:(BOOL)enterToChatList;
 
 - (NSArray <NSString *>*)getForwardSelectMids;
 
@@ -101,6 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)dataModelIsShow: (NSString *)mid;
 
 - (void)clearData;
+
+- (void)getSaveTempMessages:(NSArray <IMMessageInfoModel *> *)messageModels chatId:(NSString *)chatId;
 
 @end
 

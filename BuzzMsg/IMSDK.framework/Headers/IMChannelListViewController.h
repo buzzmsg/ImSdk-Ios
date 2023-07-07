@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class IMChannelListViewController;
 @class IMShowUserInfo;
+@class IMMessageInfoModel;
+
 @protocol TMMChannelListCheckDelegate <NSObject>
 
 - (void)didSelectAchatId:(NSString *)aChatId;
@@ -25,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showConversationInfoWithAChatIds:(NSArray <NSString *> *)aChatIds;
 
 - (void)showDeleteConversationWithAChatIds:(NSArray <NSString *> *)aChatIds;
+
+- (void)showSaveTempMessages:(NSArray <IMMessageInfoModel *> *)messageModels chatId:(NSString *)chatId;
+
+- (void)isEnterToChatList:(BOOL)enterToChatList;
 
 @end
 
