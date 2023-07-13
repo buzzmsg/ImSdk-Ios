@@ -32,7 +32,7 @@
 "day" = "Hari";
 
 
-//====================  2022.9.6新增（外部分享到TMMTMM）  ====================
+//====================  V2.7.1  ====================
 "days" = "Hari";
 "net_no" = "Tidak ada internet! Coba lagi nanti.";
 "net_something" = "Ada yang salah dengan jaringan! Coba lagi nanti.";
@@ -971,3 +971,16 @@
 "delete_con_msg" = "Juga hapus Percakapan dan Pesan";
 "pc_delete_chat" = "pesan juga akan dihapus, termasuk berkas, gambar, video, dan isi lain dalam percakapan";
 "input_shortcut_keys" = "Masukan dengan papan kekunci";
+"one_check_login" = "Tidak menggunakan apa-apa";
+"exiting_remind_first" = "Akaun Anda belum terikat dengan metode daftar masuk. Setelah keluar, Anda tidak dapat mengambil rekening! Ikat akunmu dulu!";
+"exiting_remind_second" = "Keluar Anda tidak akan menerima pemberitahuan apapun ketika menerima pesan baru.";
+"tmmid_limit_remind" = "Silakan masukkan 6~30 karakter";
+"moments_without_phone_button" = "Go";
+"post_moments_withoutphone_remind" = "Akun Anda belum terikat dengan nomor ponsel, dan Momen yang dikirim akan disetel sebagai pribadi dan hanya dapat dilihat oleh Anda";
+"post_moments_withoutphone_button" = "Pos Pribadi";
+"file_not_supported" = "Format berkas tidak didukung atau berkas rusak";
+"not_in_chatgroup" = "Kau belum bergabung dengan kelompok ini.";
+"not_exist_topic" = "Topik tidak ada";
+"error_remind_100007_sendcode" = "daerah yang tidak didukung";
+"error_remind_100003_login" = "Pengecualian masuk";
+"error_remind_100011_login" = "Status akun tidak normal, login gagal";

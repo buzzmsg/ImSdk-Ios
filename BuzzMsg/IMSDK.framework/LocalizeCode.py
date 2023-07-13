@@ -116,9 +116,12 @@ TargetLanguageKeys = {"zh-Hans" : "zh-Hans",
                     "zh-Hant" : "zh-Hant",
                     "EN" : "en",
                     "TR" : "tr",
-                    "ID" : "id"
+                    "ID" : "id",
+                    "KR" : "ko",
+                    "PT" : "pt-PT",
+                    "ES" : "es"
 }
-NotSurportKeysArr = ["ar", "cs", "da", "de", "es", "fi", "fr", "hu", "it", "ja", "ko", "ms", "sw"]
+NotSurportKeysArr = ["ar", "cs", "da", "de", "fi", "fr", "hu", "it", "ja", "ms", "sw"]
 #ResourcePath = os.getcwd() + "/TMM/Documents/Translation/copywriting.csv"
 ResourcePath = os.path.abspath(os.path.join(os.getcwd(),"../..")) + "/TMM/Documents/Translation/copywriting.csv"
 #SavePath = os.getcwd() + "/IMSDK/IMSDK.docc/Resources/"

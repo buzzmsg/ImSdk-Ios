@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIFont *titleTextFont;
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, assign) CGFloat buttonHeight;
+@property (nonatomic, strong) UIColor *textLabelTextColor;
+
 
 @end
 

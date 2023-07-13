@@ -32,7 +32,7 @@
 "day" = "天";
 
 
-//====================  2022.9.6新增（外部分享到TMMTMM）  ====================
+//====================  V2.7.1  ====================
 "days" = "天";
 "net_no" = "没有网络，请稍后再试";
 "net_something" = "网络貌似出了点问题，请稍后再试。";
@@ -752,27 +752,27 @@
 "label_company" = "公司";
 "add_people" = "添加关系";
 "add_other" = "添加其他信息";
-"label_people1" = "朋友 ";
+"label_people1" = "朋友";
 "label_people2" = "同事";
-"label_people3" = "上司 ";
-"label_people4" = "合作伙伴 ";
-"label_people5" = "亲属 ";
-"label_people6" = "父母 ";
-"label_people7" = "兄弟 ";
-"label_people8" = "姐妹 ";
-"label_people9" = "子女  ";
-"label_people10" = "父亲 ";
-"label_people11" = "母亲 ";
-"label_people12" = "哥哥 ";
-"label_people13" = "姐姐 ";
-"label_people14" = "弟弟 ";
-"label_people15" = "妹妹 ";
-"label_people16" = "丈夫 ";
-"label_people17" = "妻子 ";
-"label_people18" = "儿子 ";
-"label_people19" = "女儿 ";
-"label_people20" = "男朋友 ";
-"label_people21" = "女朋友 ";
+"label_people3" = "上司";
+"label_people4" = "合作伙伴";
+"label_people5" = "亲属";
+"label_people6" = "父母";
+"label_people7" = "兄弟";
+"label_people8" = "姐妹";
+"label_people9" = "子女";
+"label_people10" = "父亲";
+"label_people11" = "母亲";
+"label_people12" = "哥哥";
+"label_people13" = "姐姐";
+"label_people14" = "弟弟";
+"label_people15" = "妹妹";
+"label_people16" = "丈夫";
+"label_people17" = "妻子";
+"label_people18" = "儿子";
+"label_people19" = "女儿";
+"label_people20" = "男朋友";
+"label_people21" = "女朋友";
 "label_select" = "选择标签";
 "people_input_tip" = "输入或选择联系人";
 "email" = "电子邮件";
@@ -971,3 +971,16 @@
 "delete_con_msg" = "同时删除会话和消息";
 "pc_delete_chat" = "聊天记录也将被删除，包括聊天中的文件、图片、视频和其他内容";
 "input_shortcut_keys" = "使用键盘输入快捷键";
+"one_check_login" = "一键登录";
+"exiting_remind_first" = "您的账号还未绑定登录方式，退出后无法找回账号！先绑定账号吧！";
+"exiting_remind_second" = "退出登录后，不会收到通知接收新消息";
+"tmmid_limit_remind" = "请输入6~30个字符";
+"moments_without_phone_button" = "去验证";
+"post_moments_withoutphone_remind" = "您的账号还未绑定手机号，发送的Moments将设置为私密，仅自己可见";
+"post_moments_withoutphone_button" = "私密发布";
+"file_not_supported" = "文件格式不支持或文件已损坏";
+"not_in_chatgroup" = "您还没有加入该群";
+"not_exist_topic" = "话题不存在";
+"error_remind_100007_sendcode" = "不支持的地区";
+"error_remind_100003_login" = "登录异常";
+"error_remind_100011_login" = "账号状态异常，登录失败";

@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *videoView;
 @property (nonatomic, strong) IMOSS *oss;
 
+@property (nonatomic, strong) UICollectionView *recordCollection;
+
 @property (nonatomic, strong) IMAnimatedImageView *thumImageView;
 
 //用户单击0，用户双击1，用户下滑上滑退出2

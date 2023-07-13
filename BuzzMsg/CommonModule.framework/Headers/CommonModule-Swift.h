@@ -611,6 +611,7 @@ SWIFT_PROTOCOL("_TtP12CommonModule21OssDownLoadViewStatus_")
 + (UIImage * _Nullable)sdk_bundleImageWithImageName:(NSString * _Nonnull)imageName SWIFT_WARN_UNUSED_RESULT;
 + (NSURL * _Nullable)sdk_bundleSoundPath SWIFT_WARN_UNUSED_RESULT;
 + (NSURL * _Nullable)sdk_bundleEmptySoundPath SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nullable)sdk_bundlePath SWIFT_WARN_UNUSED_RESULT;
 @end
 
 #endif

@@ -32,7 +32,7 @@
 "day" = "天";
 
 
-//====================  2022.9.6新增（外部分享到TMMTMM）  ====================
+//====================  V2.7.1  ====================
 "days" = "天";
 "net_no" = "沒有網絡，請稍後再試";
 "net_something" = "網絡貌似出了點問題，請稍後再試。";
@@ -144,7 +144,7 @@
 "pc_transfer_tip" = "轉賬消息，請在手機上查看。";
 "open" = "打開";
 "open_other" = "使用其他APP打開";
-"unknown_message" = "未知消息，請升級後查看。 ";
+"unknown_message" = "未知消息，請升級後查看。";
 "tmmtmm_pay" = "TmmTmm Pay";
 "check_phone" = "請在手機上查看";
 "pay_succ" = "支付成功";
@@ -674,7 +674,7 @@
 "mp_del_my_msg_me_tip" = "從此聊天刪除我發送的消息，不影響其他人。";
 "group_set_avator_tip_you" = "你修改了群頭像";
 "group_set_avator_tip_x" = "%s修改了群頭像";
-"group_set_info_tip_you" = "你修改了群簡介 ";
+"group_set_info_tip_you" = "你修改了群簡介";
 "group_set_info_tip_x" = "%s修改了群簡介";
 "mp_group_ma_chat_tip" = "%s已將你添加為管理員";
 "mp_group_member_num" = "%d位成員";
@@ -752,27 +752,27 @@
 "label_company" = "公司";
 "add_people" = "添加關係";
 "add_other" = "添加其他信息";
-"label_people1" = "朋友 ";
+"label_people1" = "朋友";
 "label_people2" = "同事";
-"label_people3" = "上司 ";
-"label_people4" = "合作夥伴 ";
-"label_people5" = "親屬 ";
-"label_people6" = "父母 ";
-"label_people7" = "兄弟 ";
-"label_people8" = "姐妹 ";
-"label_people9" = "子女  ";
-"label_people10" = "父親 ";
-"label_people11" = "母親 ";
-"label_people12" = "哥哥 ";
-"label_people13" = "姐姐 ";
-"label_people14" = "弟弟 ";
-"label_people15" = "妹妹 ";
-"label_people16" = "丈夫 ";
-"label_people17" = "妻子 ";
-"label_people18" = "兒子 ";
-"label_people19" = "女兒 ";
-"label_people20" = "男朋友 ";
-"label_people21" = "女朋友 ";
+"label_people3" = "上司";
+"label_people4" = "合作夥伴";
+"label_people5" = "親屬";
+"label_people6" = "父母";
+"label_people7" = "兄弟";
+"label_people8" = "姐妹";
+"label_people9" = "子女";
+"label_people10" = "父親";
+"label_people11" = "母親";
+"label_people12" = "哥哥";
+"label_people13" = "姐姐";
+"label_people14" = "弟弟";
+"label_people15" = "妹妹";
+"label_people16" = "丈夫";
+"label_people17" = "妻子";
+"label_people18" = "兒子";
+"label_people19" = "女兒";
+"label_people20" = "男朋友";
+"label_people21" = "女朋友";
 "label_select" = "選擇標籤";
 "people_input_tip" = "輸入或選擇聯繫人";
 "email" = "電子郵件";
@@ -971,3 +971,16 @@
 "delete_con_msg" = "同時刪除會話和消息";
 "pc_delete_chat" = "消息都会畀删除，包倾计中嘅文件、图片、视频同其他内容";
 "input_shortcut_keys" = "使用鍵盤輸入快捷鍵";
+"one_check_login" = "一鍵登錄";
+"exiting_remind_first" = "您的帳號還未綁定登入管道，退出後無法找回帳號！ 先綁定帳號吧！";
+"exiting_remind_second" = "退出登錄後，不會收到通知接收新消息";
+"tmmid_limit_remind" = "請輸入6~30個字元";
+"moments_without_phone_button" = "去驗證";
+"post_moments_withoutphone_remind" = "您的賬號還未綁定手機號，發送的Moments將設置為私密，僅自己可見";
+"post_moments_withoutphone_button" = "私密發布";
+"file_not_supported" = "檔案格式不支持或檔案已損壞";
+"not_in_chatgroup" = "您還沒有加入該群";
+"not_exist_topic" = "話題不存在";
+"error_remind_100007_sendcode" = "不支持的地區";
+"error_remind_100003_login" = "登錄異常";
+"error_remind_100011_login" = "賬號狀態異常，登錄失敗";

@@ -1059,6 +1059,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter
 - (void)updateSingleChatTopWithChatId:(NSString * _Nonnull)chatId isTop:(NSInteger)isTop currentTopTime:(NSInteger)currentTopTime context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSError * _Nullable, NSInteger))complete;
 + (void)setChatIsReadWithChatId:(NSString * _Nonnull)chatId aChatId:(NSString * _Nonnull)aChatId context:(IMContext * _Nonnull)context;
 - (void)deleteChatWithChatId:(NSString * _Nonnull)chatId aChatId:(NSString * _Nonnull)aChatId context:(IMContext * _Nonnull)context oss:(IMOSS * _Nonnull)oss block:(void (^ _Nullable)(BOOL))block;
++ (void)getUserEventChangeConversionInfoWithInfos:(NSArray<IMConversationInfo *> * _Nonnull)infos eventIds:(NSArray<NSString *> * _Nonnull)eventIds oss:(IMOSS * _Nonnull)oss complete:(void (^ _Nullable)(NSDictionary<NSString *, IMConversationInfo *> * _Nonnull))complete;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1068,6 +1069,11 @@ SWIFT_CLASS("_TtC5IMSDK20IMConversationMarker")
 - (nonnull instancetype)initWithAChatId:(NSString * _Nonnull)aChatId icon:(IMAvatar * _Nullable)icon OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithAChatId:(NSString * _Nonnull)aChatId SWIFT_UNAVAILABLE;
 @end
+
+typedef SWIFT_ENUM(NSInteger, IMConversationNameLoadingType, closed) {
+  IMConversationNameLoadingTypeUid = 0,
+  IMConversationNameLoadingTypeAnimation = 1,
+};
 
 
 SWIFT_CLASS("_TtC5IMSDK26IMConversationSettingEvent")
@@ -1548,10 +1554,10 @@ SWIFT_CLASS("_TtC5IMSDK17IMLeaveGroupAlert")
 @end
 
 
-
 @interface IMLeaveGroupAlert (SWIFT_EXTENSION(IMSDK))
 - (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
@@ -2194,6 +2200,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nullable)localizedWithKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface IMSwiftOcBridge (SWIFT_EXTENSION(IMSDK))
++ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class UITextView;
 @class UITextField;
 
@@ -2214,12 +2226,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// -Parameter decimalNumberCount: Number of decimal places
 /// -Parameter maxNumber: maximum value
 - (BOOL)validateNumberInputWithTextField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)shouldChangeCharactersInRange replacementString:(NSString * _Nonnull)replacementString decimalNumberCount:(NSInteger)decimalNumberCount maxNumber:(NSString * _Nonnull)maxNumber SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface IMSwiftOcBridge (SWIFT_EXTENSION(IMSDK))
-+ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
 @end
 
 enum IMSwipeDirection : NSInteger;
@@ -2351,6 +2357,7 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @property (nonatomic, readonly) BOOL isOpenRippleBg;
 @property (nonatomic, readonly) BOOL isGroupAvatarLeftShow;
 @property (nonatomic, readonly) BOOL isGroupAvatarRightShow;
+@property (nonatomic, readonly) enum IMConversationNameLoadingType conversationNameLoadingType;
 @property (nonatomic, readonly, strong) IMTextMessageRegex * _Nonnull textMessageRegex;
 @property (nonatomic, readonly) BOOL isOpenSendMessageVoice;
 @property (nonatomic, readonly, strong) IMFileMessageCheckSize * _Nonnull fileMessageCheckSize;
@@ -2391,6 +2398,7 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 - (void)showLeftAvatarBySingleChatWithIsShow:(BOOL)isShow;
 - (void)setSendMessageVoiceWithOpen:(BOOL)open;
 - (void)setFileMessageCheckSizeWithCheckSize:(IMFileMessageCheckSize * _Nonnull)checkSize;
+- (void)setConversationNameLoadingTypeWithType:(enum IMConversationNameLoadingType)type;
 @end
 
 
@@ -2575,6 +2583,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK23TMMChatListCellDelegate_")
 - (void)setGroupMemberInfoWithCell:(IMChatListCell * _Nonnull)cell datas:(NSArray<IMShowUserInfo *> * _Nonnull)datas;
 - (void)onShowConversationinfoWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)onClickConversationinfoWithInfo:(IMConversationInfo * _Nonnull)info;
+- (void)replaceConversationInfoWithInfo:(IMConversationInfo * _Nonnull)info;
 @end
 
 
@@ -2584,6 +2593,7 @@ SWIFT_CLASS("_TtC5IMSDK17TMMChatMemberInfo")
 @property (nonatomic, copy) NSString * _Nonnull showName;
 @property (nonatomic, copy) NSString * _Nonnull avatar;
 @property (nonatomic, strong) IMAvatarModel * _Nullable avatarInfo;
+@property (nonatomic) BOOL nameIsEmpty;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
