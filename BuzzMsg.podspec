@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BuzzMsg'
-  s.version          = '1.8.5'
+  s.version          = '1.8.6'
   s.summary          = 'A short description of BuzzMsg.'
 
 # This description is used to generate tags and improve search results.

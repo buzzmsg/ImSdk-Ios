@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 - (void)setupLog;
 - (DDFileLogger *)getFileLoger;
+- (NSString *)getNowTimeTimestamp;
 
 @end
 
