@@ -468,6 +468,7 @@ SWIFT_CLASS("_TtC12CommonModule10IMSDKCache")
 @interface IMSDKCache : NSObject
 @property (nonatomic) NSInteger mRemoteSequence;
 @property (nonatomic) BOOL continueSyncMessage;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull cache;
 - (nonnull instancetype)initWithAk:(NSString * _Nonnull)ak OBJC_DESIGNATED_INITIALIZER;
 - (NSString * _Nonnull)getAk SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

@@ -499,6 +499,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *) getColor:(NSString *)hexColor;
 + (float )getAudioBGViewContentWidth:(float )voiceTimeLength;
 
+
++(NSString *)getNowTimeTimestamp;
++(long)getNowTimestamp;
+
 @end
 
 NS_ASSUME_NONNULL_END
