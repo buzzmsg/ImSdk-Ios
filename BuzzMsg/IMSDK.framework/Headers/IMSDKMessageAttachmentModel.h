@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class IMAvatarModel;
+@class TMMChatMemberInfo;
 
 @interface IMSDKMessageAttachmentModel : NSObject // attachment matedata
 
@@ -55,7 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) double uploadProgress; // upload Progress
 @property (nonatomic,assign) CGSize lastSize;           // size
 @property (nonatomic,assign) BOOL isGif;           // 
-@property (nonatomic,copy) NSString *uid;  // 
+@property (nonatomic,copy) NSString *uid;  //
+@property (nonatomic, strong) TMMChatMemberInfo *uidInfo;
 @property (nonatomic,assign) BOOL isHavePic;           //
 @property (nonatomic,copy) NSString *momentId;  //
 

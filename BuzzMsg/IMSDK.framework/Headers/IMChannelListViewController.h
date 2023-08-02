@@ -28,9 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)showDeleteConversationWithAChatIds:(NSArray <NSString *> *)aChatIds;
 
-- (void)showSaveTempMessages:(NSArray <IMMessageInfoModel *> *)messageModels chatId:(NSString *)chatId;
+//- (void)showSaveTempMessages:(NSArray <IMMessageInfoModel *> *)messageModels chatId:(NSString *)chatId;
 
-- (void)isEnterToChatList:(BOOL)enterToChatList;
+//- (void)isEnterToChatList:(BOOL)enterToChatList;
+
+- (void)firstDataComplete;
 
 @end
 

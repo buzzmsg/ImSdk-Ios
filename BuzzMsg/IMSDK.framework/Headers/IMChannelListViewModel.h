@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "IMChannelTempModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +17,7 @@ typedef void(^TMChatListDataEventBlock)(void);
 @interface IMChannelListViewModel : NSObject
 
 + (NSArray *)dataWithChangeLocation:(NSArray *)dataArray RefreshArr:(NSArray*)refreshArr conversionViewModel:(IMConversationViewModel *)conversionViewModel;
++ (NSArray *)dataSettingWithChangeLocation:(NSArray *)dataArray RefreshArr:(NSArray*)refreshArr conversionViewModel:(IMConversationViewModel *)conversionViewModel;
 
 
 //remove chatId
@@ -26,6 +29,10 @@ typedef void(^TMChatListDataEventBlock)(void);
 + (void)handleConversationMessage:(NSArray *)dataArray oldData: (NSMutableDictionary *)oldDataArray;
 
 + (NSArray *)conversionListFillter: (NSArray *)originalList targetList:(NSArray *)targetList targetChatIds:(NSArray *)targetChatIds conversionViewModel:(IMConversationViewModel *)conversionViewModel;
+
+
++ (IMChannelTempModel *)dataWithChangeLocation1:(NSArray *)dataArray RefreshArr:(NSArray*)refreshArr conversionViewModel:(IMConversationViewModel *)conversionViewModel;
+
 
 @end
 

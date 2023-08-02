@@ -588,6 +588,7 @@ SWIFT_CLASS("_TtC5IMSDK33IMChatGetRedEnvelopeMsgCenterCell")
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 @end
 
+enum IMSwipeDirection : NSInteger;
 @protocol IMSwipeTableViewCellDelegate;
 @protocol TMTMSwipeTableViewCellDataSource;
 @class IMSwipeAction;
@@ -601,6 +602,7 @@ SWIFT_CLASS("_TtC5IMSDK20IMSwipeTableViewCell")
 @property (nonatomic) BOOL isActionsAnimationEnabled;
 @property (nonatomic) BOOL isTapToCloseEnabled;
 @property (nonatomic) CGFloat swipeToExecuteTreshold;
+@property (nonatomic) enum IMSwipeDirection swipeDirection;
 @property (nonatomic, weak) id <IMSwipeTableViewCellDelegate> _Nullable delegate;
 @property (nonatomic, weak) id <TMTMSwipeTableViewCellDataSource> _Nullable dataSource;
 @property (nonatomic, readonly, weak) UITableView * _Null_unspecified tableView;
@@ -611,6 +613,7 @@ SWIFT_CLASS("_TtC5IMSDK20IMSwipeTableViewCell")
 - (void)didMoveToSuperview;
 - (IMSwipeAction * _Nullable)visibleActionAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (void)resetSwipeWithCompletion:(void (^ _Nullable)(void))completion;
+- (void)openSwipeCellTo:(CGPoint)point;
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -634,6 +637,7 @@ SWIFT_CLASS("_TtC5IMSDK14IMChatListCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
 @end
 
 @class IMShowUserInfo;
@@ -662,6 +666,7 @@ SWIFT_CLASS("_TtC5IMSDK17IMChatLoadingView")
 - (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)awakeFromNib;
+- (void)setLoadingImageNameWithName:(NSString * _Nonnull)name;
 - (void)startAnimating;
 - (void)stopAnimating;
 @end
@@ -918,12 +923,68 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 - (void)tapRedPacketNotice:(NSString * _Null_unspecified)amid outTradeNo:(NSString * _Null_unspecified)outTradeNo;
 @end
 
+
+SWIFT_CLASS("_TtC5IMSDK16IMChatViewColors")
+@interface IMChatViewColors : NSObject
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReceiveTextBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReceiveTextFrame;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReceiveText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReceiveTime;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailMeTextBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailMeTextFrame;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailMeText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailMeTime;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailTimeGroupBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailTimeGroupText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailTransparentText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyReceiveBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyReceiveTextName;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyReceiveText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyReceiveTextVerticalLine;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyMeBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyMeTextName;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyRMeText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailReplyMeTextVerticalLine;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardFrame;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardTitle;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardOption;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardLine;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardTime;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardFrame;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardLine;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardTime;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardOptionClick;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardOptionDisable;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailMediaInnerBorder;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailMediaOuterBorder;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailMediaTime;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVedioTimeBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailVedioTimeText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailNickname;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailPanelBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailNewMessageBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailNewMessageFrame;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailNewMessageText;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailNewMessageIcon;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailLastBrowseIcon;
+@property (nonatomic, copy) NSString * _Nonnull chatSendIcon;
+@property (nonatomic, copy) NSString * _Nonnull chatReadIcon;
+@property (nonatomic, copy) NSString * _Nonnull chatMessagesSendingIcon;
+@property (nonatomic, copy) NSString * _Nonnull chatMessagesSendFailIcon;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @protocol IMConversionSelector;
 @class IMConversionTime;
 
 SWIFT_CLASS("_TtC5IMSDK22IMChatViewModelFactory")
 @interface IMChatViewModelFactory : NSObject
 + (id <IMConversionSelector> _Nonnull)ofAll SWIFT_WARN_UNUSED_RESULT;
++ (id <IMConversionSelector> _Nonnull)ofAll1 SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)ofPartWithIds:(NSArray<NSString *> * _Nonnull)ids SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)ofUnPartWithIds:(NSArray<NSString *> * _Nonnull)ids SWIFT_WARN_UNUSED_RESULT;
 + (id <IMConversionSelector> _Nonnull)selectRecentWithStratTime:(IMConversionTime * _Nonnull)stratTime endTime:(IMConversionTime * _Nonnull)endTime SWIFT_WARN_UNUSED_RESULT;
@@ -932,10 +993,11 @@ SWIFT_CLASS("_TtC5IMSDK22IMChatViewModelFactory")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+enum IMConversionSelectorType : NSInteger;
 
 SWIFT_PROTOCOL("_TtP5IMSDK20IMConversionSelector_")
 @protocol IMConversionSelector <NSObject>
-- (void)selectorWithContext:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
@@ -944,13 +1006,27 @@ SWIFT_PROTOCOL("_TtP5IMSDK20IMConversionSelector_")
 
 SWIFT_CLASS("_TtC5IMSDK17IMCombineSelector")
 @interface IMCombineSelector : NSObject <IMConversionSelector>
-- (void)selectorWithContext:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+SWIFT_CLASS("_TtC5IMSDK13IMConfigColor")
+@interface IMConfigColor : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) IMConfigColor * _Nonnull shared;)
++ (IMConfigColor * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, strong) IMChatViewColors * _Nonnull chatViewColors;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, IMConfigColorType, closed) {
+  IMConfigColorTypeBossjob = 0,
+  IMConfigColorTypeTmmTmm = 1,
+};
 
 
 SWIFT_CLASS("_TtC5IMSDK23IMConversationBaseModel")
@@ -970,6 +1046,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK22IMConversationDelegate_")
 - (void)scrollViewDidEndDraggingWithScrollView:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)willDecelerate;
 - (void)onShowConversationSubTitleWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)onShowConversationMarkerWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
+- (void)onFirstDataComplete;
 @end
 
 
@@ -1022,6 +1099,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationInfo")
 @property (nonatomic, strong) IMImageTempModel * _Nullable tempModel;
 @property (nonatomic, copy) NSString * _Nonnull allContent;
 @property (nonatomic, copy) NSString * _Nonnull contentName;
+@property (nonatomic, copy) NSString * _Nonnull tempLastMessageId;
 @property (nonatomic) BOOL isRefreshGroupMember;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) NSUInteger hash;
@@ -1048,6 +1126,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter
 + (IMConversationManager * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
 + (void)setDefault:(IMConversationManager * _Nonnull)value;
 + (void)getOCConversationWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate complete:(void (^ _Nullable)(NSArray<IMConversationInfo *> * _Nonnull))complete;
++ (void)getOCConversationToViewWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate complete:(void (^ _Nullable)(NSArray<IMConversationInfo *> * _Nonnull))complete;
 - (NSArray<IMConversationInfo *> * _Nonnull)getConversationWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate SWIFT_WARN_UNUSED_RESULT;
 - (void)markReadWithChatId:(NSString * _Nonnull)chatId isRead:(NSInteger)isRead context:(IMContext * _Nonnull)context;
 - (void)hideConversationWithChatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context block:(void (^ _Nonnull)(void))block;
@@ -1055,6 +1134,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter
 + (BOOL)isSingleWithConversation:(IMConversationInfo * _Nonnull)conversation SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)getConversationAChatIdWithDb:(IMDataBase * _Nonnull)db chatId:(NSString * _Nonnull)chatId SWIFT_WARN_UNUSED_RESULT;
 + (void)getConversationAChatIdWithChatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context doneBlock:(void (^ _Nonnull)(NSString * _Nonnull))doneBlock;
+- (void)preGetConversationLastSawIndexWithGroupId:(NSString * _Nonnull)groupId context:(IMContext * _Nonnull)context imsdk:(IMSdk * _Nonnull)imsdk completed:(void (^ _Nullable)(NSInteger, NSInteger, BOOL))completed;
 - (void)getConversationLastSawIndexWithGroupId:(NSString * _Nonnull)groupId context:(IMContext * _Nonnull)context imsdk:(IMSdk * _Nonnull)imsdk completed:(void (^ _Nullable)(NSInteger, NSInteger, BOOL))completed;
 - (void)updateSingleChatTopWithChatId:(NSString * _Nonnull)chatId isTop:(NSInteger)isTop currentTopTime:(NSInteger)currentTopTime context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSError * _Nullable, NSInteger))complete;
 + (void)setChatIsReadWithChatId:(NSString * _Nonnull)chatId aChatId:(NSString * _Nonnull)aChatId context:(IMContext * _Nonnull)context;
@@ -1140,8 +1220,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationView")
 @class IMChannelListViewController;
 
 @interface IMConversationView (SWIFT_EXTENSION(IMSDK)) <TMMChannelListCheckDelegate>
-- (void)isEnterToChatList:(BOOL)enterToChatList;
-- (void)showSaveTempMessages:(NSArray<IMMessageInfoModel *> * _Nonnull)messageModels chatId:(NSString * _Nonnull)chatId;
+- (void)firstDataComplete;
 - (void)didSelectAchatId:(NSString * _Nonnull)aChatId;
 - (void)setGroupMemberInfoWithController:(IMChannelListViewController * _Nonnull)controller datas:(NSArray<IMShowUserInfo *> * _Nonnull)datas;
 - (void)tableViewDidScroll:(UIScrollView * _Nonnull)tableView;
@@ -1169,6 +1248,7 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
 - (void)setConversationWithAChatId:(NSString * _Nonnull)aChatId isMute:(BOOL)isMute success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)deleteWithSuccess:(void (^ _Nullable)(void))success;
 - (void)getUnReadCountWithSuccess:(void (^ _Nullable)(NSInteger))success;
+- (void)getConversionViewChatIdsWithComplete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (void)getChatIdsWithComplete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (void)setConversationSubTitleWithSubTitles:(NSArray<IMConversationSubTitle *> * _Nonnull)subTitles;
 - (void)setConversationMarkerWithMarkers:(NSArray<IMConversationMarker *> * _Nonnull)markers;
@@ -1196,7 +1276,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationinfo")
 
 SWIFT_CLASS("_TtC5IMSDK24IMConversionSelectRecent")
 @interface IMConversionSelectRecent : NSObject <IMConversionSelector>
-- (void)selectorWithContext:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
@@ -1207,7 +1287,7 @@ SWIFT_CLASS("_TtC5IMSDK24IMConversionSelectRecent")
 
 SWIFT_CLASS("_TtC5IMSDK22IMConversionSelectTime")
 @interface IMConversionSelectTime : NSObject <IMConversionSelector>
-- (void)selectorWithContext:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
@@ -1219,7 +1299,7 @@ SWIFT_CLASS("_TtC5IMSDK22IMConversionSelectTime")
 
 SWIFT_CLASS("_TtC5IMSDK23IMConversionSelectorAll")
 @interface IMConversionSelectorAll : NSObject <IMConversionSelector>
-- (void)selectorWithContext:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
@@ -1227,9 +1307,24 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversionSelectorAll")
 @end
 
 
+SWIFT_CLASS("_TtC5IMSDK24IMConversionSelectorAll1")
+@interface IMConversionSelectorAll1 : NSObject <IMConversionSelector>
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, IMConversionSelectorType, closed) {
+  IMConversionSelectorTypeConversion_View = 0,
+  IMConversionSelectorTypeConversion_Normal = 1,
+};
+
+
 SWIFT_CLASS("_TtC5IMSDK26IMConversionSelectorUnRead")
 @interface IMConversionSelectorUnRead : NSObject <IMConversionSelector>
-- (void)selectorWithContext:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 - (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
@@ -1284,11 +1379,11 @@ SWIFT_CLASS("_TtC5IMSDK23IMDeleteConversionAlert")
 @end
 
 
+
+
 @interface IMDeleteConversionAlert (SWIFT_EXTENSION(IMSDK))
 - (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 typedef SWIFT_ENUM(NSInteger, IMDownloadStatus, closed) {
@@ -1484,7 +1579,7 @@ SWIFT_CLASS("_TtC5IMSDK17IMGroupMemberInfo")
 SWIFT_CLASS("_TtC5IMSDK18IMGroupMemberLogic")
 @interface IMGroupMemberLogic : NSObject
 + (void)getConversationInfoWithConversationInfo:(IMConversationInfo * _Nonnull)conversationInfo context:(IMContext * _Nonnull)context delegate:(id <IMGroupMemberDelegate> _Nullable)delegate;
-+ (void)refreshGroupMemberInfosWithGroupMembers:(NSArray<RefreshGroupMember *> * _Nonnull)groupMembers context:(IMContext * _Nonnull)context delegate:(id <IMGroupMemberDelegate> _Nullable)delegate;
++ (void)refreshGroupMemberInfosWithGroupMembers:(NSArray<RefreshGroupMember *> * _Nonnull)groupMembers context:(IMContext * _Nonnull)context delegate:(id <IMGroupMemberDelegate> _Nullable)delegate tagStr:(NSString * _Nonnull)tagStr;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1554,10 +1649,10 @@ SWIFT_CLASS("_TtC5IMSDK17IMLeaveGroupAlert")
 @end
 
 
-
 @interface IMLeaveGroupAlert (SWIFT_EXTENSION(IMSDK))
 - (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
@@ -1912,6 +2007,14 @@ SWIFT_CLASS("_TtC5IMSDK22IMPayNoticeMessageCell")
 @end
 
 
+SWIFT_CLASS("_TtC5IMSDK17IMPreLoadMsgsUtil")
+@interface IMPreLoadMsgsUtil : NSObject
+- (void)startPreLoadDataWithAChatID:(NSString * _Nonnull)aChatID chatID:(NSString * _Nonnull)chatID imsdk:(IMSdk * _Nonnull)imsdk preDoneBlock:(void (^ _Nonnull)(void))preDoneBlock;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class LottieAnimationView;
+
 SWIFT_CLASS("_TtC5IMSDK15IMProjectConfig")
 @interface IMProjectConfig : NSObject
 + (NSString * _Nonnull)tmmPayId SWIFT_WARN_UNUSED_RESULT;
@@ -1922,10 +2025,15 @@ SWIFT_CLASS("_TtC5IMSDK15IMProjectConfig")
 + (NSString * _Nonnull)localizableWithValue:(NSString * _Nonnull)value placeholderArr:(NSArray<NSString *> * _Nonnull)placeholderArr SWIFT_WARN_UNUSED_RESULT;
 + (CGFloat)minimumLongPressDuration SWIFT_WARN_UNUSED_RESULT;
 + (NSInteger)chatInputTextMaxLength SWIFT_WARN_UNUSED_RESULT;
++ (void)ocWriteLogsWithLog:(NSString * _Nonnull)log;
 + (NSInteger)chatGifMaxSize SWIFT_WARN_UNUSED_RESULT;
 + (NSInteger)chatImageMaxSize SWIFT_WARN_UNUSED_RESULT;
 + (NSInteger)chatVideoMaxSize SWIFT_WARN_UNUSED_RESULT;
 + (NSInteger)chatFileMaxSize SWIFT_WARN_UNUSED_RESULT;
++ (LottieAnimationView * _Nonnull)getChatCardEmptyView SWIFT_WARN_UNUSED_RESULT;
++ (LottieAnimationView * _Nonnull)getChatEmptyViewWithIsGroup:(BOOL)isGroup SWIFT_WARN_UNUSED_RESULT;
++ (LottieAnimationView * _Nonnull)showEmptyView SWIFT_WARN_UNUSED_RESULT;
++ (void)chatEmptyAnimationWithTView:(LottieAnimationView * _Nonnull)tView animation:(BOOL)animation;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2033,12 +2141,12 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 @class TMMConversation;
 
 @interface IMSdk (SWIFT_EXTENSION(IMSDK))
 - (NSArray<TMMConversation *> * _Nonnull)getConversationsWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 @interface IMSdk (SWIFT_EXTENSION(IMSDK))
@@ -2202,6 +2310,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nullable)localizedWithKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface IMSwiftOcBridge (SWIFT_EXTENSION(IMSDK))
++ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class UITextView;
 @class UITextField;
 
@@ -2224,13 +2338,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (BOOL)validateNumberInputWithTextField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)shouldChangeCharactersInRange replacementString:(NSString * _Nonnull)replacementString decimalNumberCount:(NSInteger)decimalNumberCount maxNumber:(NSString * _Nonnull)maxNumber SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface IMSwiftOcBridge (SWIFT_EXTENSION(IMSDK))
-+ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
-@end
-
-enum IMSwipeDirection : NSInteger;
 
 SWIFT_CLASS("_TtC5IMSDK13IMSwipeAction")
 @interface IMSwipeAction : NSObject
@@ -2258,8 +2365,9 @@ SWIFT_CLASS("_TtC5IMSDK17IMSwipeActionView")
 @end
 
 typedef SWIFT_ENUM(NSInteger, IMSwipeDirection, closed) {
-  IMSwipeDirectionLeft = 0,
-  IMSwipeDirectionRight = 1,
+  IMSwipeDirectionNormoal = 0,
+  IMSwipeDirectionLeft = 1,
+  IMSwipeDirectionRight = 2,
 };
 
 
@@ -2272,6 +2380,8 @@ SWIFT_PROTOCOL("_TtP5IMSDK28IMSwipeTableViewCellDelegate_")
 - (BOOL)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell shouldStartSwipeForDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
 - (void)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell willStartSwipeForDirection:(enum IMSwipeDirection)direction;
 - (void)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell didEndSwipeForDirection:(enum IMSwipeDirection)direction;
+- (void)swipeResetSwipeCell:(IMSwipeTableViewCell * _Nonnull)cell;
+- (void)swipeHiddenImageCell:(IMSwipeTableViewCell * _Nonnull)cell;
 @end
 
 
@@ -2363,9 +2473,12 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @property (nonatomic, readonly, strong) IMTextMessageRegex * _Nonnull textMessageRegex;
 @property (nonatomic, readonly) BOOL isOpenSendMessageVoice;
 @property (nonatomic, readonly, strong) IMFileMessageCheckSize * _Nonnull fileMessageCheckSize;
+@property (nonatomic, readonly) BOOL chatViewShowEmptyLoadingView;
+- (void)setChatViewShowEmptyLoadingViewWithIsShow:(BOOL)isShow;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)setIsOpenRippleBgWithRipple:(BOOL)ripple;
 - (void)setTextMessageRegexWithRegex:(IMTextMessageRegex * _Nonnull)regex;
+- (void)setConfigColorWithType:(enum IMConfigColorType)type;
 /// Set custome message menu types
 /// \param menuTypes [IMMessageMenuType.rawValue], int value
 ///
@@ -2582,10 +2695,9 @@ SWIFT_CLASS("_TtC5IMSDK23TMChatMessageContentDto")
 
 SWIFT_PROTOCOL("_TtP5IMSDK23TMMChatListCellDelegate_")
 @protocol TMMChatListCellDelegate <NSObject>
-- (void)setGroupMemberInfoWithCell:(IMChatListCell * _Nonnull)cell datas:(NSArray<IMShowUserInfo *> * _Nonnull)datas;
 - (void)onShowConversationinfoWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
-- (void)onClickConversationinfoWithInfo:(IMConversationInfo * _Nonnull)info;
 - (void)replaceConversationInfoWithInfo:(IMConversationInfo * _Nonnull)info;
+- (void)pressAnimateDoneWithAChatId:(NSString * _Nonnull)aChatId;
 @end
 
 

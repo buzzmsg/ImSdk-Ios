@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)hideEmptyView;
 
 - (void)updateEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title;
+- (void)updateJsonViewWithImageName:(NSString *)imageName title:(NSString *)title;
 
 - (void)setEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title detail:(NSString *)detail;
 

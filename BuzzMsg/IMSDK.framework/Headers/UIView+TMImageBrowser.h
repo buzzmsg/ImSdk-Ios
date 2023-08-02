@@ -17,8 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIImage *)screenshotsImage;
 
 - (UIImage *)imageWithView;
+- (UIImage *)snapshotImageNew;
+- (UIImage *)screenshot;
 
 - (UIImage *)screenshotWithRect:(CGRect)rect;
+- (UIImage *)currentScreen:(CGRect)rect;
 
 @end
 

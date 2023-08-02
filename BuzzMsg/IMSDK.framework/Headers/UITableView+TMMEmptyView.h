@@ -20,14 +20,16 @@ typedef void (^buttonEvent_t)(UIButton *button);
 
 @property (nonatomic, strong) QMUIEmptyView *emptyView;
 
+@property (nonatomic, assign) BOOL emptyApplyToPreload;
+@property (nonatomic, assign) BOOL hiddenPreloadEmptyView;
+
 //-(void)addEmptyViewWithImageName:(NSString*)imageName title:(NSString*)title;
 
--(void)hideEmptyView;
-- (void)showEmptView;
 - (void)setEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title detail:(NSString *)detail;
-- (void)updateEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title;
+- (void)updateEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title top:(int)height;
 
 - (void)updateEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title des:(NSString *)des;
+- (void)updateJsonViewWithImageName:(NSString *)imageName title:(NSString *)title top:(int)height;
 
 //- (void)updateEmptyViewWithImageName:(NSString *)imageName
 //                                text:(NSString *)text
@@ -39,6 +41,13 @@ typedef void (^buttonEvent_t)(UIButton *button);
                          button:(TMMEmptyButtonConfig * _Nullable)config
                                event:(__nullable buttonEvent_t)event;
 
+- (void)showJsonEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title des:(NSString*)showString;
+- (void)setChatDetailEmpty:(BOOL)isGroup;
+- (void)setChatDetailCardEmpty;
+
+- (void)im_hideEmptyView;
+- (void)im_showEmptView;
+-(void)deleteView;
 @end
 
 NS_ASSUME_NONNULL_END

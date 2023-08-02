@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)passIDForRequestFriendsMessage;
 + (NSString *)ACKMessageNotification;
 + (NSString *)UnreadTextEidt:(NSInteger)ureadCount;
-+ (UIImage *)returnStatusImageWithModel:(TMMessageStatus)statu;
++ (UIImage *)returnStatusImageWithModel:(TMMessageStatus)statu isUseToDetail:(BOOL)isUseToDetail;
 
 #pragma mark - Sandbox
 /// creat file directory
@@ -498,7 +498,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getTimeStrWithString:(NSString *)str;
 + (UIColor *) getColor:(NSString *)hexColor;
 + (float )getAudioBGViewContentWidth:(float )voiceTimeLength;
-
 
 +(NSString *)getNowTimeTimestamp;
 +(long)getNowTimestamp;
