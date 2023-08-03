@@ -2136,7 +2136,6 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 - (IMChatMediaImagesListView * _Nonnull)getChatMediaImagesListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (IMChatMediaFileListView * _Nonnull)getChatMediaFileListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (IMChatMediaAudioListView * _Nonnull)getChatMediaAudioListViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
-- (void)refreshGroupListWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
