@@ -1125,6 +1125,7 @@ SWIFT_CLASS("_TtC5IMSDK21IMConversationManager")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter=setDefault:) IMConversationManager * _Nonnull default_;)
 + (IMConversationManager * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
 + (void)setDefault:(IMConversationManager * _Nonnull)value;
++ (void)getOCEventConversationWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate complete:(void (^ _Nullable)(NSArray<IMConversationInfo *> * _Nonnull))complete;
 + (void)getOCConversationWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate complete:(void (^ _Nullable)(NSArray<IMConversationInfo *> * _Nonnull))complete;
 + (void)getOCConversationToViewWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate complete:(void (^ _Nullable)(NSArray<IMConversationInfo *> * _Nonnull))complete;
 - (NSArray<IMConversationInfo *> * _Nonnull)getConversationWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate SWIFT_WARN_UNUSED_RESULT;

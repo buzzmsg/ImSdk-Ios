@@ -257,6 +257,12 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 
+SWIFT_CLASS("_TtC12CommonModule16IMAfStreamClient")
+@interface IMAfStreamClient : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC12CommonModule7IMAsync")
 @interface IMAsync : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -577,6 +583,13 @@ SWIFT_CLASS("_TtC12CommonModule25IMTransferUploadControler")
 @interface IMTransferUploadControler : NSObject
 - (id _Nonnull)copy SWIFT_WARN_UNUSED_RESULT;
 - (id _Nonnull)mutableCopy SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC12CommonModule21IMXPShortStreamClient")
+@interface IMXPShortStreamClient : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
