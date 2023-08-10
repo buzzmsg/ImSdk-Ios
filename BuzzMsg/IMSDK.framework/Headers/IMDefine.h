@@ -42,6 +42,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelOff;
 #define NSLog(FORMAT, ...) nil
 #endif
 
+
+typedef NSInteger IMIFileFormat NS_TYPED_EXTENSIBLE_ENUM;
+static const IMIFileFormat IMIFileFormatImage     = 0;
+static const IMIFileFormat IMIFileFormatVideo       = 1;
+static const IMIFileFormat IMIFileFormatFile       = 2;
+
+
 typedef NS_ENUM(NSUInteger, FromWayType) {
     FromWayType_Unknown = 0,       //
     FromWayType_Search_TMM_ID ,    //
@@ -501,6 +508,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSString *)getNowTimeTimestamp;
 +(long)getNowTimestamp;
++ (BOOL)chooseVideoExtensionIsSuffix:(NSData *)data format:(NSString *)format;
++ (BOOL)chooseImageExtensionIsSuffix:(NSData *)data format:(NSString *)format;
++ (NSString *)chooseImageTrueSuffix:(NSData *)data original:(NSString *)original;
++ (NSString *)chooseVideoTrueSuffix:(NSData *)data original:(NSString *)original;
++ (IMIFileFormat)chooseFileExtensionIsSuffix:(NSData *)data format:(NSString *)format;
 
 @end
 
