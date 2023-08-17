@@ -58,6 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTableEmpytView:(UIView * _Nullable)empty;
 - (void)clearDataSource;
 
+- (void)ocChatDoubleTapNotification;
+
 @end
 
 

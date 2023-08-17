@@ -1211,6 +1211,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationView")
 - (void)setTableViewContentInsetWithInset:(UIEdgeInsets)inset;
 - (void)setTableViewScrollIndicatorInsetsWithInset:(UIEdgeInsets)inset;
 - (void)setTableViewContentOffsetWithOffset:(CGPoint)offset animated:(BOOL)animated;
+- (void)chatDoubleTapNotification;
 - (void)setTableViewEmptyViewWithView:(UIView * _Nullable)view;
 - (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
@@ -2698,6 +2699,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK23TMMChatListCellDelegate_")
 - (void)onShowConversationinfoWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)replaceConversationInfoWithInfo:(IMConversationInfo * _Nonnull)info;
 - (void)pressAnimateDoneWithAChatId:(NSString * _Nonnull)aChatId;
+- (void)onShowConversationUserInfoWithRefreshUsers:(NSArray<IMShowUserInfo *> * _Nonnull)refreshUsers;
 @end
 
 
