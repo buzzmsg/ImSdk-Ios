@@ -1,5 +1,5 @@
 //
-//  UITableView+TMMEmptyView.h
+//  UITableView+IMEmptyView.h
 //  MYSaSClerk
 //
 //  Created by  on 2019/11/16.
@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <QMUIKit/QMUIKit.h>
 #import <Masonry/Masonry.h>
-#import "TMMEmptyButtonConfig.h"
+#import "IMEmptyButtonConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^buttonEvent_t)(UIButton *button);
 
 
-@interface UITableView (TMMEmptyView)
+@interface UITableView (IMEmptyView)
 
 @property (nonatomic, strong) QMUIEmptyView *emptyView;
 
@@ -38,7 +38,7 @@ typedef void (^buttonEvent_t)(UIButton *button);
 - (void)updateEmptyViewWithImageName:(NSString *)imageName
                                 text:(NSString *)text
                                  des:(NSString *)des
-                         button:(TMMEmptyButtonConfig * _Nullable)config
+                         button:(IMEmptyButtonConfig * _Nullable)config
                                event:(__nullable buttonEvent_t)event;
 
 - (void)showJsonEmptyViewWithImageName:(NSString *)imageName title:(NSString *)title des:(NSString*)showString;

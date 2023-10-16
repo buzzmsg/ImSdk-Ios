@@ -1,9 +1,9 @@
 //
 //  IMChatDetailViewController.h
-//  TMM
+//  
 //
-//  Created by tmm on 2019/11/5.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Created by on 2019/11/5.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,7 +14,7 @@
 @class IMUISetting;
 @class IMSdk;
 
-@protocol TMMChatDetailCheckDelegate <NSObject>
+@protocol IMChatDetailCheckDelegate <NSObject>
 
 - (void)tapfileAtIndexPath:(NSString *)mid;
 - (void)tapImageAtIndexPath:(NSString *)chatId messageId:(NSInteger)messageId aMid:(NSString *)aMid;
@@ -67,12 +67,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //ocean new
 @property (nonatomic, strong) NSString *chatId;
-//@property (nonatomic, strong) IMMessage *draftTmMessage;
 @property (nonatomic, assign) BOOL isSearch;
-//@property (nonatomic, strong) TMSearchChatMsgResultModel *searchModel;
 @property (nonatomic, strong) IMMessage *searchModel;
 
-@property (nonatomic,weak) id<TMMChatDetailCheckDelegate> checkDelegate;
+@property (nonatomic,weak) id<IMChatDetailCheckDelegate> checkDelegate;
 @property (nonatomic, strong) IMContext *context;
 @property (nonatomic, strong) IMOSS *oss;
 @property (nonatomic, strong) IMUISetting *uiSetting;
@@ -80,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getChatId:(NSString *)chatId aChatId:(NSString *)aChatId isPreLoadData:(BOOL)isPreLoadData;
 
-- (NSArray <NSString *>*)getForwardSelectMids;
+- (NSArray <NSString *>*)getForwardSelectAmids;
 
 @property (nonatomic, strong, nullable) IMLongPressPopView * longView;
 

@@ -1,5 +1,5 @@
 //
-//  TMMEmptyButtonConfig.h
+//  IMEmptyButtonConfig.h
 //  IMSDK
 //
 //  Created by oceanMAC on 2022/11/29.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TMMEmptyButtonConfig : NSObject
+@interface IMEmptyButtonConfig : NSObject
 
 @property (nonatomic, strong) UIColor *backGroudColor;
 @property (nonatomic, strong) UIColor *titleTextColor;

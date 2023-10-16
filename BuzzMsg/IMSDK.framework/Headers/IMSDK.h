@@ -54,9 +54,9 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 #import <IMSDK/IMChatBaseCell.h>
 #import <IMSDK/IMNewChatTextManager.h>
 //#import <IMSDK/IMLibsManager.h>
-#import <IMSDK/UITableView+TMMEmptyView.h>
-#import <IMSDK/UICollectionView+TMMEmptyView.h>
-#import <IMSDK/TMMEmptyButtonConfig.h>
+#import <IMSDK/UITableView+IMEmptyView.h>
+#import <IMSDK/UICollectionView+IMEmptyView.h>
+#import <IMSDK/IMEmptyButtonConfig.h>
 #import <IMSDK/IMMyAudioPlayer.h>
 #import <IMSDK/NSObject+Extension.h>
 #import <IMSDK/IMDecoder.h>

@@ -1,9 +1,9 @@
 //
 //  IMChangeMasageModel.h
-//  TMM
+//  
 //
 //  Created by  on 2021/8/7.
-//  Copyright © 2021 TMM. All rights reserved.
+//  Copyright © 2021_All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

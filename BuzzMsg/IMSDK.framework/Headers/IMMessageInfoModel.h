@@ -1,13 +1,13 @@
 //
 //  IMMessageInfoModel.h
-//  TMM
+//  
 //
-//  Created by tmm on 2019/11/6.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Created by on 2019/11/6.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <YYText/YYText.h>
+#import <HYText/YYText.h>
 #import "IMChatTextLayout.h"
 #import "IMSDKMessageAttachmentModel.h"
 #import "IMMessageQuotoInfoModel.h"
@@ -39,51 +39,34 @@ typedef NS_ENUM(NSUInteger, YHMessageDeliveryState) {
 //    YHMessageDeliveryState_DELIVERED,      //
 //    YHMessageDeliveryState_DELIVERED_AND_READ   //
 };
-typedef NS_ENUM(NSUInteger, TMMessageContentType) {
-    TMMessageContentType_UNKNOWN = 0,
-    TMMessageContentType_DEFAULT = 1,   // Text message
-    TMMessageContentType_IMAGE,   // image
-    TMMessageContentType_AUDIO,  // recording
-    TMMessageContentType_VIDEO,   // video
-    TMMessageContentType_FILE,   // file
-    TMMessageContentType_SendRedEnvelope = 6, // SendRedEnvelope
-    TMMessageContentType_CoinTransfer = 7, // transfer
-//    TMMessageContentType_Call = 8,  // Audio and video calls
-    TMMessageContentType_MiniProgram = 9,  //
-    TMMessageContentType_Moments = 10,  // moments
-    TMMessageContentType_payNotice = 11, // pay notice
-    TMMessageContentType_getRedEnvelope = 12,//get RedEnvelope
-    TMMessageContentType_Location = 13,// user location
-    TMMessageContentType_meeting = 14, // meeting
-    TMMessageContentType_AT_Person = 15, // @xxxx  @all
-    TMMessageContentType_HollowManStatus = 18, //HollowMan-msg
-    TMMessageContentType_CardMessage = 19,
-    TMMessageContentType_RevokeStatus = 81, //ContentType_Revoke-msg
-    TMMessageContentType_UidTextA = 20,
-    TMMessageContentType_TextSystemNotice = 21,
-    TMMessageContentType_Customize = 22,
-    TMMessageContentType_VerticalCardMessage = 23,
+typedef NS_ENUM(NSUInteger, IMMessageContentType) {
+    IMMessageContentType_UNKNOWN = 0,
+    IMMessageContentType_DEFAULT = 1,   // Text message
+    IMMessageContentType_IMAGE,   // image
+    IMMessageContentType_AUDIO,  // recording
+    IMMessageContentType_VIDEO,   // video
+    IMMessageContentType_FILE,   // file
+    IMMessageContentType_SendRedEnvelope = 6, // SendRedEnvelope
+    IMMessageContentType_CoinTransfer = 7, // transfer
+//    IMMessageContentType_Call = 8,  // Audio and video calls
+    IMMessageContentType_MiniProgram = 9,  //
+    IMMessageContentType_Moments = 10,  // moments
+    IMMessageContentType_payNotice = 11, // pay notice
+    IMMessageContentType_getRedEnvelope = 12,//get RedEnvelope
+    IMMessageContentType_Location = 13,// user location
+    IMMessageContentType_meeting = 14, // meeting
+    IMMessageContentType_AT_Person = 15, // @xxxx  @all
+    IMMessageContentType_HollowManStatus = 18, //HollowMan-msg
+    IMMessageContentType_CardMessage = 19,
+    IMMessageContentType_RevokeStatus = 81, //ContentType_Revoke-msg
+    IMMessageContentType_UidTextA = 20,
+    IMMessageContentType_TextSystemNotice = 21,
+    IMMessageContentType_Customize = 22,
+    IMMessageContentType_VerticalCardMessage = 23,
     
     
     // Only use to local for UI
-    TMMessageContentType_HistoryPosiation,
-
-    
-//    TMMessageContentType_RedPacket,  // Red envelope 🧧
-//    TMMessageContentType_LOCATION,  // Positioning
-//    TMMessageContentType_NOTIFACATION,   // tip group prompt
-//    TMMessageContentType_takePacket,  // Open the red envelope message 🧧
-//    TMMessageContentType_Transfer,  // Transfer
-//    TMMessageContentType_SplitBill,  // Group collection
-//    TMMessageContentType_SplitBillTip,  // Group collection reminder message
-//    TMMessageContentType_VCard,  // business card
-//    TMMessageContentType_OfficialAccountCard,  // business card
-//    TMMessageContentType_ImageLink,  //
-//    TMMessageContentType_ForwardImageLink,  //
-//    TMMessageContentType_Moment,  //
-//    TMMessageContentType_Nearby,  //
-//    TMMessageContentType_CoinTransaction,  //Coin Transaction
-//    TMMessageContentType_VoiceCallStatus, //Voice call status ： start or end
+    IMMessageContentType_HistoryPosiation,
 };
 
 /**
@@ -95,7 +78,7 @@ typedef NS_ENUM(NSUInteger, TMMessageContentType) {
  - Channel_Type: 频道
  - Things_Type: 物联网
  */
-typedef NS_ENUM(NSInteger, TMTMMConversationType) {
+typedef NS_ENUM(NSInteger, IMMConversationType) {
     Single_Type,
     Group_Type,
     Chatroom_Type,
@@ -114,7 +97,7 @@ typedef NS_ENUM(NSInteger, TMTMMConversationType) {
  - Message_Status_Readed: 已读
  - Message_Status_Played: 已播放(媒体消息)
  */
-typedef NS_ENUM(NSInteger, TMMessageStatus) {
+typedef NS_ENUM(NSInteger, IMessageStatus) {
     Message_Status_Sending,
     Message_Status_Sent,
     Message_Status_Send_Failure,
@@ -146,7 +129,7 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, assign) long long displayTime;
 
 @property (nonatomic, assign, readonly) long long serverSecondsTime;
-@property (nonatomic, assign)TMMessageStatus status;
+@property (nonatomic, assign)IMessageStatus status;
 @property (nonatomic, copy) NSString *uuid;
 @property (nonatomic, copy) NSString *vCode; //version Code
 @property (nonatomic, copy) NSString *aMid;
@@ -201,22 +184,22 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, assign) BOOL isSendToServer;
 @property (nonatomic, assign) BOOL isPlayingAudio;      // Whether sound is playing
 @property (nonatomic, assign) float playAudioProgross;  // Play sound progress
-@property (nonatomic, assign) TMMessageContentType contentType;          //Message type
+@property (nonatomic, assign) IMMessageContentType contentType;          //Message type
 @property (nonatomic, strong) IMSDKMessageAttachmentModel *attachment;   //attachment content
-@property (nonatomic, strong) TMMMessageLoactionModel *loactonModel;   //location content
-@property (nonatomic, strong) TMessageRedpacketModel *redpacketModel;   //Red envelope content
-@property (nonatomic, strong) TMessagetakePacketModel *takePacketModel;   //Open red envelope content
-@property (nonatomic, strong) TMessageTransferModel *transferModel;   //Transfer content
-@property (nonatomic, strong) TMessageSplitBillModel *splitBillModel;   //Group collection content
-@property (nonatomic, strong) TMessageSplitBillTipModel *splitBillTipModel;   //Group collection content Tip message
-@property (nonatomic, strong) TMessageVCardModel *vCardModel;   //Business card information
-@property (nonatomic, strong) TMessageOfficialAccountCardModel *officialAccountCardModel;   // Official Account card information
-@property (nonatomic, strong) TMessageMiniProgarmModel *miniprogramModel;   //miniprogram Model
-@property (nonatomic, strong) TMessageCoinTransactionModel *coinTransactionModel;   //
-@property (nonatomic, strong) NSArray<TMessageImageLinkModel *> *imageLinkModelArr;
-@property (nonatomic, strong) TMessageMomentModel *momentModel;   //
-@property (nonatomic, strong) TMessageNearbyModel *nearbyModel;   //
-@property (nonatomic, strong) TMessageVoiceCallStatusModel *callStatusModel;
+@property (nonatomic, strong) IMessageLoactionModel *loactonModel;   //location content
+@property (nonatomic, strong) IMessageRedpacketModel *redpacketModel;   //Red envelope content
+@property (nonatomic, strong) IMessagetakePacketModel *takePacketModel;   //Open red envelope content
+@property (nonatomic, strong) IMessageTransferModel *transferModel;   //Transfer content
+@property (nonatomic, strong) IMessageSplitBillModel *splitBillModel;   //Group collection content
+@property (nonatomic, strong) IMessageSplitBillTipModel *splitBillTipModel;   //Group collection content Tip message
+@property (nonatomic, strong) IMessageVCardModel *vCardModel;   //Business card information
+@property (nonatomic, strong) IMessageOfficialAccountCardModel *officialAccountCardModel;   // Official Account card information
+@property (nonatomic, strong) IMessageMiniProgarmModel *miniprogramModel;   //miniprogram Model
+@property (nonatomic, strong) IMessageCoinTransactionModel *coinTransactionModel;   //
+@property (nonatomic, strong) NSArray<IMessageImageLinkModel *> *imageLinkModelArr;
+@property (nonatomic, strong) IMessageMomentModel *momentModel;   //
+@property (nonatomic, strong) IMessageNearbyModel *nearbyModel;   //
+@property (nonatomic, strong) IMessageVoiceCallStatusModel *callStatusModel;
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, assign) BOOL isSelected;    // chosen
 @property (nonatomic, assign) BOOL showCheckBox;  // Show check box
@@ -238,6 +221,8 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, assign) long createTime;
 @property (nonatomic, copy) NSString *mid;
 @property (nonatomic, copy) NSString *chatId;
+@property (nonatomic, copy) NSString *aChatId;
+
 @property (nonatomic, copy) NSString *sender;
 @property (nonatomic, copy) NSString *content;
 
@@ -246,7 +231,7 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 
 @property (nonatomic, strong) NSAttributedString *attachTextStr;
 
-@property (nonatomic, assign)TMTMMConversationType chatType;
+@property (nonatomic, assign)IMMConversationType chatType;
 @property (nonatomic, assign) BOOL isSingle;
 
 @property (nonatomic, assign) BOOL isRefreshGroupMember;

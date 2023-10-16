@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  If the image is created from data or file, then the value indicates the data type.
  */
-@property (nonatomic, readonly) TMImageType animatedImageType;
+@property (nonatomic, readonly) IMImageType animatedImageType;
 
 /**
  If the image is created from animated image data (multi-frame GIF/APNG/WebP),

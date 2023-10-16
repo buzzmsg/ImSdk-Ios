@@ -2,7 +2,7 @@
 //  IMMyAudioPlayer.h
 //  YAY
 //
-//  Created by tmm on 2017/9/15.
+//  Created by on 2017/9/15.
 //  Copyright © 2017year apple. All rights reserved.
 //
 

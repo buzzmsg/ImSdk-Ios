@@ -1,9 +1,8 @@
 //
 //  IMMessageQuotoInfoModel.h
-//  TMM
+//  
 //
-//  Created by tmmtmm on 2020/8/3.
-//  Copyright © 2020 TMM. All rights reserved.
+//  Copyright © 2020_All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -30,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString * mid;       //
 @property (nonatomic,copy) NSString * aMid;       //
 @property (nonatomic,copy) NSString * chatId;       //
+@property (nonatomic,copy) NSString * aChatId;       //
 @property (nonatomic,copy) NSString * uuid;       //
 @property (nonatomic,assign) CGSize quotoSize;            //
 @property (nonatomic,assign) CGSize contentSize;            //
@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) IMChatTextLayout *layout;
 @property (nonatomic, strong) IMSDKMessageAttachmentModel *attachment;   //attachment content
-@property (nonatomic, strong) TMMMessageLoactionModel *loactonModel;   //location content
+@property (nonatomic, strong) IMessageLoactionModel *loactonModel;   //location content
 @property (nonatomic, assign) long _id;
 @property (nonatomic, strong) IMMessageInfoModel *quotoMsgModel;   //
 

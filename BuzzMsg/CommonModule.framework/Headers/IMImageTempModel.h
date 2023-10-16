@@ -1,6 +1,5 @@
 //
 //  IMImageTempModel.h
-//  TMM
 //
 //  Created by    on 2022/5/18.
 //  Copyright © 2022 yinhe. All rights reserved.
@@ -11,19 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, TmImageType) {
-    TmImageType_Thum = 0,       //
-    TmImageType_Normal ,    //
-    TmImageType_Original,      //
+typedef NS_ENUM(NSUInteger, IMMImageType) {
+    IMMImageType_Thum = 0,       //
+    IMMImageType_Normal ,    //
+    IMMImageType_Original,      //
 };
 
-typedef NS_ENUM(NSUInteger, TmFileSource) {
-    TmFileSource_Avatar = 0,       //
-    TmFileSource_Applets ,    //
-    TmFileSource_AppletsBanner ,    //
-    TmFileSource_Moments,      //
-    TmFileSource_TMMIM,      //
-    TmFileSource_Other,      //
+typedef NS_ENUM(NSUInteger, IMFileSource) {
+    IMFileSource_Avatar = 0,       //
+    IMFileSource_Applets ,    //
+    IMFileSource_AppletsBanner ,    //
+    IMFileSource_Moments,      //
+    IMFileSource_IM,      //
+    IMFileSource_Other,      //
 };
 
 typedef NS_ENUM(NSUInteger, IMDownSenceType) {
@@ -39,11 +38,11 @@ typedef NS_ENUM(NSUInteger, IMDownSenceType) {
 @property (nonatomic, assign) NSInteger width;
 @property (nonatomic, assign) NSInteger height;
 @property (nonatomic, assign) NSInteger sourceSence;
-@property (nonatomic, assign) TmImageType imageType;
+@property (nonatomic, assign) IMMImageType imageType;
 @property (nonatomic, copy) NSString *filePath;
 @property (nonatomic, copy) UIImage *defaultImage;
 
-@property (nonatomic, assign) TmFileSource source;
+@property (nonatomic, assign) IMFileSource source;
 
 @property (nonatomic, assign) BOOL isShowAnimation;
 

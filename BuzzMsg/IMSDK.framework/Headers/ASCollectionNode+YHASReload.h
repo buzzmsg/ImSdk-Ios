@@ -3,7 +3,7 @@
 //  FrameDating
 //
 //  Created by 银河 on 2019/6/1.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <AsyncDisplayKit/AsyncDisplayKit.h>

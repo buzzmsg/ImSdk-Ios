@@ -1,9 +1,9 @@
 //
 //  IMChatBaseCell.h
-//  TMM
+//  
 //
-//  Created by tmm on 2019/11/6.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Created by on 2019/11/6.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class IMChatBaseCell, SDAnimatedImageView,IMCallHeadImageView, IMOSS, IMShowUserInfo, IMUISetting;
 
-@protocol TMMCellChatBaseDelegate <NSObject>
+@protocol IMCellChatBaseDelegate <NSObject>
 
 @optional
 
@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)miniProgramAtIndexPath:(NSIndexPath *)indexPath model:(IMMessageInfoModel *)model;  //Click on the miniProgram
 
-- (void)imageLinkAtIndexPath:(NSIndexPath *)indexPath model:(TMessageImageLinkModel *)model;  //Click on the miniProgram
+- (void)imageLinkAtIndexPath:(NSIndexPath *)indexPath model:(IMessageImageLinkModel *)model;  //Click on the miniProgram
 
 - (void)nearbyAtIndexPath:(NSIndexPath *)indexPath model:(IMMessageInfoModel *)model;  //Click on the business card
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) IMMessageInfoModel *model;
 
 @property (nonatomic,strong) NSIndexPath *indexPath;
-@property (nonatomic,weak) id<TMMCellChatBaseDelegate> baseDelegate;
+@property (nonatomic,weak) id<IMCellChatBaseDelegate> baseDelegate;
 
 @property (nonatomic,assign) BOOL showCheckBox;
 @property (nonatomic, strong, readonly) UIButton *checkBoxFullCellButton;

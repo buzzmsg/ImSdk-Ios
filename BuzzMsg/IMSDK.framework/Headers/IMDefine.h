@@ -1,9 +1,9 @@
 //
 //  IMDefine.h
-//  TMM
+//  
 //
 //  Created by  on 2019/11/1.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -24,13 +24,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelOff;
 #endif
 
 
-//typedef NS_ENUM(NSUInteger, TMIMSDKType) {
-//    TMIMSDKTypeWildFire,
-//    TMIMSDKTypeTMM
-//};
-
-//static const TMIMSDKType TMCurentIMSDKType = TMIMSDKTypeWildFire;
-
 #define YH__ScreenWidth          [UIScreen mainScreen].bounds.size.width
 #define YH__ScreenHeight         [UIScreen mainScreen].bounds.size.height
 
@@ -48,47 +41,6 @@ static const IMIFileFormat IMIFileFormatImage     = 0;
 static const IMIFileFormat IMIFileFormatVideo       = 1;
 static const IMIFileFormat IMIFileFormatFile       = 2;
 
-
-typedef NS_ENUM(NSUInteger, FromWayType) {
-    FromWayType_Unknown = 0,       //
-    FromWayType_Search_TMM_ID ,    //
-    FromWayType_Search_Phone,      //
-    FromWayType_Group,             //
-    FromWayType_Scan_Qr,           //
-    FromWayType_Card,              //
-    FromWayType_Contact,           //
-    FromWayType_People_Nearby,     //
-    FromWayType_Shake,             //
-    FromWayType_Nearby,            //
-    FromWayType_Moments,           //
-};
-
-typedef NS_ENUM(NSUInteger, HYFromWayType) {
-    HYFromWayType_Unknown = 0,       //
-    HYFromWayType_Search_TMM_ID ,    //
-    HYFromWayType_Search_Phone,      //
-    HYFromWayType_Group,             //
-    HYFromWayType_Scan_Qr,           //
-    HYFromWayType_Card,              //
-    HYFromWayType_Contact,           //
-    HYFromWayType_People_Nearby,     //
-    HYFromWayType_Shake,             //
-    HYFromWayType_Nearby,            //
-    HYFromWayType_Moments,           //
-};
-
-
-typedef
-NS_ENUM(NSUInteger, TMM_Use_Map_Type) {
-    google,
-    gaode,
-};
-
-typedef
-NS_ENUM(NSUInteger, TMMUseEnterType) {
-    EnterBackground,
-    WillEnterForeground,
-};
 
 
 @class IMMessageInfoModel;
@@ -110,19 +62,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// IM Key
 + (NSString *)IMKey;
 
-+ (NSString *)webLinkProtocolName;
-
-/// Web Link Parameter Key signature, encryption and decryption
-+ (NSString *)webLinkParameterKey;
-
 + (NSString *)http_ase_128_key;
 
 
 /// goole map AppKey
 + (NSString *)googleMapKey;
-
-/// map type
-+ (TMM_Use_Map_Type)mapType;
 
 /// YYCache
 + (YYCache *)yyCache;
@@ -157,24 +101,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CGFloat)postImageHeightRatio;
 
-
-+ (NSString *)savePhotoAlblumName;
-
-
-+ (NSString *)termURL;
-
-
-
-#pragma mark Base URL
-+ (NSString *)baseURL;//old (not use)
-//+ (NSString *)socketBaseURL;
-//+ (NSString *)imBaseURL;
-//+ (NSString *)momentBaseURL;
-//+ (NSString *)openPlatformBaseURL;
-//+ (NSString *)paymentBaseURL;
-//+ (NSString *)meetingBaseURL;
-//+ (NSString *)walletSignKey;
-
 #pragma mark  push AccessID
 + (NSString *)GZpushAccessID;
 + (NSString *)SJPpushAccessID;
@@ -201,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)color223253;
 + (UIColor *)color5E6A81;
 + (UIColor *)color333333;
-
++ (UIColor *)colorE5E6EB;
 + (UIColor *)colorA2A8C3;
 + (UIColor *)colorF6F7F8;
 + (UIColor *)color9DDFE6;
@@ -236,8 +162,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (int)maxSignatureLength;
 
 + (int)maxMomentsTransferCount;
-
-+ (int)maxTmmIDLength;
 
 + (int)maxPostFilesCount;
 
@@ -308,19 +232,17 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Time
 + (NSString *)countTime:(NSNumber *)timesp;
 + (NSString *)chatCountTime:(NSNumber *)timesp;
-+ (NSString *)chatTMMTMMTypeCountTime:(NSNumber *)timesp;
-+ (NSString *)getMMSSFromSS:(NSString *)totalTime;
 + (BOOL)isSameDayWith:(long)stmp1 stmp2:(long)stmp2;
 + (BOOL)isSameYearWith:(long)stmp1 stmp2:(long)stmp2;
 + (BOOL)is12HourFormat;
 
 #pragma mark - Message
-/// system messgae ID
-+ (NSString *)chatSystemMessageID;
 + (NSString *)passIDForRequestFriendsMessage;
 + (NSString *)ACKMessageNotification;
 + (NSString *)UnreadTextEidt:(NSInteger)ureadCount;
-+ (UIImage *)returnStatusImageWithModel:(TMMessageStatus)statu isUseToDetail:(BOOL)isUseToDetail;
++ (UIImage *)returnStatusDark1ImageWithModel:(IMessageStatus)status;
++ (UIImage *)returnStatusWhiteImageWithModel:(IMessageStatus)status;
++ (UIImage *)returnStatusImageWithModel:(IMessageStatus)statu isUseToDetail:(BOOL)isUseToDetail;
 
 #pragma mark - Sandbox
 /// creat file directory
@@ -403,11 +325,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 + (NSString *)makeupDecimalCountWithString:(NSString *)string decimalCount:(int)decimalCount;
-
-+ (NSString *)TMMTMMServiceID;
-
-+ (NSString *)TMMTMMPayID;
-
 
 #pragma mark
 + (void)errorHandleWith:(NSError *)error;

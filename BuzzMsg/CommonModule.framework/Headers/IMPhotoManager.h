@@ -3,7 +3,6 @@
 //  HiFanSmooth
 //
 //  Created by 银河 on 2019/5/19.
-//  Copyright © 2019 TMM. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

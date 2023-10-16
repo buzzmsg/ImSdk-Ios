@@ -51,7 +51,7 @@ typedef enum IMSRStatusCode : NSInteger {
 @class IMSRWebSocket;
 
 extern NSString *const IMSRWebSocketErrorDomain;
-extern NSString *const IMTMSRWebSocketErrorDomain;
+extern NSString *const IMMSRWebSocketErrorDomain;
 
 #pragma mark - IMSRWebSocketDelegate
 
@@ -129,25 +129,25 @@ extern NSString *const IMTMSRWebSocketErrorDomain;
 
 @end
 
-#pragma mark - NSURLRequest (TMMSRCertificateAdditions)
+#pragma mark - NSURLRequest (MSRCertificateAdditions)
 
-@interface NSURLRequest (TMMSRCertificateAdditions)
+@interface NSURLRequest (IMSRCertificateAdditions)
 
-@property (nonatomic, retain, readonly) NSArray *TMMSR_SSLPinnedCertificates;
-
-@end
-
-#pragma mark - NSMutableURLRequest (TMMSRCertificateAdditions)
-
-@interface NSMutableURLRequest (TMMSRCertificateAdditions)
-
-@property (nonatomic, retain) NSArray *TMMSR_SSLPinnedCertificates;
+@property (nonatomic, retain, readonly) NSArray *IMSR_SSLPinnedCertificates;
 
 @end
 
-#pragma mark - NSRunLoop (TMMSRWebSocket)
+#pragma mark - NSMutableURLRequest (MSRCertificateAdditions)
 
-@interface NSRunLoop (TMMSRWebSocket)
+@interface NSMutableURLRequest (IMSRCertificateAdditions)
+
+@property (nonatomic, retain) NSArray *IMSR_SSLPinnedCertificates;
+
+@end
+
+#pragma mark - NSRunLoop (MSRWebSocket)
+
+@interface NSRunLoop (IMSRWebSocket)
 
 + (NSRunLoop *)SR_networkRunLoop;
 

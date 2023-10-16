@@ -1,9 +1,9 @@
 //
 //  IMChannelListViewController.h
-//  TMM
+//  
 //
-//  Created by tmm on 2019/11/4.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Created by on 2019/11/4.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class IMShowUserInfo;
 @class IMMessageInfoModel;
 
-@protocol TMMChannelListCheckDelegate <NSObject>
+@protocol IMChannelListCheckDelegate <NSObject>
 
 - (void)didSelectAchatId:(NSString *)aChatId;
 - (void)setGroupMemberInfoWithController:(IMChannelListViewController *)controller datas:(NSArray<IMShowUserInfo *> *)datas;
@@ -34,6 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)firstDataComplete;
 
+//- (void)onShowSubLogWithAChatId:(NSString *)aChatId blockLog:(void(^)(NSString *,UIImage * _Nullable))blockLog1;
+
+
+- (void)onShowSubLogWithAChatId:(NSString *)aChatId complete:(void(^)(NSString *aChatId, UIImage * _Nullable image))handle;
+
+//- (void)onShowSubLogWithAChatId:(NSString *)aChatId complete:(void(^)(NSString *,UIImage * _Nullable))blockLog1;
+
+
 @end
 
 @class IMConversationInfo,IMConversationViewModel;
@@ -45,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, strong) NSArray *conversationInfos;
 
 - (void)refreshListWhenReseletTabBar;
-@property (nonatomic,weak) id<TMMChannelListCheckDelegate> delegate;
+@property (nonatomic,weak) id<IMChannelListCheckDelegate> delegate;
 
 //- (void)getConversions:(NSArray *)chatIds isAll:(BOOL)isAll folderInfo:(IMConversationInfo *)folderInfo;
 

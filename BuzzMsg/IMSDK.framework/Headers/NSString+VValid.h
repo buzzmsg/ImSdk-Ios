@@ -1,9 +1,7 @@
 //
 //  NSString+VValid.h
-//  TMM
 //
 //  Created by  on 2020/11/4.
-//  Copyright © 2020 TMM. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

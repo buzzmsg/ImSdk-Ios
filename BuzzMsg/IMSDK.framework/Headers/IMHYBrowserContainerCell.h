@@ -1,6 +1,6 @@
 //
 //  IMHYBrowserContainerCell.h
-//  TMM
+//  
 //
 //  Created by    on 2022/4/15.
 //  Copyright © 2022 yinhe. All rights reserved.
@@ -13,7 +13,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class IMBrowserVo,IMOSS;
+@class IMBrowserVo,IMOSS, IMHYBrowserContainerCell;
+
+@protocol IMHYBrowserContainerDelegate <NSObject>
+
+
+- (void)VideoDownSuccess:(IMHYBrowserContainerCell *)cell;
+
+- (void)collectionIsScroll:(BOOL)isScroll;
+
+- (BOOL)collectionChooseIsScroll;
+
+@end
 
 @interface IMHYBrowserContainerCell : UICollectionViewCell
 
@@ -27,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *videoView;
 @property (nonatomic, strong) IMOSS *oss;
 
-@property (nonatomic, strong) UICollectionView *recordCollection;
+//@property (nonatomic, strong) UICollectionView *recordCollection;
 
 @property (nonatomic, strong) IMAnimatedImageView *thumImageView;
 
@@ -39,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void(^whenVideoDownSuccessActionClick)(IMHYBrowserContainerCell *cell);
 @property (nonatomic, strong) IMImageBroserVideoToolView *tempVideoToolView;
 
+
+@property (nonatomic, weak) id<IMHYBrowserContainerDelegate> cellDelegate;
 
 @property (nonatomic, copy) void(^whenChangeBackgroundAlpha)(CGFloat alpha);
 

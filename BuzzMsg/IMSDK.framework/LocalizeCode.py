@@ -4,9 +4,9 @@
 import csv
 import os
 
-def openCsv():
+def openCsv(path):
 
-    with open(ResourcePath, encoding="utf-8-sig") as f:
+    with open(path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f, skipinitialspace=True):
             print("ssssss->")
             print(row)
@@ -26,7 +26,7 @@ def openCsv():
                 if sourceLanguagekey in PermissionKeyDic.keys():
                     permissionOldDic = InfoPlistDic.get(lng)
                     if not bool(permissionOldDic):
-                        permissionOldDic = {"CFBundleDisplayName" : "TMMTMM", "CFBundleName" : "TMMTMM"}
+                        permissionOldDic = {"CFBundleDisplayName" : "", "CFBundleName" : ""}
                     perArr = PermissionKeyDic[sourceLanguagekey]
                     for perName in perArr:
                         permissionOldDic[perName] = value
@@ -125,6 +125,7 @@ TargetLanguageKeys = {"zh-Hans" : "zh-Hans",
 NotSurportKeysArr = ["ar", "cs", "da", "de", "fi", "fr", "hu", "it", "ms", "sw"]
 #ResourcePath = os.getcwd() + "/TMM/Documents/Translation/copywriting.csv"
 ResourcePath = os.path.abspath(os.path.join(os.getcwd(),"../..")) + "/TMM/Documents/Translation/copywriting.csv"
+ResourcePath1 = os.path.abspath(os.path.join(os.getcwd(),"../..")) + "/TMM/Documents/Translation/copywriting_SDK.csv"
 #SavePath = os.getcwd() + "/IMSDK/IMSDK.docc/Resources/"
 SavePath = os.path.abspath(os.path.join(os.getcwd(),"..")) + "/IMSDK/"
 Separator = "===================="
@@ -138,7 +139,8 @@ PermissionKeyDic = {"permission_microphone": ["NSMicrophoneUsageDescription"],
                     "ios_idfa" : ["NSUserTrackingUsageDescription"],
 }
 
-openCsv()
+#openCsv(ResourcePath)
+openCsv(ResourcePath1)
 writeNewKeysToFile()
 #writeInfoPlistString()
 #writeInfoPlistNotSuportString()

@@ -1,6 +1,6 @@
 //
 //  IMChatLocationCell.h
-//  TMM
+//  
 //
 //  Created by oceanMAC on 2022/7/12.
 //  Copyright © 2022 yinhe. All rights reserved.

@@ -1,9 +1,9 @@
 //
 //  IMHollowManCell.h
-//  TMM
+//  
 //
 //  Created by  on 2021/8/10.
-//  Copyright © 2021 TMM. All rights reserved.
+//  Copyright © 2021_All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @class IMMessageInfoModel;
 @class IMHollowManCell;
-@protocol TMMHollowManCellDelegate <NSObject>
+@protocol IMHollowManCellDelegate <NSObject>
 
 @optional
 - (void)cell:(IMHollowManCell *)cell tempId:(NSString *)tempId clickText:(NSString *)textId;
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IMHollowManCell : UITableViewCell
 
 @property (nonatomic,strong) IMMessageInfoModel *model;
-@property (nonatomic, weak) id<TMMHollowManCellDelegate> delegate;
+@property (nonatomic, weak) id<IMHollowManCellDelegate> delegate;
 
 - (void)setupModel:(IMMessageInfoModel *)model;
 - (void)setUnknowText:(NSString *)text;

@@ -1,6 +1,6 @@
 //
 //  IMImageBrowserContainerView.h
-//  TMM
+//  
 //
 //  Created by    on 2022/4/15.
 //  Copyright © 2022 yinhe. All rights reserved.
@@ -13,6 +13,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class IMBrowserVo, IMBrowserVideoPlayView;
+
+
+
+
 @interface IMImageBrowserContainerView : UIView
 
 @property (nonatomic, strong) IMOSS *oss;

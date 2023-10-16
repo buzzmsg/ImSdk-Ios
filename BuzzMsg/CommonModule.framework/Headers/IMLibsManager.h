@@ -1,6 +1,4 @@
 //
-//  TMMLibsManager.h
-//  TMMIMSdk
 //
 //  Created by oceanMAC on 2022/10/21.
 //

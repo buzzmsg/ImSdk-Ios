@@ -1,9 +1,9 @@
 //
 //  IMSDKMessageAttachmentModel.h
-//  TMM
+//  
 //
-//  Created by tmm on 2019/11/11.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Created by on 2019/11/11.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class IMAvatarModel;
-@class TMMChatMemberInfo;
+@class IMChatMemberInfo;
 
 @interface IMSDKMessageAttachmentModel : NSObject // attachment matedata
 
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) CGSize lastSize;           // size
 @property (nonatomic,assign) BOOL isGif;           // 
 @property (nonatomic,copy) NSString *uid;  //
-@property (nonatomic, strong) TMMChatMemberInfo *uidInfo;
+@property (nonatomic, strong) IMChatMemberInfo *uidInfo;
 @property (nonatomic,assign) BOOL isHavePic;           //
 @property (nonatomic,copy) NSString *momentId;  //
 
@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,readonly,strong) UIImage *fileTypeImage;
 @end
 
-@interface TMMMessageLoactionModel : NSObject        // Positioning matedata
+@interface IMessageLoactionModel : NSObject        // Positioning matedata
 
 @property (nonatomic,copy) NSString *addr;       // Address name
 @property (nonatomic,copy) NSString *desc;       // Address name
@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface TMessageRedpacketModel : NSObject   // Red envelope 🧧matedata
+@interface IMessageRedpacketModel : NSObject   // Red envelope 🧧matedata
 
 @property (nonatomic,copy) NSString *_id;       // Red envelope id
 @property (nonatomic,copy) NSString *text;      // Greetings
@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface TMessagetakePacketModel : NSObject    // Open red envelope 🧧matedata
+@interface IMessagetakePacketModel : NSObject    // Open red envelope 🧧matedata
 
 @property (nonatomic,copy) NSString *_id;        // Red envelope id
 @property (nonatomic,assign) int type;           // 1: One-to-one red envelope, 2: Group red envelope
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@interface TMessageTransferModel : NSObject    // Transfer matedata
+@interface IMessageTransferModel : NSObject    // Transfer matedata
 
 @property (nonatomic,copy) NSString *_id;      // Red envelope id
 @property (nonatomic,copy) NSString *text;     // Greetings
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@interface TMessageSplitBillModel : NSObject // Group collection matedata
+@interface IMessageSplitBillModel : NSObject // Group collection matedata
 
 @property (nonatomic,copy) NSString *_id;             // Collection id
 @property (nonatomic,copy) NSString *text;            // Remarks
@@ -160,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface TMessageSplitBillTipModel : NSObject // Group collection matedata Tip message receiptTips
+@interface IMessageSplitBillTipModel : NSObject // Group collection matedata Tip message receiptTips
 
 @property (nonatomic, copy) NSString *_id;        // Collection id
 @property (nonatomic, copy) NSString *senderId;   // Sender id
@@ -179,7 +179,7 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 };
 
 
-@interface TMMessageRelationshipModel : NSObject //Position matedata
+@interface IMessageRelationshipModel : NSObject //Position matedata
 
 @property (nonatomic, assign) YHMessageRelationshipType  action;   //
 @property (nonatomic, copy) NSString *text; //
@@ -189,9 +189,9 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 
 
 
-@interface TMessageVCardModel : NSObject //Business card matedata
+@interface IMessageVCardModel : NSObject //Business card matedata
 
-@property (nonatomic,copy) NSString *tmmId;     // tmmtmm_id
+@property (nonatomic,copy) NSString *imId;     //
 @property (nonatomic,copy) NSString *userId;    // id
 @property (nonatomic,copy) NSString *name;      // Name
 @property (nonatomic,copy) NSString *aliasName; // alias
@@ -203,7 +203,7 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 @end
 
 
-@interface TMessageOfficialAccountCardModel : NSObject //Business card matedata
+@interface IMessageOfficialAccountCardModel : NSObject //Business card matedata
 
 @property (nonatomic,copy) NSString *_id;
 @property (nonatomic,copy) NSString *name;
@@ -215,7 +215,7 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 
 
 
-@interface TMessageMiniProgarmModel : NSObject //
+@interface IMessageMiniProgarmModel : NSObject //
 
 @property (nonatomic,copy) NSString *name;     // name
 @property (nonatomic,copy) NSString *mark;     // mark
@@ -228,7 +228,7 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 @end
 
 
-@interface TMessageImageLinkModel : NSObject //
+@interface IMessageImageLinkModel : NSObject //
 
 @property (nonatomic,copy) NSString *imageUrl; //
 @property (nonatomic,copy) NSString *linkUrl;  //
@@ -238,7 +238,7 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 @end
 
 
-@interface TMessageMomentModel : NSObject //
+@interface IMessageMomentModel : NSObject //
 
 @property (nonatomic,copy) NSString *_id;        //
 @property (nonatomic,copy) NSString *avatar;     //
@@ -251,7 +251,7 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 
 @end
 
-@interface TMessageNearbyModel : NSObject //
+@interface IMessageNearbyModel : NSObject //
 
 @property (nonatomic,copy) NSString *_id;    //
 @property (nonatomic,copy) NSString *adr;    //
@@ -264,7 +264,7 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 @end
 
 
-@interface TMessageCoinTransactionModel : NSObject //
+@interface IMessageCoinTransactionModel : NSObject //
 
 @property (nonatomic,copy) NSString *title;    //
 @property (nonatomic,copy) NSString *coinUnit; //
@@ -277,13 +277,13 @@ typedef NS_ENUM(NSUInteger, YHMessageRelationshipType) {
 @end
 
 
-typedef NS_ENUM(NSUInteger, TMMessageVoiceCallStatusType) {
-    TMMessageVoiceCallStatusType_NONE = 0, // unknown
-    TMMessageVoiceCallStatusType_START,    // startVoiceCall
-    TMMessageVoiceCallStatusType_STOP,     // stopVoiceCall
+typedef NS_ENUM(NSUInteger, IMessageVoiceCallStatusType) {
+    IMessageVoiceCallStatusType_NONE = 0, // unknown
+    IMessageVoiceCallStatusType_START,    // startVoiceCall
+    IMessageVoiceCallStatusType_STOP,     // stopVoiceCall
 };
 
-@interface TMessageVoiceCallStatusModel : NSObject
+@interface IMessageVoiceCallStatusModel : NSObject
 
 @property (nonatomic, copy) NSString *uid;
 @property (nonatomic, copy) NSString *callerName;
@@ -291,7 +291,7 @@ typedef NS_ENUM(NSUInteger, TMMessageVoiceCallStatusType) {
 @property (nonatomic, assign) int callType;
 @property (nonatomic, assign) int callAction;
 @property (nonatomic, copy) NSString *memberJson;
-@property (nonatomic, assign) TMMessageVoiceCallStatusType status;
+@property (nonatomic, assign) IMessageVoiceCallStatusType status;
 - (void)initWithDic:(NSDictionary *)dic;
 
 @end

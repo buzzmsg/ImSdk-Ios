@@ -16,18 +16,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Image file type.
  */
-typedef NS_ENUM(NSUInteger, TMImageType) {
-    TMImageTypeUnknown = 0, ///< unknown
-    TMImageTypeJPEG,        ///< jpeg, jpg
-    TMImageTypeJPEG2000,    ///< jp2
-    TMImageTypeTIFF,        ///< tiff, tif
-    TMImageTypeBMP,         ///< bmp
-    TMImageTypeICO,         ///< ico
-    TMImageTypeICNS,        ///< icns
-    TMImageTypeGIF,         ///< gif
-    TMImageTypePNG,         ///< png
-    TMImageTypeWebP,        ///< webp
-    TMImageTypeOther,       ///< other image format
+typedef NS_ENUM(NSUInteger, IMImageType) {
+    IMImageTypeUnknown = 0, ///< unknown
+    IMImageTypeJPEG,        ///< jpeg, jpg
+    IMImageTypeJPEG2000,    ///< jp2
+    IMImageTypeTIFF,        ///< tiff, tif
+    IMImageTypeBMP,         ///< bmp
+    IMImageTypeICO,         ///< ico
+    IMImageTypeICNS,        ///< icns
+    IMImageTypeGIF,         ///< gif
+    IMImageTypePNG,         ///< png
+    IMImageTypeWebP,        ///< webp
+    IMImageTypeOther,       ///< other image format
 };
 
 
@@ -127,7 +127,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
 @interface TMImageDecoder : NSObject
 
 @property (nullable, nonatomic, readonly) NSData *data;    ///< Image data.
-@property (nonatomic, readonly) TMImageType type;          ///< Image data type.
+@property (nonatomic, readonly) IMImageType type;          ///< Image data type.
 @property (nonatomic, readonly) CGFloat scale;             ///< Image scale.
 @property (nonatomic, readonly) NSUInteger frameCount;     ///< Image frame count.
 @property (nonatomic, readonly) NSUInteger loopCount;      ///< Image loop count, 0 means infinite.
@@ -210,17 +210,17 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
 /**
  An image encoder to encode image to data.
  
- @discussion It supports encoding single frame image with the type defined in TMImageType.
+ @discussion It supports encoding single frame image with the type defined in IMImageType.
  It also supports encoding multi-frame image with GIF, APNG and WebP.
  
  Example:
     
-    TMImageEncoder *jpegEncoder = [[TMImageEncoder alloc] initWithType:TMImageTypeJPEG];
+    TMImageEncoder *jpegEncoder = [[TMImageEncoder alloc] initWithType:IMImageTypeJPEG];
     jpegEncoder.quality = 0.9;
     [jpegEncoder addImage:image duration:0];
     NSData jpegData = [jpegEncoder encode];
  
-    TMImageEncoder *gifEncoder = [[TMImageEncoder alloc] initWithType:TMImageTypeGIF];
+    TMImageEncoder *gifEncoder = [[TMImageEncoder alloc] initWithType:IMImageTypeGIF];
     gifEncoder.loopCount = 5;
     [gifEncoder addImage:image0 duration:0.1];
     [gifEncoder addImage:image1 duration:0.15];
@@ -233,7 +233,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  */
 @interface TMImageEncoder : NSObject
 
-@property (nonatomic, readonly) TMImageType type; ///< Image type.
+@property (nonatomic, readonly) IMImageType type; ///< Image type.
 @property (nonatomic) NSUInteger loopCount;       ///< Loop count, 0 means infinit, only available for GIF/APNG/WebP.
 @property (nonatomic) BOOL lossless;              ///< Lossless, only available for WebP.
 @property (nonatomic) CGFloat quality;            ///< Compress quality, 0.0~1.0, only available for JPG/JP2/WebP.
@@ -246,7 +246,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  @param type Image type.
  @return A new encoder, or nil if an error occurs.
  */
-- (nullable instancetype)initWithType:(TMImageType)type NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithType:(IMImageType)type NS_DESIGNATED_INITIALIZER;
 
 /**
  Add an image to encoder.
@@ -289,7 +289,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  @param quality Image quality, 0.0~1.0.
  @return The image data, or nil if an error occurs.
  */
-+ (nullable NSData *)encodeImage:(UIImage *)image type:(TMImageType)type quality:(CGFloat)quality;
++ (nullable NSData *)encodeImage:(UIImage *)image type:(IMImageType)type quality:(CGFloat)quality;
 
 /**
  Convenience method to encode image from a decoder.
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  @param quality Image quality, 0.0~1.0.
  @return The image data, or nil if an error occurs.
  */
-+ (nullable NSData *)encodeImageWithDecoder:(TMImageDecoder *)decoder type:(TMImageType)type quality:(CGFloat)quality;
++ (nullable NSData *)encodeImageWithDecoder:(TMImageDecoder *)decoder type:(IMImageType)type quality:(CGFloat)quality;
 
 @end
 
@@ -354,16 +354,16 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
 #pragma mark - Helper
 
 /// Detect a data's image type by reading the data's header 16 bytes (very fast).
-CG_EXTERN TMImageType TMImageDetectType(CFDataRef data);
+CG_EXTERN IMImageType TMImageDetectType(CFDataRef data);
 
-/// Convert TMImageType to UTI (such as kUTTypeJPEG).
-CG_EXTERN CFStringRef _Nullable TMImageTypeToUTType(TMImageType type);
+/// Convert IMImageType to UTI (such as kUTTypeJPEG).
+CG_EXTERN CFStringRef _Nullable IMImageTypeToUTType(IMImageType type);
 
-/// Convert UTI (such as kUTTypeJPEG) to TMImageType.
-CG_EXTERN TMImageType TMImageTypeFromUTType(CFStringRef uti);
+/// Convert UTI (such as kUTTypeJPEG) to IMImageType.
+CG_EXTERN IMImageType IMImageTypeFromUTType(CFStringRef uti);
 
 /// Get image type's file extension (such as @"jpg").
-CG_EXTERN NSString *_Nullable TMImageTypeGetExtension(TMImageType type);
+CG_EXTERN NSString *_Nullable IMImageTypeGetExtension(IMImageType type);
 
 
 
@@ -440,7 +440,7 @@ CG_EXTERN CGImageRef _Nullable TMCGImageCreateAffineTransformCopy(CGImageRef ima
  @param quality   The quality (0.0~1.0)
  @return A new image data, or nil if an error occurs.
  */
-CG_EXTERN CFDataRef _Nullable TMCGImageCreateEncodedData(CGImageRef imageRef, TMImageType type, CGFloat quality);
+CG_EXTERN CFDataRef _Nullable TMCGImageCreateEncodedData(CGImageRef imageRef, IMImageType type, CGFloat quality);
 
 
 /**

@@ -1,9 +1,9 @@
 //
 //  IMFaceAttachment.h
-//  TMM
+//  
 //
 //  Created by  on 2021/8/17.
-//  Copyright © 2021 TMM. All rights reserved.
+//  Copyright © 2021_All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

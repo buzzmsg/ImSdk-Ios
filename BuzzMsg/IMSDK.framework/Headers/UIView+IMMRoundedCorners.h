@@ -1,23 +1,21 @@
 //
-//  UIView+TMMRoundedCorners.h
-//  TMM
+//  UIView+IMRoundedCorners.h
 //
 //   on 2021/8/10.
-//  Copyright © 2021 TMM. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, TMMShowBasicAnimationCorner)
+typedef NS_ENUM(NSInteger, IMShowBasicAnimationCorner)
 {
-    TMMShowBasicAnimationCornerTopLeft,
-    TMMShowBasicAnimationCornerTopRight,
-    TMMShowBasicAnimationCornerTopLeftThree,
-    TMMShowBasicAnimationCornerTopRightThree,
-    TMMShowBasicAnimationCornerBottomLeft,
-    TMMShowBasicAnimationCornerBottomRight,
+    IMShowBasicAnimationCornerTopLeft,
+    IMShowBasicAnimationCornerTopRight,
+    IMShowBasicAnimationCornerTopLeftThree,
+    IMShowBasicAnimationCornerTopRightThree,
+    IMShowBasicAnimationCornerBottomLeft,
+    IMShowBasicAnimationCornerBottomRight,
 };
 
 
@@ -36,7 +34,7 @@ typedef NS_ENUM(NSInteger, TMMShowBasicAnimationCorner)
 - (void)hideBasicAnimation: (CFTimeInterval)duration;
 
 /// CAKeyframeAnimation, default values: @[@0, @1.03, @1.0]
-- (void)showPopupAnimation: (CFTimeInterval)duration corner: (TMMShowBasicAnimationCorner) corner;
+- (void)showPopupAnimation: (CFTimeInterval)duration corner: (IMShowBasicAnimationCorner) corner;
 
 
 + (BOOL)isShowKeyboardVisible;

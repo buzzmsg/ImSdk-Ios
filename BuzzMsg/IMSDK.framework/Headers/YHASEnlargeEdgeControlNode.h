@@ -3,7 +3,7 @@
 //  QAQSmooth
 //
 //  Created by apple on 2019/3/12.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <AsyncDisplayKit/AsyncDisplayKit.h>

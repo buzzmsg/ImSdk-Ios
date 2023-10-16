@@ -1,5 +1,5 @@
 //
-//  UICollectionView+TMMEmptyView.h
+//  UICollectionView+IMEmptyView.h
 //  OrderMeals
 //
 //  Created by chong on 2020/4/16.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UICollectionView (TMMEmptyView)
+@interface UICollectionView (IMEmptyView)
 
 @property (nonatomic, strong) QMUIEmptyView *emptyView;
 

@@ -24,7 +24,7 @@
  * 返回值：用来展示的富文本，直接复制给label展示
  */
 + (NSMutableAttributedString *)decodeWithPlainStr:(NSString *)plainStr font:(NSInteger)font textColor:(UIColor *)textColor uiSetting:(IMUISetting *)uiSetting;
-+ (NSMutableAttributedString *)decodeWithPlainStr:(NSString *)plainStr atPersons:(NSArray<IMSelectAtModel *> *)atPersons font:(NSInteger)font textColor:(UIColor *)textColor uiSetting:(IMUISetting *)uiSetting;
++ (NSMutableAttributedString *)decodeWithPlainStr:(NSString *)plainStr atPersons:(NSArray<IMSelectAtModel *> *)atPersons font:(NSInteger)font textColor:(UIColor *)textColor atNameColor:(UIColor *)atColor uiSetting:(IMUISetting *)uiSetting;
 
 + (NSMutableAttributedString *)draftDecodeWithPlainStr:(NSString *)plainStr atPersons:(NSArray<IMSelectAtModel *> *)atPersons font:(NSInteger)font textColor:(UIColor *)textColor textViewWidth:(CGFloat)textViewWidth uiSetting:(IMUISetting *)uiSetting;
 

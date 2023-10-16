@@ -3,7 +3,7 @@
 //  HiFanSmooth
 //
 //  Created by apple on 2019/4/24.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Copyright © 2019_All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -1,9 +1,9 @@
 //
 //  IMDefine+TM_API_Path.h
-//  TMM
+//  
 //
 //  Created by  on 2019/11/19.
-//  Copyright © 2019 TMM. All rights reserved.
+//  Copyright © 2019_All rights reserved.
 //
 
 
@@ -46,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// Get account information
 + (NSString *)getAccountInfoAPI;
 
-/// Precise search (tmm_id, mobile phone number)
 + (NSString *)contactsUserSearchAPI;
 
 /// friend application list
@@ -433,9 +432,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - Map
-+ (NSString *)dynamicMapAPI;
-+ (NSString *)googleMapAPI;
-+ (NSString *)gaoDeMapAPI;
 + (NSString *)mapSnapshotAPIWithLa:(NSString *)la lo:(NSString *)lo zoom:(NSString *)zoom;
 
 

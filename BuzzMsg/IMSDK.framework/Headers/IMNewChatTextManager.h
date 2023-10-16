@@ -1,6 +1,6 @@
 //
 //  IMNewChatTextManager.h
-//  TMM
+//  
 //
 //  Created by    on 2022/1/20.
 //  Copyright © 2022 yinhe. All rights reserved.
