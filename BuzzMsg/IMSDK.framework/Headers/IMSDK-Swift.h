@@ -603,6 +603,12 @@ SWIFT_PROTOCOL("_TtP5IMSDK14IMChatDelegate_")
 @end
 
 
+typedef SWIFT_ENUM(NSInteger, IMChatDetailOffsetChangeResult, closed) {
+  IMChatDetailOffsetChangeResultNot = 1,
+  IMChatDetailOffsetChangeResultVisiableScroll = 2,
+  IMChatDetailOffsetChangeResultNewSet = 3,
+};
+
 
 SWIFT_PROTOCOL("_TtP5IMSDK20IMChatDetailProtocol_")
 @protocol IMChatDetailProtocol <IMChatDetailMessageDisplay>
@@ -974,6 +980,7 @@ SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 @property (nonatomic, copy) NSString * _Nonnull higlightAmid;
 @property (nonatomic, strong) UIImageView * _Nonnull backGroudImageView;
 - (void)setBackGroudImageWithImage:(UIImage * _Nullable)image;
+- (void)clickReplyMsgWithAMid:(NSString * _Nonnull)aMid;
 - (void)setDelegateWithDelegate:(id <IMChatDelegate> _Nonnull)delegate;
 - (void)setTableViewContentInsetWithInset:(UIEdgeInsets)inset;
 - (void)setTableViewScrollIndicatorInsetsWithInset:(UIEdgeInsets)inset;
@@ -1078,6 +1085,11 @@ SWIFT_CLASS("_TtC5IMSDK16IMChatViewColors")
 @property (nonatomic, copy) NSString * _Nonnull chatFootBg;
 @property (nonatomic, copy) NSString * _Nonnull chatSearchLocationReceiveBg;
 @property (nonatomic, copy) NSString * _Nonnull chatSearchLocationMyBg;
+@property (nonatomic, copy) NSString * _Nonnull chatReplyLocationPictureBg;
+@property (nonatomic, copy) NSString * _Nonnull chatReplyLocationMapBg;
+@property (nonatomic, copy) NSString * _Nonnull chatReplyLocationMomentBg;
+@property (nonatomic, copy) NSString * _Nonnull chatReplyLocationReceiveFileBg;
+@property (nonatomic, copy) NSString * _Nonnull chatReplyLocationSendFileBg;
 @property (nonatomic, copy) NSString * _Nonnull chatReceiveVoiceDurationText;
 @property (nonatomic, copy) NSString * _Nonnull chatReceiveVoiceBg;
 @property (nonatomic, copy) NSString * _Nonnull chatReceiveVoiceFrame;
@@ -1707,11 +1719,11 @@ SWIFT_CLASS("_TtC5IMSDK23IMDeleteConversionAlert")
 @end
 
 
-
-
 @interface IMDeleteConversionAlert (SWIFT_EXTENSION(IMSDK))
 - (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 typedef SWIFT_ENUM(NSInteger, IMDownloadStatus, closed) {
@@ -2468,6 +2480,7 @@ SWIFT_CLASS("_TtC5IMSDK15IMProjectConfig")
 + (LottieAnimationView * _Nonnull)showEmptyViewWithName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 + (void)chatEmptyAnimationWithTView:(LottieAnimationView * _Nonnull)tView animation:(BOOL)animation;
 + (NSString * _Nonnull)convertValueStringOCWithFormat:(NSString * _Nonnull)format values:(NSArray<NSString *> * _Nonnull)values SWIFT_WARN_UNUSED_RESULT;
++ (void)hilightMsgAnimationWithView:(UIView * _Nonnull)view;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

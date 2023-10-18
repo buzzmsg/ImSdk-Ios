@@ -158,6 +158,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)subCellMakeBtnCheckBoxConstraints:(UIView *)centerView;
 
+- (void)hilightMessageWithAnimation;
+
 
 @end
 

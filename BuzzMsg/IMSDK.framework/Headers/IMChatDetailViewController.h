@@ -99,6 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)dataModelIsShow: (NSString *)mid;
 
 - (void)clearData;
+- (void)clickQuoteMsgWithAmid:(NSString *)aMid mid:(NSString *)mid mainMid:(NSString *)mainMid;
 
 //- (void)getSaveTempMessages:(NSArray <IMMessageInfoModel *> *)messageModels chatId:(NSString *)chatId;
 
