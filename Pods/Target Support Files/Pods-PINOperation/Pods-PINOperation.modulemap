@@ -1,0 +1,6 @@
+framework module Pods_PINOperation {
+  umbrella header "Pods-PINOperation-umbrella.h"
+
+  export *
+  module * { export * }
+}

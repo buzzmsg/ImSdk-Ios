@@ -1,0 +1,6 @@
+framework module Pods_R_swift_Library {
+  umbrella header "Pods-R.swift.Library-umbrella.h"
+
+  export *
+  module * { export * }
+}

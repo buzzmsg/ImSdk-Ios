@@ -1,0 +1,6 @@
+framework module Pods_QMUIKit {
+  umbrella header "Pods-QMUIKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

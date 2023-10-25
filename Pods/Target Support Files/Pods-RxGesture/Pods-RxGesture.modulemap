@@ -1,0 +1,6 @@
+framework module Pods_RxGesture {
+  umbrella header "Pods-RxGesture-umbrella.h"
+
+  export *
+  module * { export * }
+}

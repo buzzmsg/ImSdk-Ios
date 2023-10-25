@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class IMChatBaseCell, SDAnimatedImageView,IMCallHeadImageView, IMOSS, IMShowUserInfo, IMUISetting;
+@class IMChatBaseCell, SDAnimatedImageView,IMCallHeadImageView, IMOSS, IMShowUserInfo, IMUISetting,IMAvatarModel;
 
 @protocol IMCellChatBaseDelegate <NSObject>
 
@@ -87,6 +87,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tapMeetingCallAtIndexPath:(NSIndexPath *)indexPath model:(IMMessageInfoModel *)model;
 
 - (void)tapRedPacketNoticeMessageAtIndexPath:(NSIndexPath *)indexPath model:(IMMessageInfoModel *)model;   // report
+
+
+- (void)changeUserInfo:(NSString *)userId chatId:(NSString *)chatId model:(IMAvatarModel *)avatarModel showName:(NSString *)showName;
 
 @end
 

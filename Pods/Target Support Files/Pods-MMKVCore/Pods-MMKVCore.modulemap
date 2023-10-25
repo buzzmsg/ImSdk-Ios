@@ -1,0 +1,6 @@
+framework module Pods_MMKVCore {
+  umbrella header "Pods-MMKVCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

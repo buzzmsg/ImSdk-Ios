@@ -709,12 +709,17 @@ SWIFT_PROTOCOL("_TtP5IMSDK21IMGroupMemberDelegate_")
 - (void)onShowConversationInfoWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
 
+@class IMImageTempModel;
 @class UIImage;
 
 SWIFT_PROTOCOL("_TtP5IMSDK22IMChatListCellDelegate_")
 @protocol IMChatListCellDelegate <NSObject>
 - (void)onShowConversationinfoWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)replaceConversationInfoWithInfo:(IMConversationInfo * _Nonnull)info;
+- (void)replaceConversationChangeContentNameWithContentName:(NSString * _Nonnull)contentName chatId:(NSString * _Nonnull)chatId;
+- (void)replaceConversationChangeUserInfoWithUserName:(NSString * _Nonnull)userName tempModel:(IMImageTempModel * _Nullable)tempModel chatId:(NSString * _Nonnull)chatId;
+- (void)replaceConversationChangeContentWithContent:(NSString * _Nonnull)content chatId:(NSString * _Nonnull)chatId;
+- (void)replaceConversationChangeMessageContentWithAllContent:(NSString * _Nonnull)allContent contentName:(NSString * _Nonnull)contentName tempLastMessageId:(NSString * _Nonnull)tempLastMessageId chatId:(NSString * _Nonnull)chatId;
 - (void)pressAnimateDoneWithAChatId:(NSString * _Nonnull)aChatId;
 - (void)onShowConversationUserInfoWithRefreshUsers:(NSArray<IMShowUserInfo *> * _Nonnull)refreshUsers;
 - (void)unreadReplaceConversationInfoWithInfoMap:(NSDictionary<NSString *, IMConversationInfo *> * _Nonnull)infoMap;
@@ -1369,7 +1374,6 @@ SWIFT_CLASS("_TtC5IMSDK19IMConversationEvent")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class IMImageTempModel;
 
 SWIFT_CLASS("_TtC5IMSDK18IMConversationInfo")
 @interface IMConversationInfo : NSObject
@@ -1383,6 +1387,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMConversationInfo")
 @property (nonatomic) NSInteger headIndex;
 @property (nonatomic) BOOL isHide;
 @property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nonnull onlyUserName;
 @property (nonatomic, copy) NSString * _Nullable avatar;
 @property (nonatomic) NSInteger unReadCount;
 @property (nonatomic, strong) IMMessage * _Nullable lastMessage;
@@ -2371,6 +2376,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=defau
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 + (void)loadMoreMessagesWithChatId:(NSString * _Nullable)chatId lastId:(NSInteger)lastId messageCount:(NSInteger)messageCount uiSetting:(IMUISetting * _Nonnull)uiSetting memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<IMMessageInfoModel *> * _Nonnull))complete;
++ (void)loadNextMessageIdsWithChatId:(NSString * _Nullable)chatId lastId:(NSInteger)lastId context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
 + (void)loadNextMessagesWithChatId:(NSString * _Nullable)chatId lastId:(NSInteger)lastId messageCount:(NSInteger)messageCount uiSetting:(IMUISetting * _Nonnull)uiSetting memberDelegate:(id <IMGroupMemberDelegate> _Nonnull)memberDelegate context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<IMMessageInfoModel *> * _Nonnull))complete;
 - (NSArray<NSString *> * _Nonnull)getAmidsWithDb:(IMDataBase * _Nonnull)db mids:(NSArray<NSString *> * _Nonnull)mids context:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 + (void)getMessagesWithMids:(NSArray<NSString *> * _Nonnull)mids context:(IMContext * _Nonnull)context complete:(void (^ _Nullable)(NSArray<IMMessage *> * _Nullable))complete;

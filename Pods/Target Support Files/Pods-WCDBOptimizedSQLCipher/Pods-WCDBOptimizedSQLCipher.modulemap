@@ -1,0 +1,6 @@
+framework module Pods_WCDBOptimizedSQLCipher {
+  umbrella header "Pods-WCDBOptimizedSQLCipher-umbrella.h"
+
+  export *
+  module * { export * }
+}
