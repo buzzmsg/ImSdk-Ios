@@ -11,7 +11,7 @@
 #import <CommonModule/CommonModule.h>
 //#import "IMImageTempModel.h"
 
-@class TMImageView, IMOSS, IMUISetting;
+@class IMOSS, IMUISetting;
 
 NS_ASSUME_NONNULL_BEGIN
 

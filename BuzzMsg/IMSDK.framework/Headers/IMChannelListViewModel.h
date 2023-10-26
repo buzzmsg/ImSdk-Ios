@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^TMChatListDataEventBlock)(void);
+typedef void(^IMChatListDataEventBlock)(void);
 
 @class IMConversationViewModel;
 @interface IMChannelListViewModel : NSObject

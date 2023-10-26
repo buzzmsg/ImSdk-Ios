@@ -16,7 +16,6 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <SDK/PublicHeader.h>
 
 //#import <IMSDK/IMSRWebSocket.h>
-//#import <IMSDK/TmCompressPicManager.h>
 //#import <IMSDK/IMPhotoManager.h>
 #import <IMSDK/IMDALabeledCircularProgressView.h>
 #import <IMSDK/IMDAButtonedCircularProgressView.h>
@@ -37,7 +36,7 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 
 
 #import <IMSDK/IMAnimatedImageView.h>
-#import <IMSDK/UIImageView+TMWebImage.h>
+#import <IMSDK/UIImageView+IMWebImage.h>
 
 #import <IMSDK/IMFaceAttachment.h>
 #import <IMSDK/IMDefine.h>
@@ -48,7 +47,7 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 #import <IMSDK/IMTimeManager.h>
 #import <IMSDK/IMChatDetailViewModel.h>
 #import <IMSDK/IMHYBrowserViewController.h>
-#import <IMSDK/UIView+TMImageBrowser.h>
+#import <IMSDK/UIView+IMImageBrowser.h>
 #import <IMSDK/IMChatListManager.h>
 #import <IMSDK/IMChannelListViewController.h>
 #import <IMSDK/IMChatBaseCell.h>

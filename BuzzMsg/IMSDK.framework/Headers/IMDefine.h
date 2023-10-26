@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//#import "TMUser.h"
+//#import "IMUser.h"
 //#import "IMMessageInfoModel.h"
 
 #import <AWSS3/AWSS3.h>
@@ -27,7 +27,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelOff;
 #define YH__ScreenWidth          [UIScreen mainScreen].bounds.size.width
 #define YH__ScreenHeight         [UIScreen mainScreen].bounds.size.height
 
-#define TMLocalized(__key__)  [[IMSwiftOcBridge shared] localizedWithKey:__key__]
+#define IMLocalized(__key__)  [[IMSwiftOcBridge shared] localizedWithKey:__key__]
 
 #ifdef DEBUG
     #define NSLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
@@ -45,7 +45,6 @@ static const IMIFileFormat IMIFileFormatFile       = 2;
 
 @class IMMessageInfoModel;
 @class YYCache;
-@class TMCountryCodeListModel;
 NS_ASSUME_NONNULL_BEGIN
 
 /// Project global attribute definition
@@ -245,13 +244,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)returnStatusImageWithModel:(IMessageStatus)statu isUseToDetail:(BOOL)isUseToDetail;
 
 #pragma mark - Sandbox
-/// creat file directory
-/// It is recommended to use this folder for the entire APP file storage
-+ (void)creatFileDirectory;
-
-/// Get the full path of the file based on the file name
-/// @param fileName fileName
-+ (NSString *)getFullFilePathWithFileName:(NSString *)fileName;
 
 + (NSString *)OriginImagePathWithOriginImage:(UIImage *)originImage;
 
@@ -281,10 +273,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)newDecimalNumberWithString:(NSDecimalNumber *)amount decimal:(double)decimal scale:(double)scale;
 
 
-#pragma mark Get gender string based on enumeration value
-//+ (NSString *)convertGender:(TMUserGenderType)genderType;
-
-
 #pragma mark The realization of the highlight effect of a substring in the string
 +(NSMutableAttributedString *)stringWithHighLightSubstring:(NSString *)totalString substring:(NSString *)substring;
 
@@ -302,7 +290,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - country code list
 + (NSDictionary<NSString *, NSString *> *)defaultCodeAndCountry;
-//+ (TMCountryCodeListModel *)defaultCountryCodeModel;
 #pragma mark - Determine whether the current language of the system is Turkish
 + (BOOL)isCurrentLanguageTR;
 

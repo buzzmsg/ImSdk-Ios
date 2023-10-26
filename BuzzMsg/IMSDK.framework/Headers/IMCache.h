@@ -12,15 +12,15 @@
 #import <Foundation/Foundation.h>
 
 #if __has_include(<IMCache/IMCache.h>)
-FOUNDATION_EXPORT double TMCacheVersionNumber;
-FOUNDATION_EXPORT const unsigned char TMCacheVersionString[];
+FOUNDATION_EXPORT double IMCacheVersionNumber;
+FOUNDATION_EXPORT const unsigned char IMCacheVersionString[];
 #import <IMCache/IMMemoryCache.h>
 #import <IMCache/IMDiskCache.h>
 #import <IMCache/IMKVStorage.h>
-#elif __has_include(<TMWebImage/IMCache.h>)
-#import <TMWebImage/IMMemoryCache.h>
-#import <TMWebImage/IMDiskCache.h>
-#import <TMWebImage/IMKVStorage.h>
+#elif __has_include(<IMWebImage/IMCache.h>)
+#import <IMWebImage/IMMemoryCache.h>
+#import <IMWebImage/IMDiskCache.h>
+#import <IMWebImage/IMKVStorage.h>
 #else
 #import "IMMemoryCache.h"
 #import "IMDiskCache.h"

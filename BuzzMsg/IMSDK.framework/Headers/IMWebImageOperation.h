@@ -1,6 +1,6 @@
 //
 //  IMWebImageOperation.h
-//  TMWebImage <https://github.com/ibireme/TMWebImage>
+//  IMWebImage <https://github.com/ibireme/IMWebImage>
 //
 //  Created by ibireme on 15/2/15.
 //  Copyright (c) 2015 ibireme.
@@ -11,9 +11,9 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<TMWebImage/TMWebImage.h>)
-#import <TMWebImage/IMImageCache.h>
-#import <TMWebImage/IMWebImageManager.h>
+#if __has_include(<IMWebImage/IMWebImage.h>)
+#import <IMWebImage/IMImageCache.h>
+#import <IMWebImage/IMWebImageManager.h>
 #else
 #import "IMImageCache.h"
 #import "IMWebImageManager.h"
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong, readonly) NSURLResponse     *response; ///< The response for request.
 @property (nullable, nonatomic, strong, readonly) IMImageCache      *cache;    ///< The image cache.
 @property (nonatomic, strong, readonly)           NSString          *cacheKey; ///< The image cache key.
-@property (nonatomic, readonly)                   TMWebImageOptions options;   ///< The operation's option.
+@property (nonatomic, readonly)                   IMWebImageOptions options;   ///< The operation's option.
 
 /**
  Whether the URL connection should consult the credential storage for authenticating 
@@ -82,12 +82,12 @@ NS_ASSUME_NONNULL_BEGIN
  @return The image request opeartion, or nil if an error occurs.
  */
 - (instancetype)initWithRequest:(NSURLRequest *)request
-                        options:(TMWebImageOptions)options
+                        options:(IMWebImageOptions)options
                           cache:(nullable IMImageCache *)cache
                        cacheKey:(nullable NSString *)cacheKey
-                       progress:(nullable TMWebImageProgressBlock)progress
-                      transform:(nullable TMWebImageTransformBlock)transform
-                     completion:(nullable TMWebImageCompletionBlock)completion NS_DESIGNATED_INITIALIZER;
+                       progress:(nullable IMWebImageProgressBlock)progress
+                      transform:(nullable IMWebImageTransformBlock)transform
+                     completion:(nullable IMWebImageCompletionBlock)completion NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 + (instancetype)new UNAVAILABLE_ATTRIBUTE;

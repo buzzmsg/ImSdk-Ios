@@ -1,5 +1,5 @@
 //
-//  TMChatFileCell.h
+//  IMChatFileCell.h
 //  
 //
 //  Created by on 2019/11/11.

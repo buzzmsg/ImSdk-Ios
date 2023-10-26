@@ -1,5 +1,5 @@
 //
-//  UIResponder+TMRouter.h
+//  UIResponder+IMRouter.h
 //  MYSaSClerk
 //
 //  Created by chong on 2019/12/7.
@@ -12,7 +12,7 @@
 /**
   跨层级传值
  */
-@interface UIResponder (TMRouter)
+@interface UIResponder (IMRouter)
 
 
 /// 层级传值:需要响应的位置重写该方法即可; 前提：响应者必须在Responder响应链上

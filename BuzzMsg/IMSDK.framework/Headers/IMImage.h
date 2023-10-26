@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
      [view addSubView:imageView];
     
  */
-@interface IMImage : UIImage <TMAnimatedImage>
+@interface IMImage : UIImage <IMAnimatedImage>
 
 + (nullable IMImage *)imageNamed:(NSString *)name; // no cache!
 + (nullable IMImage *)imageWithContentsOfFile:(NSString *)path;

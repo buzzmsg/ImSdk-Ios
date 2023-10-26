@@ -1,6 +1,6 @@
 //
 //  IMWebImageManager.h
-//  TMWebImage <https://github.com/ibireme/TMWebImage>
+//  IMWebImage <https://github.com/ibireme/IMWebImage>
 //
 //  Created by ibireme on 15/2/19.
 //  Copyright (c) 2015 ibireme.
@@ -11,8 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<TMWebImage/TMWebImage.h>)
-#import <TMWebImage/IMImageCache.h>
+#if __has_include(<IMWebImage/IMWebImage.h>)
+#import <IMWebImage/IMImageCache.h>
 #else
 #import "IMImageCache.h"
 #endif
@@ -22,92 +22,92 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// The options to control image operation.
-typedef NS_OPTIONS(NSUInteger, TMWebImageOptions) {
+typedef NS_OPTIONS(NSUInteger, IMWebImageOptions) {
     
     /// Show network activity on status bar when download image.
-    TMWebImageOptionShowNetworkActivity = 1 << 0,
+    IMWebImageOptionShowNetworkActivity = 1 << 0,
     
     /// Display progressive/interlaced/baseline image during download (same as web browser).
-    TMWebImageOptionProgressive = 1 << 1,
+    IMWebImageOptionProgressive = 1 << 1,
     
     /// Display blurred progressive JPEG or interlaced PNG image during download.
     /// This will ignore baseline image for better user experience.
-    TMWebImageOptionProgressiveBlur = 1 << 2,
+    IMWebImageOptionProgressiveBlur = 1 << 2,
     
     /// Use NSURLCache instead of IMImageCache.
-    TMWebImageOptionUseNSURLCache = 1 << 3,
+    IMWebImageOptionUseNSURLCache = 1 << 3,
     
     /// Allows untrusted SSL ceriticates.
-    TMWebImageOptionAllowInvalidSSLCertificates = 1 << 4,
+    IMWebImageOptionAllowInvalidSSLCertificates = 1 << 4,
     
     /// Allows background task to download image when app is in background.
-    TMWebImageOptionAllowBackgroundTask = 1 << 5,
+    IMWebImageOptionAllowBackgroundTask = 1 << 5,
     
     /// Handles cookies stored in NSHTTPCookieStore.
-    TMWebImageOptionHandleCookies = 1 << 6,
+    IMWebImageOptionHandleCookies = 1 << 6,
     
     /// Load the image from remote and refresh the image cache.
-    TMWebImageOptionRefreshImageCache = 1 << 7,
+    IMWebImageOptionRefreshImageCache = 1 << 7,
     
     /// Do not load image from/to disk cache.
-    TMWebImageOptionIgnoreDiskCache = 1 << 8,
+    IMWebImageOptionIgnoreDiskCache = 1 << 8,
     
     /// Do not change the view's image before set a new URL to it.
-    TMWebImageOptionIgnorePlaceHolder = 1 << 9,
+    IMWebImageOptionIgnorePlaceHolder = 1 << 9,
     
     /// Ignore image decoding.
     /// This may used for image downloading without display.
-    TMWebImageOptionIgnoreImageDecoding = 1 << 10,
+    IMWebImageOptionIgnoreImageDecoding = 1 << 10,
     
     /// Ignore multi-frame image decoding.
     /// This will handle the GIF/APNG/WebP/ICO image as single frame image.
-    TMWebImageOptionIgnoreAnimatedImage = 1 << 11,
+    IMWebImageOptionIgnoreAnimatedImage = 1 << 11,
     
     /// Set the image to view with a fade animation.
     /// This will add a "fade" animation on image view's layer for better user experience.
-    TMWebImageOptionSetImageWithFadeAnimation = 1 << 12,
+    IMWebImageOptionSetImageWithFadeAnimation = 1 << 12,
     
     /// Do not set the image to the view when image fetch complete.
     /// You may set the image manually.
-    TMWebImageOptionAvoidSetImage = 1 << 13,
+    IMWebImageOptionAvoidSetImage = 1 << 13,
     
     /// This flag will add the URL to a blacklist (in memory) when the URL fail to be downloaded,
     /// so the library won't keep trying.
-    TMWebImageOptionIgnoreFailedURL = 1 << 14,
+    IMWebImageOptionIgnoreFailedURL = 1 << 14,
 };
 
 /// Indicated where the image came from.
-typedef NS_ENUM(NSUInteger, TMWebImageFromType) {
+typedef NS_ENUM(NSUInteger, IMWebImageFromType) {
     
     /// No value.
-    TMWebImageFromNone = 0,
+    IMWebImageFromNone = 0,
     
     /// Fetched from memory cache immediately.
     /// If you called "setImageWithURL:..." and the image is already in memory,
     /// then you will get this value at the same call.
-    TMWebImageFromMemoryCacheFast,
+    IMWebImageFromMemoryCacheFast,
     
     /// Fetched from memory cache.
-    TMWebImageFromMemoryCache,
+    IMWebImageFromMemoryCache,
     
     /// Fetched from disk cache.
-    TMWebImageFromDiskCache,
+    IMWebImageFromDiskCache,
     
     /// Fetched from remote (web or file path).
-    TMWebImageFromRemote,
+    IMWebImageFromRemote,
 };
 
 /// Indicated image fetch complete stage.
-typedef NS_ENUM(NSInteger, TMWebImageStage) {
+typedef NS_ENUM(NSInteger, IMWebImageStage) {
     
     /// Incomplete, progressive image.
-    TMWebImageStageProgress  = -1,
+    IMWebImageStageProgress  = -1,
     
     /// Cancelled.
-    TMWebImageStageCancelled = 0,
+    IMWebImageStageCancelled = 0,
     
     /// Finished (succeed or failed).
-    TMWebImageStageFinished  = 1,
+    IMWebImageStageFinished  = 1,
 };
 
 
@@ -117,21 +117,21 @@ typedef NS_ENUM(NSInteger, TMWebImageStage) {
  @param receivedSize Current received size in bytes.
  @param expectedSize Expected total size in bytes (-1 means unknown).
  */
-typedef void(^TMWebImageProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
+typedef void(^IMWebImageProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 
 /**
  The block invoked before remote image fetch finished to do additional image process.
  
- @discussion This block will be invoked before `TMWebImageCompletionBlock` to give
+ @discussion This block will be invoked before `IMWebImageCompletionBlock` to give
  you a chance to do additional image process (such as resize or crop). If there's
  no need to transform the image, just return the `image` parameter.
  
  @example You can clip the image, blur it and add rounded corners with these code:
     ^(UIImage *image, NSURL *url) {
         // Maybe you need to create an @autoreleasepool to limit memory cost.
-        image = [image tm_imageByResizeToSize:CGSizeMake(100, 100) contentMode:UIViewContentModeScaleAspectFill];
-        image = [image tm_imageByBlurRadius:20 tintColor:nil tintMode:kCGBlendModeNormal saturation:1.2 maskImage:nil];
-        image = [image tm_imageByRoundCornerRadius:5];
+        image = [image im_imageByResizeToSize:CGSizeMake(100, 100) contentMode:UIViewContentModeScaleAspectFill];
+        image = [image im_imageByBlurRadius:20 tintColor:nil tintMode:kCGBlendModeNormal saturation:1.2 maskImage:nil];
+        image = [image im_imageByRoundCornerRadius:5];
         return image;
     }
  
@@ -139,7 +139,7 @@ typedef void(^TMWebImageProgressBlock)(NSInteger receivedSize, NSInteger expecte
  @param url   The image url (remote or local file path).
  @return The transformed image.
  */
-typedef UIImage * _Nullable (^TMWebImageTransformBlock)(UIImage *image, NSURL *url);
+typedef UIImage * _Nullable (^IMWebImageTransformBlock)(UIImage *image, NSURL *url);
 
 /**
  The block invoked when image fetch finished or cancelled.
@@ -150,10 +150,10 @@ typedef UIImage * _Nullable (^TMWebImageTransformBlock)(UIImage *image, NSURL *u
  @param error       Error during image fetching.
  @param finished    If the operation is cancelled, this value is NO, otherwise YES.
  */
-typedef void (^TMWebImageCompletionBlock)(UIImage * _Nullable image,
+typedef void (^IMWebImageCompletionBlock)(UIImage * _Nullable image,
                                           NSURL *url,
-                                          TMWebImageFromType from,
-                                          TMWebImageStage stage,
+                                          IMWebImageFromType from,
+                                          IMWebImageStage stage,
                                           NSError * _Nullable error);
 
 
@@ -196,10 +196,10 @@ typedef void (^TMWebImageCompletionBlock)(UIImage * _Nullable image,
  @return A new image operation.
  */
 - (nullable IMWebImageOperation *)requestImageWithURL:(NSURL *)url
-                                              options:(TMWebImageOptions)options
-                                             progress:(nullable TMWebImageProgressBlock)progress
-                                            transform:(nullable TMWebImageTransformBlock)transform
-                                           completion:(nullable TMWebImageCompletionBlock)completion;
+                                              options:(IMWebImageOptions)options
+                                             progress:(nullable IMWebImageProgressBlock)progress
+                                            transform:(nullable IMWebImageTransformBlock)transform
+                                           completion:(nullable IMWebImageCompletionBlock)completion;
 
 /**
  The image cache used by image operation. 
@@ -222,7 +222,7 @@ typedef void (^TMWebImageCompletionBlock)(UIImage * _Nullable image,
  When called `requestImageWithURL:options:progress:transform:completion` and
  the `transform` is nil, this block will be used.
  */
-@property (nullable, nonatomic, copy) TMWebImageTransformBlock sharedTransformBlock;
+@property (nullable, nonatomic, copy) IMWebImageTransformBlock sharedTransformBlock;
 
 /**
  The image request timeout interval in seconds. Default is 15.

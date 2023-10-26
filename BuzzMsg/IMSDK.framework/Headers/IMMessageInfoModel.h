@@ -12,12 +12,12 @@
 #import "IMSDKMessageAttachmentModel.h"
 #import "IMMessageQuotoInfoModel.h"
 
-#define TMAvatarTopToContentTop 8.0
-#define TMNickNameHeight 14.0
-#define TMBodyTopToNickName 5.0
-#define TMTimeLabelTopToBodyBottom 7.0
-#define TMStatuImgHeight 15.0
-#define TMStatuImgBottomToContentBottom 8.0
+#define IMAvatarTopToContentTop 8.0
+#define IMNickNameHeight 14.0
+#define IMBodyTopToNickName 5.0
+#define IMTimeLabelTopToBodyBottom 7.0
+#define IMStatuImgHeight 15.0
+#define IMStatuImgBottomToContentBottom 8.0
 
 NS_ASSUME_NONNULL_BEGIN
 

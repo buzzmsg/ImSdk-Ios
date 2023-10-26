@@ -35,57 +35,57 @@ typedef NS_ENUM(NSUInteger, IMImageType) {
  Dispose method specifies how the area used by the current frame is to be treated
  before rendering the next frame on the canvas.
  */
-typedef NS_ENUM(NSUInteger, TMImageDisposeMethod) {
+typedef NS_ENUM(NSUInteger, IMImageDisposeMethod) {
     
     /**
      No disposal is done on this frame before rendering the next; the contents
      of the canvas are left as is.
      */
-    TMImageDisposeNone = 0,
+    IMImageDisposeNone = 0,
     
     /**
      The frame's region of the canvas is to be cleared to fully transparent black
      before rendering the next frame.
      */
-    TMImageDisposeBackground,
+    IMImageDisposeBackground,
     
     /**
      The frame's region of the canvas is to be reverted to the previous contents
      before rendering the next frame.
      */
-    TMImageDisposePrevious,
+    IMImageDisposePrevious,
 };
 
 /**
  Blend operation specifies how transparent pixels of the current frame are
  blended with those of the previous canvas.
  */
-typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
+typedef NS_ENUM(NSUInteger, IMImageBlendOperation) {
     
     /**
      All color components of the frame, including alpha, overwrite the current
      contents of the frame's canvas region.
      */
-    TMImageBlendNone = 0,
+    IMImageBlendNone = 0,
     
     /**
      The frame should be composited onto the output buffer based on its alpha.
      */
-    TMImageBlendOver,
+    IMImageBlendOver,
 };
 
 /**
  An image frame object.
  */
-@interface TMImageFrame : NSObject <NSCopying>
+@interface IMImageFrame : NSObject <NSCopying>
 @property (nonatomic) NSUInteger index;    ///< Frame index (zero based)
 @property (nonatomic) NSUInteger width;    ///< Frame width
 @property (nonatomic) NSUInteger height;   ///< Frame height
 @property (nonatomic) NSUInteger offsetX;  ///< Frame origin.x in canvas (left-bottom based)
 @property (nonatomic) NSUInteger offsetY;  ///< Frame origin.y in canvas (left-bottom based)
 @property (nonatomic) NSTimeInterval duration;          ///< Frame duration in seconds
-@property (nonatomic) TMImageDisposeMethod dispose;     ///< Frame dispose method.
-@property (nonatomic) TMImageBlendOperation blend;      ///< Frame blend operation.
+@property (nonatomic) IMImageDisposeMethod dispose;     ///< Frame dispose method.
+@property (nonatomic) IMImageBlendOperation blend;      ///< Frame blend operation.
 @property (nullable, nonatomic, strong) UIImage *image; ///< The image.
 + (instancetype)frameWithImage:(UIImage *)image;
 @end
@@ -105,12 +105,12 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  
     // Decode single image:
     NSData *data = [NSData dataWithContentOfFile:@"/tmp/image.webp"];
-    TMImageDecoder *decoder = [TMImageDecoder decoderWithData:data scale:2.0];
+    IMImageDecoder *decoder = [IMImageDecoder decoderWithData:data scale:2.0];
     UIImage image = [decoder frameAtIndex:0 decodeForDisplay:YES].image;
  
     // Decode image during download:
     NSMutableData *data = [NSMutableData new];
-    TMImageDecoder *decoder = [[TMImageDecoder alloc] initWithScale:2.0];
+    IMImageDecoder *decoder = [[IMImageDecoder alloc] initWithScale:2.0];
     while(newDataArrived) {
         [data appendData:newData];
         [decoder updateData:data final:NO];
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
     // final display...
  
  */
-@interface TMImageDecoder : NSObject
+@interface IMImageDecoder : NSObject
 
 @property (nullable, nonatomic, readonly) NSData *data;    ///< Image data.
 @property (nonatomic, readonly) IMImageType type;          ///< Image data type.
@@ -177,7 +177,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
     If NO, it will try to returns the original frame data without blend.
  @return A new frame with image, or nil if an error occurs.
  */
-- (nullable TMImageFrame *)frameAtIndex:(NSUInteger)index decodeForDisplay:(BOOL)decodeForDisplay;
+- (nullable IMImageFrame *)frameAtIndex:(NSUInteger)index decodeForDisplay:(BOOL)decodeForDisplay;
 
 /**
  Returns the frame duration from a specified index.
@@ -215,12 +215,12 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  
  Example:
     
-    TMImageEncoder *jpegEncoder = [[TMImageEncoder alloc] initWithType:IMImageTypeJPEG];
+    IMImageEncoder *jpegEncoder = [[IMImageEncoder alloc] initWithType:IMImageTypeJPEG];
     jpegEncoder.quality = 0.9;
     [jpegEncoder addImage:image duration:0];
     NSData jpegData = [jpegEncoder encode];
  
-    TMImageEncoder *gifEncoder = [[TMImageEncoder alloc] initWithType:IMImageTypeGIF];
+    IMImageEncoder *gifEncoder = [[IMImageEncoder alloc] initWithType:IMImageTypeGIF];
     gifEncoder.loopCount = 5;
     [gifEncoder addImage:image0 duration:0.1];
     [gifEncoder addImage:image1 duration:0.15];
@@ -231,7 +231,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  want to reduce the image file size, try imagemagick/ffmpeg for GIF and WebP,
  and apngasm for APNG.
  */
-@interface TMImageEncoder : NSObject
+@interface IMImageEncoder : NSObject
 
 @property (nonatomic, readonly) IMImageType type; ///< Image type.
 @property (nonatomic) NSUInteger loopCount;       ///< Loop count, 0 means infinit, only available for GIF/APNG/WebP.
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  @param quality Image quality, 0.0~1.0.
  @return The image data, or nil if an error occurs.
  */
-+ (nullable NSData *)encodeImageWithDecoder:(TMImageDecoder *)decoder type:(IMImageType)type quality:(CGFloat)quality;
++ (nullable NSData *)encodeImageWithDecoder:(IMImageDecoder *)decoder type:(IMImageType)type quality:(CGFloat)quality;
 
 @end
 
@@ -313,15 +313,15 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  been decoded or unable to decode, it just returns itself.
  
  @return an image decoded, or just return itself if no needed.
- @see tm_isDecodedForDisplay
+ @see im_isDecodedForDisplay
  */
-- (instancetype)tm_imageByDecoded;
+- (instancetype)im_imageByDecoded;
 
 /**
  Wherher the image can be display on screen without additional decoding.
  @warning It just a hint for your code, change it has no other effect.
  */
-@property (nonatomic) BOOL tm_isDecodedForDisplay;
+@property (nonatomic) BOOL im_isDecodedForDisplay;
 
 /**
  Saves this image to iOS Photos Album. 
@@ -334,7 +334,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
     assetURL: An URL that identifies the saved image file. If the image is not saved, assetURL is nil.
     error: If the image is not saved, an error object that describes the reason for failure, otherwise nil.
  */
-- (void)tm_saveToAlbumWithCompletionBlock:(nullable void(^)(NSURL * _Nullable assetURL, NSError * _Nullable error))completionBlock;
+- (void)im_saveToAlbumWithCompletionBlock:(nullable void(^)(NSURL * _Nullable assetURL, NSError * _Nullable error))completionBlock;
 
 /**
  Return a 'best' data representation for this image.
@@ -345,7 +345,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
  
  @return Image data, or nil if an error occurs.
  */
-- (nullable NSData *)tm_imageDataRepresentation;
+- (nullable NSData *)im_imageDataRepresentation;
 
 @end
 
@@ -354,7 +354,7 @@ typedef NS_ENUM(NSUInteger, TMImageBlendOperation) {
 #pragma mark - Helper
 
 /// Detect a data's image type by reading the data's header 16 bytes (very fast).
-CG_EXTERN IMImageType TMImageDetectType(CFDataRef data);
+CG_EXTERN IMImageType IMImageDetectType(CFDataRef data);
 
 /// Convert IMImageType to UTI (such as kUTTypeJPEG).
 CG_EXTERN CFStringRef _Nullable IMImageTypeToUTType(IMImageType type);
@@ -368,24 +368,24 @@ CG_EXTERN NSString *_Nullable IMImageTypeGetExtension(IMImageType type);
 
 
 /// Returns the shared DeviceRGB color space.
-CG_EXTERN CGColorSpaceRef TMCGColorSpaceGetDeviceRGB();
+CG_EXTERN CGColorSpaceRef IMCGColorSpaceGetDeviceRGB();
 
 /// Returns the shared DeviceGray color space.
-CG_EXTERN CGColorSpaceRef TMCGColorSpaceGetDeviceGray();
+CG_EXTERN CGColorSpaceRef IMCGColorSpaceGetDeviceGray();
 
 /// Returns whether a color space is DeviceRGB.
-CG_EXTERN BOOL TMCGColorSpaceIsDeviceRGB(CGColorSpaceRef space);
+CG_EXTERN BOOL IMCGColorSpaceIsDeviceRGB(CGColorSpaceRef space);
 
 /// Returns whether a color space is DeviceGray.
-CG_EXTERN BOOL TMCGColorSpaceIsDeviceGray(CGColorSpaceRef space);
+CG_EXTERN BOOL IMCGColorSpaceIsDeviceGray(CGColorSpaceRef space);
 
 
 
 /// Convert EXIF orientation value to UIImageOrientation.
-CG_EXTERN UIImageOrientation TMUIImageOrientationFromEXIFValue(NSInteger value);
+CG_EXTERN UIImageOrientation IMUIImageOrientationFromEXIFValue(NSInteger value);
 
 /// Convert UIImageOrientation to EXIF orientation value.
-CG_EXTERN NSInteger TMUIImageOrientationToEXIFValue(UIImageOrientation orientation);
+CG_EXTERN NSInteger IMUIImageOrientationToEXIFValue(UIImageOrientation orientation);
 
 
 
@@ -404,7 +404,7 @@ CG_EXTERN NSInteger TMUIImageOrientationToEXIFValue(UIImageOrientation orientati
  
  @return A decoded image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable TMCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay);
+CG_EXTERN CGImageRef _Nullable IMCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay);
 
 /**
  Create an image copy with an orientation.
@@ -414,7 +414,7 @@ CG_EXTERN CGImageRef _Nullable TMCGImageCreateDecodedCopy(CGImageRef imageRef, B
  @param destBitmapInfo Destimation image bitmap, only support 32bit format (such as ARGB8888).
  @return A new image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable TMCGImageCreateCopyWithOrientation(CGImageRef imageRef,
+CG_EXTERN CGImageRef _Nullable IMCGImageCreateCopyWithOrientation(CGImageRef imageRef,
                                                                   UIImageOrientation orientation,
                                                                   CGBitmapInfo destBitmapInfo);
 
@@ -427,7 +427,7 @@ CG_EXTERN CGImageRef _Nullable TMCGImageCreateCopyWithOrientation(CGImageRef ima
  @param destBitmapInfo Destimation image bitmap, only support 32bit format (such as ARGB8888).
  @return A new image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable TMCGImageCreateAffineTransformCopy(CGImageRef imageRef,
+CG_EXTERN CGImageRef _Nullable IMCGImageCreateAffineTransformCopy(CGImageRef imageRef,
                                                                   CGAffineTransform transform,
                                                                   CGSize destSize,
                                                                   CGBitmapInfo destBitmapInfo);
@@ -440,13 +440,13 @@ CG_EXTERN CGImageRef _Nullable TMCGImageCreateAffineTransformCopy(CGImageRef ima
  @param quality   The quality (0.0~1.0)
  @return A new image data, or nil if an error occurs.
  */
-CG_EXTERN CFDataRef _Nullable TMCGImageCreateEncodedData(CGImageRef imageRef, IMImageType type, CGFloat quality);
+CG_EXTERN CFDataRef _Nullable IMCGImageCreateEncodedData(CGImageRef imageRef, IMImageType type, CGFloat quality);
 
 
 /**
  Whether WebP is available in IMImage.
  */
-CG_EXTERN BOOL TMImageWebPAvailable();
+CG_EXTERN BOOL IMImageWebPAvailable();
 
 /**
  Get a webp image frame count;
@@ -454,7 +454,7 @@ CG_EXTERN BOOL TMImageWebPAvailable();
  @param webpData WebP data.
  @return Image frame count, or 0 if an error occurs.
  */
-CG_EXTERN NSUInteger TMImageGetWebPFrameCount(CFDataRef webpData);
+CG_EXTERN NSUInteger IMImageGetWebPFrameCount(CFDataRef webpData);
 
 /**
  Decode an image from WebP data, returns NULL if an error occurs.
@@ -470,19 +470,19 @@ CG_EXTERN NSUInteger TMImageGetWebPFrameCount(CFDataRef webpData);
                             (speed down, and may lose some details).
  @return The decoded image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable TMCGImageCreateWithWebPData(CFDataRef webpData,
+CG_EXTERN CGImageRef _Nullable IMCGImageCreateWithWebPData(CFDataRef webpData,
                                                            BOOL decodeForDisplay,
                                                            BOOL useThreads,
                                                            BOOL bypassFiltering,
                                                            BOOL noFancyUpsampling);
 
-typedef NS_ENUM(NSUInteger, TMImagePreset) {
-    TMImagePresetDefault = 0,  ///< default preset.
-    TMImagePresetPicture,      ///< digital picture, like portrait, inner shot
-    TMImagePresetPhoto,        ///< outdoor photograph, with natural lighting
-    TMImagePresetDrawing,      ///< hand or line drawing, with high-contrast details
-    TMImagePresetIcon,         ///< small-sized colorful images
-    TMImagePresetText          ///< text-like
+typedef NS_ENUM(NSUInteger, IMImagePreset) {
+    IMImagePresetDefault = 0,  ///< default preset.
+    IMImagePresetPicture,      ///< digital picture, like portrait, inner shot
+    IMImagePresetPhoto,        ///< outdoor photograph, with natural lighting
+    IMImagePresetDrawing,      ///< hand or line drawing, with high-contrast details
+    IMImagePresetIcon,         ///< small-sized colorful images
+    IMImagePresetText          ///< text-like
 };
 
 /**
@@ -493,13 +493,13 @@ typedef NS_ENUM(NSUInteger, TMImagePreset) {
  @param quality       0.0~1.0 (0=smallest file, 1.0=biggest file)
                       For lossless image, try the value near 1.0; for lossy, try the value near 0.8.
  @param compressLevel 0~6 (0=fast, 6=slower-better). Default is 4.
- @param preset        Preset for different image type, default is TMImagePresetDefault.
+ @param preset        Preset for different image type, default is IMImagePresetDefault.
  @return WebP data, or nil if an error occurs.
  */
-CG_EXTERN CFDataRef _Nullable TMCGImageCreateEncodedWebPData(CGImageRef imageRef,
+CG_EXTERN CFDataRef _Nullable IMCGImageCreateEncodedWebPData(CGImageRef imageRef,
                                                              BOOL lossless,
                                                              CGFloat quality,
                                                              int compressLevel,
-                                                             TMImagePreset preset);
+                                                             IMImagePreset preset);
 
 NS_ASSUME_NONNULL_END

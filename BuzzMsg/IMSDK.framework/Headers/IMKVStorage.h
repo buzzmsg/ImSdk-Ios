@@ -14,10 +14,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- TMKVStorageItem is used by `IMKVStorage` to store key-value pair and meta data.
+ IMKVStorageItem is used by `IMKVStorage` to store key-value pair and meta data.
  Typically, you should not use this class directly.
  */
-@interface TMKVStorageItem : NSObject
+@interface IMKVStorageItem : NSObject
 @property (nonatomic, strong) NSString *key;                ///< key
 @property (nonatomic, strong) NSData *value;                ///< value
 @property (nullable, nonatomic, strong) NSString *filename; ///< filename (nil if inline)
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- Storage type, indicated where the `TMKVStorageItem.value` stored.
+ Storage type, indicated where the `IMKVStorageItem.value` stored.
  
  @discussion Typically, write data to sqlite is faster than extern file, but 
  reading performance is dependent on data size. In my test (on iPhone 6 64G), 
@@ -36,23 +36,23 @@ NS_ASSUME_NONNULL_BEGIN
  than 20KB.
  
  * If you want to store large number of small datas (such as contacts cache), 
-   use TMKVStorageTypeSQLite to get better performance.
+   use IMKVStorageTypeSQLite to get better performance.
  * If you want to store large files (such as image cache),
-   use TMKVStorageTypeFile to get better performance.
- * You can use TMKVStorageTypeMixed and choice your storage type for each item.
+   use IMKVStorageTypeFile to get better performance.
+ * You can use IMKVStorageTypeMixed and choice your storage type for each item.
  
  See <http://www.sqlite.org/intern-v-extern-blob.html> for more information.
  */
-typedef NS_ENUM(NSUInteger, TMKVStorageType) {
+typedef NS_ENUM(NSUInteger, IMKVStorageType) {
     
     /// The `value` is stored as a file in file system.
-    TMKVStorageTypeFile = 0,
+    IMKVStorageTypeFile = 0,
     
     /// The `value` is stored in sqlite with blob type.
-    TMKVStorageTypeSQLite = 1,
+    IMKVStorageTypeSQLite = 1,
     
     /// The `value` is stored in file system or sqlite based on your choice.
-    TMKVStorageTypeMixed = 2,
+    IMKVStorageTypeMixed = 2,
 };
 
 
@@ -81,7 +81,7 @@ typedef NS_ENUM(NSUInteger, TMKVStorageType) {
 ///=============================================================================
 
 @property (nonatomic, readonly) NSString *path;        ///< The path of this storage.
-@property (nonatomic, readonly) TMKVStorageType type;  ///< The type of this storage.
+@property (nonatomic, readonly) IMKVStorageType type;  ///< The type of this storage.
 @property (nonatomic) BOOL errorLogsEnabled;           ///< Set `YES` to enable error logs for debug.
 
 #pragma mark - Initializer
@@ -102,7 +102,7 @@ typedef NS_ENUM(NSUInteger, TMKVStorageType) {
  @return  A new storage object, or nil if an error occurs.
  @warning Multiple instances with the same path will make the storage unstable.
  */
-- (nullable instancetype)initWithPath:(NSString *)path type:(TMKVStorageType)type NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithPath:(NSString *)path type:(IMKVStorageType)type NS_DESIGNATED_INITIALIZER;
 
 
 #pragma mark - Save Items
@@ -117,21 +117,21 @@ typedef NS_ENUM(NSUInteger, TMKVStorageType) {
  item.extendedData to disk or sqlite, other properties will be ignored. item.key 
  and item.value should not be empty (nil or zero length).
  
- If the `type` is TMKVStorageTypeFile, then the item.filename should not be empty.
- If the `type` is TMKVStorageTypeSQLite, then the item.filename will be ignored.
- It the `type` is TMKVStorageTypeMixed, then the item.value will be saved to file 
+ If the `type` is IMKVStorageTypeFile, then the item.filename should not be empty.
+ If the `type` is IMKVStorageTypeSQLite, then the item.filename will be ignored.
+ It the `type` is IMKVStorageTypeMixed, then the item.value will be saved to file 
  system if the item.filename is not empty, otherwise it will be saved to sqlite.
  
  @param item  An item.
  @return Whether succeed.
  */
-- (BOOL)saveItem:(TMKVStorageItem *)item;
+- (BOOL)saveItem:(IMKVStorageItem *)item;
 
 /**
  Save an item or update the item with 'key' if it already exists.
  
  @discussion This method will save the key-value pair to sqlite. If the `type` is
- TMKVStorageTypeFile, then this method will failed.
+ IMKVStorageTypeFile, then this method will failed.
  
  @param key   The key, should not be empty (nil or zero length).
  @param value The key, should not be empty (nil or zero length).
@@ -143,9 +143,9 @@ typedef NS_ENUM(NSUInteger, TMKVStorageType) {
  Save an item or update the item with 'key' if it already exists.
  
  @discussion
- If the `type` is TMKVStorageTypeFile, then the `filename` should not be empty.
- If the `type` is TMKVStorageTypeSQLite, then the `filename` will be ignored.
- It the `type` is TMKVStorageTypeMixed, then the `value` will be saved to file
+ If the `type` is IMKVStorageTypeFile, then the `filename` should not be empty.
+ If the `type` is IMKVStorageTypeSQLite, then the `filename` will be ignored.
+ It the `type` is IMKVStorageTypeMixed, then the `value` will be saved to file
  system if the `filename` is not empty, otherwise it will be saved to sqlite.
  
  @param key           The key, should not be empty (nil or zero length).
@@ -249,7 +249,7 @@ typedef NS_ENUM(NSUInteger, TMKVStorageType) {
  @param key A specified key.
  @return Item for the key, or nil if not exists / error occurs.
  */
-- (nullable TMKVStorageItem *)getItemForKey:(NSString *)key;
+- (nullable IMKVStorageItem *)getItemForKey:(NSString *)key;
 
 /**
  Get item information with a specified key.
@@ -258,7 +258,7 @@ typedef NS_ENUM(NSUInteger, TMKVStorageType) {
  @param key A specified key.
  @return Item information for the key, or nil if not exists / error occurs.
  */
-- (nullable TMKVStorageItem *)getItemInfoForKey:(NSString *)key;
+- (nullable IMKVStorageItem *)getItemInfoForKey:(NSString *)key;
 
 /**
  Get item value with a specified key.
@@ -272,18 +272,18 @@ typedef NS_ENUM(NSUInteger, TMKVStorageType) {
  Get items with an array of keys.
  
  @param keys  An array of specified keys.
- @return An array of `TMKVStorageItem`, or nil if not exists / error occurs.
+ @return An array of `IMKVStorageItem`, or nil if not exists / error occurs.
  */
-- (nullable NSArray<TMKVStorageItem *> *)getItemForKeys:(NSArray<NSString *> *)keys;
+- (nullable NSArray<IMKVStorageItem *> *)getItemForKeys:(NSArray<NSString *> *)keys;
 
 /**
  Get item infomartions with an array of keys.
  The `value` in items will be ignored.
  
  @param keys  An array of specified keys.
- @return An array of `TMKVStorageItem`, or nil if not exists / error occurs.
+ @return An array of `IMKVStorageItem`, or nil if not exists / error occurs.
  */
-- (nullable NSArray<TMKVStorageItem *> *)getItemInfoForKeys:(NSArray<NSString *> *)keys;
+- (nullable NSArray<IMKVStorageItem *> *)getItemInfoForKeys:(NSArray<NSString *> *)keys;
 
 /**
  Get items value with an array of keys.

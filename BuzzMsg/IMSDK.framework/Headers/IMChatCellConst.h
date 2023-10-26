@@ -28,8 +28,6 @@ UIKIT_EXTERN const int IMChatCardCellConstTextBottomSpace;     //
 UIKIT_EXTERN const int IMChatCardCellConstButtonHeight;     //
 UIKIT_EXTERN const int IMChatCardCellConstTimeHeight;     //
 
-//#define TMChatCellTextMaxWidth (YH__ScreenWidth - IMChatCellConstAvatarSideSpace*2 - IMChatCellConstAvatarWidth*2 - 12*2)
-//#define TMChatCellTextMaxWidth 274
 
 
 NS_ASSUME_NONNULL_BEGIN

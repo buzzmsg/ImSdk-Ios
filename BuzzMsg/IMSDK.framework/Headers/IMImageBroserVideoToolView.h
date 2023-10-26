@@ -21,9 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) changeStatu:(AVPlayer *)player playerItem:(AVPlayerItem *)playerItem;
 
 /*进度条定时器*/
-@property (nonatomic, strong) TMCLGCDTimer       *sliderTimer;
+@property (nonatomic, strong) IMCLGCDTimer       *sliderTimer;
 /*点击定时器*/
-@property (nonatomic, strong) TMCLGCDTimer       *tapTimer;
+@property (nonatomic, strong) IMCLGCDTimer       *tapTimer;
 @property (nonatomic,strong) IMCLSlider *slider;
 
 -(void)cl_progressSliderValueChanged:(AVPlayer *)player playerItem:(AVPlayerItem *)playerItem dragedSeconds:(CGFloat)dragedSeconds;

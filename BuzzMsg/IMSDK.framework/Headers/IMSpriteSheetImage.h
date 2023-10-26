@@ -1,5 +1,5 @@
 //
-//  TMSpriteImage.h
+//  IMSpriteImage.h
 //  IMImage <https://github.com/ibireme/IMImage>
 //
 //  Created by ibireme on 15/4/21.
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
     imageView.layer.contentsRect = [sheet contentsRectForCALayerAtIndex:6];
  
  */
-@interface IMSpriteSheetImage : UIImage <TMAnimatedImage>
+@interface IMSpriteSheetImage : UIImage <IMAnimatedImage>
 
 /**
  Creates and returns an image object.

@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
  An image view for displaying animated image.
  
  @discussion It is a fully compatible `UIImageView` subclass.
- If the `image` or `highlightedImage` property adopt to the `TMAnimatedImage` protocol,
- then it can be used to play the multi-frame animation. The animation can also be 
+ If the `image` or `highlightedImage` property adopt to the `IMAnimatedImage` protocol,
+ then it can be used to play the multi-frame animation. The animation can also be
  controlled with the UIImageView methods `-startAnimating`, `-stopAnimating` and `-isAnimating`.
  
  This view request the frame data just in time. When the device has enough free memory, 
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- The TMAnimatedImage protocol declares the required methods for animated image
+ The IMAnimatedImage protocol declares the required methods for animated image
  display with IMAnimatedImageView.
  
  Subclass a UIImage and implement this protocol, so that instances of that class 
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  See `IMImage` and `IMFrameImage` for example.
  */
-@protocol TMAnimatedImage <NSObject>
+@protocol IMAnimatedImage <NSObject>
 @required
 /// Total animated frame count.
 /// It the frame count is less than 1, then the methods below will be ignored.

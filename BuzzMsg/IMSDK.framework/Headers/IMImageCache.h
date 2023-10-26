@@ -1,6 +1,6 @@
 //
 //  IMImageCache.h
-//  TMWebImage <https://github.com/ibireme/TMWebImage>
+//  IMWebImage <https://github.com/ibireme/IMWebImage>
 //
 //  Created by ibireme on 15/2/15.
 //  Copyright (c) 2015 ibireme.
@@ -16,18 +16,18 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// Image cache type
-typedef NS_OPTIONS(NSUInteger, TMImageCacheType) {
+typedef NS_OPTIONS(NSUInteger, IMImageCacheType) {
     /// No value.
-    TMImageCacheTypeNone   = 0,
+    IMImageCacheTypeNone   = 0,
     
     /// Get/store image with memory cache.
-    TMImageCacheTypeMemory = 1 << 0,
+    IMImageCacheTypeMemory = 1 << 0,
     
     /// Get/store image with disk cache.
-    TMImageCacheTypeDisk   = 1 << 1,
+    IMImageCacheTypeDisk   = 1 << 1,
     
     /// Get/store image with both memory cache and disk cache.
-    TMImageCacheTypeAll    = TMImageCacheTypeMemory | TMImageCacheTypeDisk,
+    IMImageCacheTypeAll    = IMImageCacheTypeMemory | IMImageCacheTypeDisk,
 };
 
 
@@ -121,9 +121,9 @@ typedef NS_OPTIONS(NSUInteger, TMImageCacheType) {
  Sets the image with the specified key in the cache.
  This method returns immediately and executes the store operation in background.
  
- @discussion If the `type` contain `TMImageCacheTypeMemory`, then the `image` will 
+ @discussion If the `type` contain `IMImageCacheTypeMemory`, then the `image` will 
  be stored in the memory cache; `imageData` will be used instead if `image` is nil.
- If the `type` contain `TMImageCacheTypeDisk`, then the `imageData` will
+ If the `type` contain `IMImageCacheTypeDisk`, then the `imageData` will
  be stored in the disk cache; `image` will be used instead if `imageData` is nil.
  
  @param image     The image to be stored in the cache.
@@ -134,7 +134,7 @@ typedef NS_OPTIONS(NSUInteger, TMImageCacheType) {
 - (void)setImage:(nullable UIImage *)image
        imageData:(nullable NSData *)imageData
           forKey:(NSString *)key
-        withType:(TMImageCacheType)type;
+        withType:(IMImageCacheType)type;
 
 /**
  Removes the image of the specified key in the cache (both memory and disk).
@@ -151,7 +151,7 @@ typedef NS_OPTIONS(NSUInteger, TMImageCacheType) {
  @param key  The key identifying the image to be removed. If nil, this method has no effect.
  @param type The cache type to remove image.
  */
-- (void)removeImageForKey:(NSString *)key withType:(TMImageCacheType)type;
+- (void)removeImageForKey:(NSString *)key withType:(IMImageCacheType)type;
 
 /**
  Returns a Boolean value that indicates whether a given key is in cache.
@@ -165,14 +165,14 @@ typedef NS_OPTIONS(NSUInteger, TMImageCacheType) {
 
 /**
  Returns a Boolean value that indicates whether a given key is in cache.
- If the image is not in memory and the `type` contains `TMImageCacheTypeDisk`,
+ If the image is not in memory and the `type` contains `IMImageCacheTypeDisk`,
  this method may blocks the calling thread until file read finished.
  
  @param key  A string identifying the image. If nil, just return NO.
  @param type The cache type.
  @return Whether the image is in cache.
  */
-- (BOOL)containsImageForKey:(NSString *)key withType:(TMImageCacheType)type;
+- (BOOL)containsImageForKey:(NSString *)key withType:(IMImageCacheType)type;
 
 /**
  Returns the image associated with a given key.
@@ -186,13 +186,13 @@ typedef NS_OPTIONS(NSUInteger, TMImageCacheType) {
 
 /**
  Returns the image associated with a given key.
- If the image is not in memory and the `type` contains `TMImageCacheTypeDisk`,
+ If the image is not in memory and the `type` contains `IMImageCacheTypeDisk`,
  this method may blocks the calling thread until file read finished.
  
  @param key A string identifying the image. If nil, just return nil.
  @return The image associated with key, or nil if no image is associated with key.
  */
-- (nullable UIImage *)getImageForKey:(NSString *)key withType:(TMImageCacheType)type;
+- (nullable UIImage *)getImageForKey:(NSString *)key withType:(IMImageCacheType)type;
 
 /**
  Asynchronously get the image associated with a given key.
@@ -202,8 +202,8 @@ typedef NS_OPTIONS(NSUInteger, TMImageCacheType) {
  @param block A completion block which will be called on main thread.
  */
 - (void)getImageForKey:(NSString *)key
-              withType:(TMImageCacheType)type
-             withBlock:(void(^)(UIImage * _Nullable image, TMImageCacheType type))block;
+              withType:(IMImageCacheType)type
+             withBlock:(void(^)(UIImage * _Nullable image, IMImageCacheType type))block;
 
 /**
  Returns the image data associated with a given key.

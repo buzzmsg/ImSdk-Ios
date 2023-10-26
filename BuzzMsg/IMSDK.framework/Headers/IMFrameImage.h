@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
      IMAnimatedImageView *imageView = [IMAnimatedImageView alloc] initWithImage:image];
      [view addSubView:imageView];
  */
-@interface IMFrameImage : UIImage <TMAnimatedImage>
+@interface IMFrameImage : UIImage <IMAnimatedImage>
 
 /**
  Create a frame animated image from files.

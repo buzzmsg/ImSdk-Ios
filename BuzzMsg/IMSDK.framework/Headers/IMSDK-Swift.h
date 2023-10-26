@@ -338,6 +338,18 @@ SWIFT_PROTOCOL("_TtP5IMSDK29ConversationViewModelDelegate_")
 - (void)unReadChangeWithCount:(NSInteger)count;
 @end
 
+@class NSAttributedString;
+
+SWIFT_CLASS("_TtC5IMSDK13IMASTextNode2")
+@interface IMASTextNode2 : ASTextNode2
+@property (nonatomic, readonly, copy) NSString * _Nullable colorKey;
+@property (nonatomic, readonly) BOOL needChange;
+- (nonnull instancetype)initWithColorKey:(NSString * _Nullable)colorKey needChange:(BOOL)needChange OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@property (nonatomic, strong) NSAttributedString * _Nullable attributedText;
+@end
+
 
 /// Alert
 SWIFT_CLASS("_TtC5IMSDK7IMAlert")
@@ -569,7 +581,6 @@ SWIFT_CLASS("_TtC5IMSDK15IMCardRightCell")
 @class IMImageBrowserView;
 @class IMImageSelectViewInfo;
 @protocol MessageMultipleChooser;
-@class NSAttributedString;
 @class IMRedPackModel;
 @class IMLocationModel;
 
@@ -644,7 +655,7 @@ SWIFT_CLASS("_TtC5IMSDK33IMChatGetRedEnvelopeMsgCenterCell")
 
 enum IMSwipeDirection : NSInteger;
 @protocol IMSwipeTableViewCellDelegate;
-@protocol TMTMSwipeTableViewCellDataSource;
+@protocol IMSwipeTableViewCellDataSource;
 @class IMSwipeAction;
 @class UIGestureRecognizer;
 @class UIEvent;
@@ -658,7 +669,7 @@ SWIFT_CLASS("_TtC5IMSDK20IMSwipeTableViewCell")
 @property (nonatomic) CGFloat swipeToExecuteTreshold;
 @property (nonatomic) enum IMSwipeDirection swipeDirection;
 @property (nonatomic, weak) id <IMSwipeTableViewCellDelegate> _Nullable delegate;
-@property (nonatomic, weak) id <TMTMSwipeTableViewCellDataSource> _Nullable dataSource;
+@property (nonatomic, weak) id <IMSwipeTableViewCellDataSource> _Nullable dataSource;
 @property (nonatomic, readonly, weak) UITableView * _Null_unspecified tableView;
 @property (nonatomic, readonly) BOOL isSwiped;
 @property (nonatomic, copy) void (^ _Nullable swipeClosure)(CGFloat, BOOL);
@@ -678,7 +689,7 @@ SWIFT_CLASS("_TtC5IMSDK20IMSwipeTableViewCell")
 SWIFT_CLASS("_TtC5IMSDK14IMChatListCell")
 @interface IMChatListCell : IMSwipeTableViewCell
 @property (nonatomic, strong) UIView * _Nonnull coverView;
-@property (nonatomic, strong) IMConversationInfo * _Null_unspecified tmInfo;
+@property (nonatomic, strong) IMConversationInfo * _Null_unspecified imInfo;
 @property (nonatomic, strong) IMOSS * _Nullable oss;
 @property (nonatomic, strong) IMUISetting * _Nullable uiSetting;
 @property (nonatomic, weak) id <IMChatListCellDelegate> _Nullable cellDelegate;
@@ -686,7 +697,7 @@ SWIFT_CLASS("_TtC5IMSDK14IMChatListCell")
 - (void)addEventObserverWithContext:(IMContext * _Nonnull)context;
 - (void)ChangeLineViewHeightWithIsChange:(BOOL)isChange;
 - (void)changeBackgroundColorWithColor:(UIColor * _Nonnull)color;
-- (void)getTmInfoWithTmInfo:(IMConversationInfo * _Nonnull)tmInfo;
+- (void)getTmInfoWithImInfo:(IMConversationInfo * _Nonnull)imInfo;
 - (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)awakeFromNib;
@@ -955,6 +966,22 @@ SWIFT_CLASS("_TtC5IMSDK19IMChatMenuAlertView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)show;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+@class IMSearchMsgResultString;
+enum MessageStatus : NSInteger;
+
+SWIFT_CLASS("_TtC5IMSDK23IMChatMessageContentDto")
+@interface IMChatMessageContentDto : NSObject
+@property (nonatomic, copy) NSString * _Nonnull aChatId;
+@property (nonatomic, copy) NSString * _Nonnull aUid;
+@property (nonatomic, copy) NSString * _Nonnull searchKey;
+@property (nonatomic, strong) IMSearchMsgResultString * _Nullable resultContent;
+@property (nonatomic, copy) NSString * _Nonnull aMid;
+@property (nonatomic) NSInteger sortTimeStamp;
+@property (nonatomic) NSInteger showTimeStamp;
+@property (nonatomic) enum MessageStatus status;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1924,7 +1951,7 @@ SWIFT_CLASS("_TtC5IMSDK17IMGroupMemberInfo")
 @property (nonatomic, strong) IMAvatarModel * _Nullable avatarInfo;
 @property (nonatomic) NSInteger status;
 @property (nonatomic) NSInteger adminTime;
-@property (nonatomic, strong) IMUserInfo * _Nullable tmUserInfo;
+@property (nonatomic, strong) IMUserInfo * _Nullable imUserInfo;
 @property (nonatomic, strong) IMContext * _Nullable context;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2088,10 +2115,10 @@ SWIFT_CLASS("_TtC5IMSDK17IMLeaveGroupAlert")
 
 
 
+
 @interface IMLeaveGroupAlert (SWIFT_EXTENSION(IMSDK))
 - (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 
@@ -2615,15 +2642,15 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 - (void)deleteDraftQuotoMessageWithAChatId:(NSString * _Nonnull)aChatId;
 @end
 
-@class TMChatMessageContentDto;
 @class IMSearchMessageResult;
 
 @interface IMSdk (SWIFT_EXTENSION(IMSDK)) <IMGroupMemberDelegate>
-- (void)searchChatMessageAsyncWithSearchKey:(NSString * _Nonnull)searchKey aChatId:(NSString * _Nonnull)aChatId sort:(BOOL (^ _Nonnull)(TMChatMessageContentDto * _Nonnull, TMChatMessageContentDto * _Nonnull))sort searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult completionHandler:(void (^ _Nonnull)(void))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0.0);
-- (void)searchChatMessageWithSearchKey:(NSString * _Nonnull)searchKey aChatId:(NSString * _Nonnull)aChatId sort:(BOOL (^ _Nonnull)(TMChatMessageContentDto * _Nonnull, TMChatMessageContentDto * _Nonnull))sort searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
-- (void)getSearchResultWithSearchKey:(NSString * _Nonnull)searchKey aMids:(NSArray<NSString *> * _Nonnull)aMids sort:(BOOL (^ _Nonnull)(TMChatMessageContentDto * _Nonnull, TMChatMessageContentDto * _Nonnull))sort searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
+- (void)searchChatMessageAsyncWithSearchKey:(NSString * _Nonnull)searchKey aChatId:(NSString * _Nonnull)aChatId sort:(BOOL (^ _Nonnull)(IMChatMessageContentDto * _Nonnull, IMChatMessageContentDto * _Nonnull))sort searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult completionHandler:(void (^ _Nonnull)(void))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0.0);
+- (void)searchChatMessageWithSearchKey:(NSString * _Nonnull)searchKey aChatId:(NSString * _Nonnull)aChatId sort:(BOOL (^ _Nonnull)(IMChatMessageContentDto * _Nonnull, IMChatMessageContentDto * _Nonnull))sort searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
+- (void)getSearchResultWithSearchKey:(NSString * _Nonnull)searchKey aMids:(NSArray<NSString *> * _Nonnull)aMids sort:(BOOL (^ _Nonnull)(IMChatMessageContentDto * _Nonnull, IMChatMessageContentDto * _Nonnull))sort searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
 - (void)searchMessageAsyncWithSearchKey:(NSString * _Nonnull)searchKey searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
 - (void)searchMessageWithSearchKey:(NSString * _Nonnull)searchKey searchResult:(void (^ _Nonnull)(NSArray<IMSearchMessageResult *> * _Nonnull))searchResult;
+- (void)resetSearchHistoryWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
 - (void)onShowGroupMemberWithDatas:(NSArray<IMShowUserInfo *> * _Nonnull)datas;
 @end
 
@@ -2675,7 +2702,7 @@ typedef SWIFT_ENUM(NSInteger, IMSdkError, closed) {
 SWIFT_CLASS("_TtC5IMSDK21IMSearchMessageResult")
 @interface IMSearchMessageResult : NSObject
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull aMids;
-@property (nonatomic, strong) TMChatMessageContentDto * _Nullable messageInfo;
+@property (nonatomic, strong) IMChatMessageContentDto * _Nullable messageInfo;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2758,9 +2785,9 @@ SWIFT_CLASS("_TtC5IMSDK15IMSwiftOcBridge")
 /// single column
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) IMSwiftOcBridge * _Nonnull shared;)
 + (IMSwiftOcBridge * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Notification of language change. After receiving the language change notification of <code>Localize_Swift</code>, send this notification and distribute it to<code> TMOCBaseViewController</code>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull TMLanguageChangeNotification;)
-+ (NSString * _Nonnull)TMLanguageChangeNotification SWIFT_WARN_UNUSED_RESULT;
+/// Notification of language change. After receiving the language change notification of <code>Localize_Swift</code>, send this notification and distribute it to<code> IMOCBaseViewController</code>
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull IMLanguageChangeNotification;)
++ (NSString * _Nonnull)IMLanguageChangeNotification SWIFT_WARN_UNUSED_RESULT;
 /// Language change callback (quickly and conveniently obtain the language change callback, which can be used for debugging, it is not recommended to use it in a large area)
 @property (nonatomic, copy) void (^ _Nullable languageChangedClosure)(NSString * _Nonnull);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -2841,6 +2868,16 @@ typedef SWIFT_ENUM(NSInteger, IMSwipeDirection, closed) {
 
 
 
+
+
+SWIFT_PROTOCOL("_TtP5IMSDK30IMSwipeTableViewCellDataSource_")
+@protocol IMSwipeTableViewCellDataSource
+- (NSInteger)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell numberOfActionsForTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
+- (IMSwipeAction * _Nonnull)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell actionAtIndex:(NSInteger)index forTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
+- (IMSwipeActionView * _Nullable)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell actionViewForActionAtIndex:(NSInteger)index forTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
+@optional
+- (CGFloat)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell widthForActionsForTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 SWIFT_PROTOCOL("_TtP5IMSDK28IMSwipeTableViewCellDelegate_")
@@ -3229,41 +3266,6 @@ SWIFT_CLASS("_TtC5IMSDK22StackTMSwipeActionView")
 @interface StackTMSwipeActionView : IMSwipeActionView
 - (nonnull instancetype)initWithAction:(IMSwipeAction * _Nonnull)action width:(CGFloat)width OBJC_DESIGNATED_INITIALIZER;
 - (void)setupTMSwipeActionView;
-@end
-
-
-SWIFT_CLASS("_TtC5IMSDK13TMASTextNode2")
-@interface TMASTextNode2 : ASTextNode2
-@property (nonatomic, readonly, copy) NSString * _Nullable colorKey;
-@property (nonatomic, readonly) BOOL needChange;
-- (nonnull instancetype)initWithColorKey:(NSString * _Nullable)colorKey needChange:(BOOL)needChange OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@property (nonatomic, strong) NSAttributedString * _Nullable attributedText;
-@end
-
-
-SWIFT_CLASS("_TtC5IMSDK23TMChatMessageContentDto")
-@interface TMChatMessageContentDto : NSObject
-@property (nonatomic, copy) NSString * _Nonnull aChatId;
-@property (nonatomic, copy) NSString * _Nonnull aUid;
-@property (nonatomic, copy) NSString * _Nonnull searchKey;
-@property (nonatomic, strong) IMSearchMsgResultString * _Nullable resultContent;
-@property (nonatomic, copy) NSString * _Nonnull aMid;
-@property (nonatomic) NSInteger sortTimeStamp;
-@property (nonatomic) NSInteger showTimeStamp;
-@property (nonatomic) enum MessageStatus status;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_PROTOCOL("_TtP5IMSDK32TMTMSwipeTableViewCellDataSource_")
-@protocol TMTMSwipeTableViewCellDataSource
-- (NSInteger)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell numberOfActionsForTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
-- (IMSwipeAction * _Nonnull)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell actionAtIndex:(NSInteger)index forTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
-- (IMSwipeActionView * _Nullable)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell actionViewForActionAtIndex:(NSInteger)index forTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
-@optional
-- (CGFloat)swipeTableViewCell:(IMSwipeTableViewCell * _Nonnull)cell widthForActionsForTMSwipeDirection:(enum IMSwipeDirection)direction SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

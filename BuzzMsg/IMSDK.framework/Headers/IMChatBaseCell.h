@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,strong) SDAnimatedImageView *imgvAvatar;//Publisher avatar
 @property (nonatomic,strong) IMCallHeadImageView *headImageView;//Publisher avatar
 
-//@property (nonatomic,strong) TMChatHeadImageView *headImageView;//Publisher avatar
+//@property (nonatomic,strong) IMChatHeadImageView *headImageView;//Publisher avatar
 
 
 @property (nonatomic,strong) UIImageView *imgvSendMsgStatus;//Send status icon
