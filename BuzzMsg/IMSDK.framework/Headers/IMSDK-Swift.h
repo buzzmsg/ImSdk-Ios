@@ -1179,6 +1179,7 @@ SWIFT_CLASS("_TtC5IMSDK16IMChatViewColors")
 @property (nonatomic, copy) NSString * _Nonnull listDeleteButtonText;
 @property (nonatomic, copy) NSString * _Nonnull listMuteButtonBg;
 @property (nonatomic, copy) NSString * _Nonnull listMuteButtonText;
+@property (nonatomic, copy) NSString * _Nonnull listSearchResultHighlightedText;
 @property (nonatomic, copy) NSString * _Nonnull listinitializationButtonText;
 @property (nonatomic, copy) NSString * _Nonnull listinitializationButtonFrame;
 @property (nonatomic, copy) NSString * _Nonnull listinitializationText;
@@ -2583,7 +2584,6 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 @property (nonatomic, readonly, strong) IMUISetting * _Nonnull uiSetting;
 @property (nonatomic, readonly, strong) IMOSS * _Null_unspecified oss;
 @property (nonatomic, readonly, strong) IMContext * _Nonnull context;
-- (void)setDefaultAKWithDefaultAK:(NSString * _Nonnull)defaultAK;
 - (void)setUISettingWithSetting:(IMUISetting * _Nonnull)setting;
 - (BOOL)getNetworkStatus SWIFT_WARN_UNUSED_RESULT;
 - (void)getNetStatusWithBlock:(void (^ _Nonnull)(enum IMNetworkStatus))block;
@@ -2608,7 +2608,6 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 - (void)setConversationInfoWithInfos:(NSArray<IMConversationinfo *> * _Nonnull)infos;
 - (void)setGoogleMapKeyWithMapKey:(NSString * _Nonnull)mapKey;
 - (void)logOutWithSuccess:(void (^ _Nonnull)(void))success failed:(void (^ _Nonnull)(void))failed;
-- (void)clearTokenTest;
 /// create group chat
 - (void)createChatWithAChatId:(NSString * _Nonnull)aChatId chatName:(NSString * _Nonnull)chatName aUids:(NSArray<NSString *> * _Nonnull)aUids success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 /// This method must be accessed at the main thread
@@ -3109,7 +3108,7 @@ SWIFT_CLASS("_TtC5IMSDK11IMUserLogic")
 @interface IMUserLogic : NSObject
 - (nonnull instancetype)init:(IMContext * _Nonnull)context OBJC_DESIGNATED_INITIALIZER;
 + (void)getUserInfoWithUid:(NSString * _Nonnull)uid context:(IMContext * _Nonnull)context done:(void (^ _Nonnull)(IMUserInfo * _Nullable))done;
-+ (NSArray<IMChatMemberInfo *> * _Nonnull)getChatMemberinfosWithIds:(NSArray<NSString *> * _Nonnull)ids dbBase:(IMDataBase * _Nonnull)dbBase SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<IMChatMemberInfo *> * _Nonnull)getChatMemberinfosWithGroupId:(NSString * _Nonnull)groupId uids:(NSArray<NSString *> * _Nonnull)uids dbBase:(IMDataBase * _Nonnull)dbBase SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<IMChatMemberInfo *> * _Nonnull)getChatMemberinfosWithChatId:(NSString * _Nonnull)chatId uids:(NSArray<NSString *> * _Nonnull)uids dbBase:(IMDataBase * _Nonnull)dbBase SWIFT_WARN_UNUSED_RESULT;
 + (IMChatMemberInfo * _Nonnull)getChatMemberInfoWithChatId:(NSString * _Nonnull)chatId uid:(NSString * _Nonnull)uid dbBase:(IMDataBase * _Nonnull)dbBase SWIFT_WARN_UNUSED_RESULT;
 - (void)getChatMemberInfoWithChatId:(NSString * _Nonnull)chatId uids:(NSArray<NSString *> * _Nonnull)uids doneBlock:(void (^ _Nonnull)(NSArray<IMChatMemberInfo *> * _Nonnull))doneBlock;
