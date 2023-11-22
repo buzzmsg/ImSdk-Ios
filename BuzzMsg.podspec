@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BuzzMsg'
-  s.version          = '1.8.27'
+  s.version          = '1.8.28'
   s.summary          = 'A short description of BuzzMsg.'
 
 # This description is used to generate tags and improve search results.
@@ -52,7 +52,6 @@ Pod::Spec.new do |s|
   s.dependency "Alamofire", '~> 4.9.1'
   s.dependency "HandyJSON", '~> 5.0.2'
   s.dependency "RxSwiftExt", '~> 6.2.1'
-  s.dependency "MMKV", '~> 1.2.10'
   s.dependency "SnapKit", '~> 4.2.0'
   s.dependency "AliyunOSSiOS", '~> 2.10.15'
   s.dependency "AWSS3", '~> 2.25.0'
