@@ -531,6 +531,7 @@ SWIFT_CLASS("_TtC5IMSDK14IMCardBaseCell")
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (void)layoutSubviews;
 @end
 
 
@@ -1093,6 +1094,8 @@ SWIFT_CLASS("_TtC5IMSDK16IMChatViewColors")
 @property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardLine;
 @property (nonatomic, copy) NSString * _Nonnull chatDetailVerticalCardTime;
 @property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardStartBg;
+@property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardEndBg;
 @property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardFrame;
 @property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardText;
 @property (nonatomic, copy) NSString * _Nonnull chatDetailHorizontalCardLine;
@@ -1691,6 +1694,16 @@ SWIFT_CLASS("_TtC5IMSDK24IMConversionSelectorAll1")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC5IMSDK24IMConversionSelectorRead")
+@interface IMConversionSelectorRead : NSObject <IMConversionSelector>
+- (void)selectorWithContext:(IMContext * _Nonnull)context type:(enum IMConversionSelectorType)type complete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
+- (BOOL)isAll SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)orWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (id <IMConversionSelector> _Nonnull)andWithSelector:(id <IMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM(NSInteger, IMConversionSelectorType, closed) {
   IMConversionSelectorTypeConversion_View = 0,
   IMConversionSelectorTypeConversion_Normal = 1,
@@ -1758,11 +1771,11 @@ SWIFT_CLASS("_TtC5IMSDK23IMDeleteConversionAlert")
 @end
 
 
+
+
 @interface IMDeleteConversionAlert (SWIFT_EXTENSION(IMSDK))
 - (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 typedef SWIFT_ENUM(NSInteger, IMDownloadStatus, closed) {
@@ -2121,11 +2134,11 @@ SWIFT_CLASS("_TtC5IMSDK17IMLeaveGroupAlert")
 @end
 
 
-
-
 @interface IMLeaveGroupAlert (SWIFT_EXTENSION(IMSDK))
 - (ASLayoutSpec * _Nonnull)layoutSpecThatFits:(ASSizeRange)constrainedSize SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
@@ -2812,12 +2825,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nullable)localizedWithKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface IMSwiftOcBridge (SWIFT_EXTENSION(IMSDK))
-+ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UITextView;
 @class UITextField;
 
@@ -2838,6 +2845,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// -Parameter decimalNumberCount: Number of decimal places
 /// -Parameter maxNumber: maximum value
 - (BOOL)validateNumberInputWithTextField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)shouldChangeCharactersInRange replacementString:(NSString * _Nonnull)replacementString decimalNumberCount:(NSInteger)decimalNumberCount maxNumber:(NSString * _Nonnull)maxNumber SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface IMSwiftOcBridge (SWIFT_EXTENSION(IMSDK))
++ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
