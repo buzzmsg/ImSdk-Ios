@@ -471,6 +471,13 @@ SWIFT_CLASS("_TtC12CommonModule27IMMomentMessageImageContent")
 @end
 
 
+SWIFT_CLASS("_TtC12CommonModule16IMMultitaskTimer")
+@interface IMMultitaskTimer : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
 SWIFT_CLASS("_TtC12CommonModule5IMNet")
 @interface IMNet : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -710,6 +717,11 @@ SWIFT_PROTOCOL("_TtP12CommonModule21OssDownLoadViewStatus_")
 - (void)showDownloadFailed;
 - (void)showDownloadSuccess;
 - (void)showDownloadPause;
+@end
+
+
+@interface UIColor (SWIFT_EXTENSION(CommonModule))
++ (UIColor * _Nonnull)im_getColorWithHexColor:(NSString * _Nonnull)hexColor SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSURL;

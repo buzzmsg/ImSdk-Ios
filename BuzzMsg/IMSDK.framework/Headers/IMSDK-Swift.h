@@ -928,7 +928,8 @@ SWIFT_PROTOCOL("_TtP5IMSDK25IMChatMediasImageDelegate_")
 
 SWIFT_CLASS("_TtC5IMSDK18IMChatMeetingModel")
 @interface IMChatMeetingModel : NSObject
-- (NSString * _Nonnull)msgContentWithIsComingMessage:(BOOL)isComingMessage SWIFT_WARN_UNUSED_RESULT;
+- (UIImage * _Nullable)meetingMsgIconWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)msgContentWithContext:(IMContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic) BOOL isVoice;
 @property (nonatomic) BOOL isVideo;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1318,6 +1319,7 @@ SWIFT_CLASS("_TtC5IMSDK16IMChatViewColors")
 @property (nonatomic, copy) NSString * _Nonnull chatMediaListEmptyJsonName;
 @property (nonatomic, copy) NSString * _Nonnull chatFileListEmptyJsonName;
 @property (nonatomic, copy) NSString * _Nonnull chatVoiceListEmptyJsonName;
+@property (nonatomic) BOOL chatListScrollbarShow;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1495,6 +1497,7 @@ SWIFT_CLASS("_TtC5IMSDK21IMConversationManager")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong, getter=default, setter=setDefault:) IMConversationManager * _Nonnull default_;)
 + (IMConversationManager * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
 + (void)setDefault:(IMConversationManager * _Nonnull)value;
++ (void)getConversionListAsyncWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context completionHandler:(void (^ _Nonnull)(NSArray<IMConversationInfo *> * _Nullable, NSError * _Nullable))completionHandler;
 + (void)getConversationAsyncWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate complete:(void (^ _Nullable)(NSArray<IMConversationInfo *> * _Nonnull))complete SWIFT_AVAILABILITY(ios,introduced=13.0.0);
 + (void)getConversationAsyncWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate completionHandler:(void (^ _Nonnull)(NSArray<IMConversationInfo *> * _Nonnull))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0.0);
 + (void)getOCEventConversationWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds context:(IMContext * _Nonnull)context memberDelegate:(id <IMGroupMemberDelegate> _Nullable)memberDelegate complete:(void (^ _Nullable)(NSArray<IMConversationInfo *> * _Nonnull))complete;
@@ -1623,6 +1626,7 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
 - (NSArray<IMConversationInfo *> * _Nonnull)getSortListWithList:(NSArray<IMConversationInfo *> * _Nonnull)list SWIFT_WARN_UNUSED_RESULT;
 - (void)setDelegateWithDelegate:(id <ConversationViewModelDelegate> _Nonnull)delegate;
 - (void)getChatIsMuteWithAChatId:(NSString * _Nonnull)aChatId complete:(void (^ _Nullable)(NSInteger))complete;
+- (void)getChatIsMuteAsyncWithAChatId:(NSString * _Nonnull)aChatId completionHandler:(void (^ _Nonnull)(NSInteger))completionHandler;
 - (void)setConversationWithAChatId:(NSString * _Nonnull)aChatId isMute:(BOOL)isMute success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)deleteWithSuccess:(void (^ _Nullable)(void))success;
 - (void)getUnReadCountWithSuccess:(void (^ _Nullable)(NSInteger))success;
@@ -1761,6 +1765,7 @@ SWIFT_PROTOCOL("_TtP5IMSDK10IMDelegate_")
 - (void)onWebSocketReceiveWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content remoteTitle:(NSString * _Nonnull)remoteTitle remoteBody:(NSString * _Nonnull)remoteBody;
 - (void)onDeleteConversationWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)onNetworkChangeWithStatus:(enum IMNetworkStatus)status;
+- (void)onGroupMeetingChangeWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
 
 
@@ -2441,6 +2446,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=defau
 + (void)deleteMessageForMeWithAMids:(NSArray<NSString *> * _Nonnull)aMids context:(IMContext * _Nonnull)context oss:(IMOSS * _Nonnull)oss success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 + (void)deleteMessageForEveryOneWithAMids:(NSArray<NSString *> * _Nonnull)aMids context:(IMContext * _Nonnull)context oss:(IMOSS * _Nonnull)oss success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 + (void)setChatIsReadAsyncWithChatId:(NSString * _Nonnull)chatId context:(IMContext * _Nonnull)context completionHandler:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull))completionHandler;
++ (void)handleUpdateGroupMeetingWithModels:(NSArray<IMMessage *> * _Nonnull)models imSdk:(IMSdk * _Nonnull)imSdk;
 @end
 
 typedef SWIFT_ENUM(NSInteger, IMMessageMenuType, closed) {
@@ -2659,6 +2665,10 @@ SWIFT_CLASS("_TtC5IMSDK5IMSdk")
 - (void)saveDraftMessageWithAChatId:(NSString * _Nonnull)aChatId aMid:(NSString * _Nonnull)aMid draft:(IMDraftMessages * _Nonnull)draft;
 - (void)deleteDraftMessageWithAChatId:(NSString * _Nonnull)aChatId;
 - (void)deleteDraftQuotoMessageWithAChatId:(NSString * _Nonnull)aChatId;
+- (void)getDraftMessageAsyncWithAChatId:(NSString * _Nonnull)aChatId completionHandler:(void (^ _Nonnull)(IMDraftMessages * _Nullable))completionHandler;
+- (void)saveDraftMessageAsyncWithAChatId:(NSString * _Nonnull)aChatId aMid:(NSString * _Nonnull)aMid draft:(IMDraftMessages * _Nonnull)draft completionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)deleteDraftMessageAsyncWithAChatId:(NSString * _Nonnull)aChatId completionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)deleteDraftQuotoMessageAsyncWithAChatId:(NSString * _Nonnull)aChatId completionHandler:(void (^ _Nonnull)(void))completionHandler;
 @end
 
 @class IMSearchMessageResult;
@@ -3237,6 +3247,7 @@ SWIFT_CLASS("_TtC5IMSDK12IMomentMedia")
 
 SWIFT_CLASS("_TtC5IMSDK15InnerIMDelegate")
 @interface InnerIMDelegate : NSObject <IMDelegate>
+- (void)onGroupMeetingChangeWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)authCodeExpireWithAUid:(NSString * _Nonnull)aUid errorCode:(enum IMSdkError)errorCode;
 - (void)onShowUserInfoWithDatas:(NSArray<IMShowUserInfo *> * _Nonnull)datas;
 - (void)onShowConversationInfoWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
