@@ -56,6 +56,7 @@ typedef NS_ENUM(NSUInteger, IMMessageContentType) {
     IMMessageContentType_Location = 13,// user location
     IMMessageContentType_meeting = 14, // meeting
     IMMessageContentType_AT_Person = 15, // @xxxx  @all
+    IMMessageContentType_meetingV2 = 17, // meeting
     IMMessageContentType_HollowManStatus = 18, //HollowMan-msg
     IMMessageContentType_CardMessage = 19,
     IMMessageContentType_RevokeStatus = 81, //ContentType_Revoke-msg
