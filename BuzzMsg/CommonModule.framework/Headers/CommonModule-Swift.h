@@ -565,6 +565,9 @@ SWIFT_CLASS("_TtC12CommonModule10IMSDKCache")
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull cache;
 - (nonnull instancetype)initWithAk:(NSString * _Nonnull)ak OBJC_DESIGNATED_INITIALIZER;
 - (NSString * _Nonnull)getAk SWIFT_WARN_UNUSED_RESULT;
+- (void)getCacheValueAsyncWithKey:(NSString * _Nonnull)key completionHandler:(void (^ _Nonnull)(id _Nullable))completionHandler;
+- (void)removeCacheAsuncWithKey:(NSString * _Nonnull)key completionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)setCacheAsyncWithKey:(NSString * _Nonnull)key value:(id _Nonnull)value completionHandler:(void (^ _Nonnull)(void))completionHandler;
 - (id _Nullable)getCacheValueWithKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 - (NSDictionary<NSString *, id> * _Nonnull)getCache SWIFT_WARN_UNUSED_RESULT;
 - (void)removeCacheWithKey:(NSString * _Nonnull)key;

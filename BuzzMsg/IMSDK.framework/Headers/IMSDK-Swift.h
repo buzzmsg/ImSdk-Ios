@@ -2045,6 +2045,7 @@ SWIFT_CLASS("_TtC5IMSDK18IMImageBrowserView")
 - (void)removeShow;
 - (void)downloadOriginImage;
 - (IMImageBrowVo * _Nonnull)getCurrentBrowserVo SWIFT_WARN_UNUSED_RESULT;
+- (void)getCurrentBrowserVoDataWithBlock:(void (^ _Nonnull)(IMImageBrowVo * _Nonnull))block;
 - (void)showWithAnimation;
 - (void)setDelegateWithDelegate:(id <IMImageBrowserViewDelegate> _Nonnull)delegate;
 @end
@@ -3028,6 +3029,7 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 @property (nonatomic, readonly) BOOL isOpenSendMessageVoice;
 @property (nonatomic, readonly, strong) IMFileMessageCheckSize * _Nonnull fileMessageCheckSize;
 @property (nonatomic, readonly, copy) NSString * _Nonnull identificationName;
+@property (nonatomic, readonly) BOOL isVoiceMessageCanForward;
 @property (nonatomic, readonly) BOOL chatViewShowEmptyLoadingView;
 - (void)setChatViewShowEmptyLoadingViewWithIsShow:(BOOL)isShow;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -3070,6 +3072,7 @@ SWIFT_CLASS("_TtC5IMSDK11IMUISetting")
 - (void)setFileMessageCheckSizeWithCheckSize:(IMFileMessageCheckSize * _Nonnull)checkSize;
 - (void)setConversationNameLoadingTypeWithType:(enum IMConversationNameLoadingType)type;
 - (void)setIdentificationNameWithName:(NSString * _Nonnull)name;
+- (void)enableVoiceMessageCanForwardWithEnable:(BOOL)enable;
 @end
 
 
