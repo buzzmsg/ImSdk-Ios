@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BuzzMsg'
-  s.version          = '1.8.37'
+  s.version          = '1.8.38'
   s.summary          = 'A short description of BuzzMsg.'
 
 # This description is used to generate tags and improve search results.
@@ -47,8 +47,8 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 
-  # s.dependency "WCDB.swift", '~> 1.0.8.2'
-  s.dependency "BuzzWCDB", '1.1.1'
+  s.dependency "WCDB.swift", '2.1.0'
+  # s.dependency "BuzzWCDB", '1.1.1'
   s.dependency "Alamofire", '~> 4.9.1'
   s.dependency "HandyJSON", '~> 5.0.2'
   s.dependency "RxSwiftExt", '~> 6.2.1'
