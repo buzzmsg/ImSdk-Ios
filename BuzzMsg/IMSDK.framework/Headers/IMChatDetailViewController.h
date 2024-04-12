@@ -74,6 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) IMOSS *oss;
 @property (nonatomic, strong) IMUISetting *uiSetting;
 @property (nonatomic, strong) NSMutableArray *selectMessagesArr;
+@property (nonatomic, assign) BOOL isNotShowLastSee;
 
 - (void)getChatId:(NSString *)chatId aChatId:(NSString *)aChatId isPreLoadData:(BOOL)isPreLoadData;
 

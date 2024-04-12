@@ -1012,6 +1012,7 @@ SWIFT_CLASS("_TtC5IMSDK23IMChatTransferRightCell")
 SWIFT_CLASS("_TtC5IMSDK10IMChatView")
 @interface IMChatView : UIView
 @property (nonatomic, copy) NSString * _Nonnull higlightAmid;
+@property (nonatomic) BOOL isNotShowLastSee;
 @property (nonatomic, strong) UIImageView * _Nonnull backGroudImageView;
 - (void)setBackGroudImageWithImage:(UIImage * _Nullable)image;
 - (void)clickReplyMsgWithAMid:(NSString * _Nonnull)aMid;
@@ -1628,6 +1629,7 @@ SWIFT_CLASS("_TtC5IMSDK23IMConversationViewModel")
 - (void)getChatIsMuteWithAChatId:(NSString * _Nonnull)aChatId complete:(void (^ _Nullable)(NSInteger))complete;
 - (void)getChatIsMuteAsyncWithAChatId:(NSString * _Nonnull)aChatId completionHandler:(void (^ _Nonnull)(NSInteger))completionHandler;
 - (void)setConversationWithAChatId:(NSString * _Nonnull)aChatId isMute:(BOOL)isMute success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (void)setConversationWithChatId:(NSString * _Nonnull)chatId isMute:(BOOL)isMute success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)deleteWithSuccess:(void (^ _Nullable)(void))success;
 - (void)getUnReadCountWithSuccess:(void (^ _Nullable)(NSInteger))success;
 - (void)getConversionViewChatIdsWithComplete:(void (^ _Nullable)(NSArray<NSString *> * _Nonnull))complete;
