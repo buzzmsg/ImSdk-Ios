@@ -1234,6 +1234,13 @@ SWIFT_CLASS("_TtC5IMSDK16IMChatViewColors")
 @property (nonatomic, copy) NSString * _Nonnull loginMultiterminalFileText;
 @property (nonatomic, copy) NSString * _Nonnull loginMultiterminalLockBg;
 @property (nonatomic, copy) NSString * _Nonnull loginMultiterminalLockText;
+@property (nonatomic, copy) NSString * _Nonnull popupTitleText;
+@property (nonatomic, copy) NSString * _Nonnull popupProminentText;
+@property (nonatomic, copy) NSString * _Nonnull popupMainContentText;
+@property (nonatomic, copy) NSString * _Nonnull popupConfirmButton;
+@property (nonatomic, copy) NSString * _Nonnull popupCancelButton;
+@property (nonatomic, copy) NSString * _Nonnull popupWarningButton;
+@property (nonatomic, copy) NSString * _Nonnull popupDivisionLine;
 @property (nonatomic, copy) NSString * _Nonnull iconNewDown;
 @property (nonatomic, copy) NSString * _Nonnull iconNewUp;
 @property (nonatomic, copy) NSString * _Nonnull iconMessageReadDark;
@@ -1317,6 +1324,7 @@ SWIFT_CLASS("_TtC5IMSDK16IMChatViewColors")
 @property (nonatomic, copy) NSString * _Nonnull iconVedioSuspend;
 @property (nonatomic, copy) NSString * _Nonnull iconMessageFileDownloading;
 @property (nonatomic, copy) NSString * _Nonnull iconMessageFileDownloadPause;
+@property (nonatomic, copy) NSString * _Nonnull iconPopupSelect;
 @property (nonatomic, copy) NSString * _Nonnull chatMediaListEmptyJsonName;
 @property (nonatomic, copy) NSString * _Nonnull chatFileListEmptyJsonName;
 @property (nonatomic, copy) NSString * _Nonnull chatVoiceListEmptyJsonName;
